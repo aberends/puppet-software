@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_s (GPGME::Key)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/gpgme/key.rb, line 225</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">primary_subkey</span> = <span class="ruby-identifier">subkeys</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-identifier">s</span> = <span class="ruby-identifier">sprintf</span>(<span class="ruby-value str">&quot;%s   %4d%s/%s %s\n&quot;</span>,
+                  <span class="ruby-identifier">primary_subkey</span>.<span class="ruby-identifier">secret?</span> <span class="ruby-value">? </span><span class="ruby-value str">'sec'</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'pub'</span>,
+                  <span class="ruby-identifier">primary_subkey</span>.<span class="ruby-identifier">length</span>,
+                  <span class="ruby-identifier">primary_subkey</span>.<span class="ruby-identifier">pubkey_algo_letter</span>,
+                  <span class="ruby-identifier">primary_subkey</span>.<span class="ruby-identifier">fingerprint</span>[<span class="ruby-value">-8</span> <span class="ruby-operator">..</span> <span class="ruby-value">-1</span>],
+                  <span class="ruby-identifier">primary_subkey</span>.<span class="ruby-identifier">timestamp</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">'%Y-%m-%d'</span>))
+      <span class="ruby-identifier">uids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user_id</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;uid\t\t#{user_id.name} &lt;#{user_id.email}&gt;\n&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">subkeys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subkey</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">subkey</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">s</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

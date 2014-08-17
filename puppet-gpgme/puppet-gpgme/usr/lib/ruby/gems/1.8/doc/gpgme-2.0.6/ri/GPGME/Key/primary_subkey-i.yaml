@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Key#primary_subkey
+is_singleton: false
+name: primary_subkey
+params: ()
+visibility: public

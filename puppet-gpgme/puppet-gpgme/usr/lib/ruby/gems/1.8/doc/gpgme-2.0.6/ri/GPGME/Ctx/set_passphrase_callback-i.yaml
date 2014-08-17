@@ -1,0 +1,47 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: set_passphrase_cb
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the passphrase callback with given hook value. <tt>passfunc</tt> should respond to <tt>call</tt> with 5 arguments.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>obj</tt> the parameter +:passphrase_callback_value+ passed when creating the {GPGME::Ctx} object.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: "<tt>uid_hint</tt> hint as to what key are we asking the password for. Ex:"
+  - !ruby/struct:SM::Flow::P 
+    body: +CFB3294A50C2CFD7 Albert Llop &lt;mrsimo@example.com&gt;+
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>passphrase_info</tt>
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>prev_was_bad</tt> 0 if it's the first time the password is being asked, 1 otherwise.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>fd</tt> file descriptor where the password must be written too.
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: Expects a Method object which can be obtained by the <tt>method</tt> method (really..).
+- !ruby/struct:SM::Flow::VERB 
+  body: " ctx.set_passphrase_callback(MyModule.method(:passfunc))\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example this method will simply return <tt>maria</tt> as password."
+- !ruby/struct:SM::Flow::VERB 
+  body: " def pass_function(obj, uid_hint, passphrase_info, prev_was_bad, fd)\n   io = IO.for_fd(fd, 'w')\n   io.puts &quot;maria&quot;\n   io.flush\n end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example this will interactively ask for the password"
+- !ruby/struct:SM::Flow::VERB 
+  body: " def passfunc(obj, uid_hint, passphrase_info, prev_was_bad, fd)\n   $stderr.write(&quot;Passphrase for #{uid_hint}: &quot;)\n   $stderr.flush\n   begin\n     system('stty -echo')\n     io = IO.for_fd(fd, 'w')\n     io.puts(gets)\n     io.flush\n   ensure\n     (0 ... $_.length).each do |i| $_[i] = ?0 end if $_\n     system('stty echo')\n   end\n   $stderr.puts\n end\n"
+- !ruby/struct:SM::Flow::P 
+  body: Note that this function doesn't work with GnuPG 2.0. You can use either GnuPG 1.x, which can be installed in parallel with GnuPG 2.0, or GnuPG 2.1, which has loopback pinentry feature (see {#pinentry_mode}).
+full_name: GPGME::Ctx#set_passphrase_callback
+is_singleton: false
+name: set_passphrase_callback
+params: (passfunc, hook_value = nil)
+visibility: public

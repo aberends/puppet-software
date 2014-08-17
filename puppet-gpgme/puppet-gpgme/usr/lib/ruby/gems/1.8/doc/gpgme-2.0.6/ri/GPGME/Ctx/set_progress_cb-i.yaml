@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #set_progress_callback"
+full_name: GPGME::Ctx#set_progress_cb
+is_singleton: false
+name: set_progress_cb
+params: (progfunc, hook_value = nil)
+visibility: public

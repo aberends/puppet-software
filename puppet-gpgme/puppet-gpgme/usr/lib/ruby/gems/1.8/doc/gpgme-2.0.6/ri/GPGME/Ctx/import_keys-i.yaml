@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: import
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Add the keys in the data buffer to the key ring.
+full_name: GPGME::Ctx#import_keys
+is_singleton: false
+name: import_keys
+params: (keydata)
+visibility: public

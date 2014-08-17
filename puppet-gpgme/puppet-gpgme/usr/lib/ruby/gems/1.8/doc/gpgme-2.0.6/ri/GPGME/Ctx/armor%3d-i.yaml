@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Tell whether the output should be ASCII armored.
+full_name: GPGME::Ctx#armor=
+is_singleton: false
+name: armor=
+params: (yes)
+visibility: public

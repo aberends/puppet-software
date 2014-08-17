@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Writes <tt>length</tt> bytes from <tt>buffer</tt> into the data object. Writes the full buffer if no length passed.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  data = GPGME::Data.new\n  data.write &quot;hola&quot;\n  data.seek 0\n  data.read # =&gt; &quot;hola&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  data = GPGME::Data.new\n  data.write &quot;hola&quot;, 2\n  data.seek 0\n  data.read # =&gt; &quot;ho&quot;\n"
+full_name: GPGME::Data#write
+is_singleton: false
+name: write
+params: (buffer, length = buffer.length)
+visibility: public

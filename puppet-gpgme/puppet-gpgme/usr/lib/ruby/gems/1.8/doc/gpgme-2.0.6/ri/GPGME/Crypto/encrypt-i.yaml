@@ -1,0 +1,56 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Encrypts an element
+- !ruby/struct:SM::Flow::VERB 
+  body: " crypto.encrypt something, options\n"
+- !ruby/struct:SM::Flow::P 
+  body: Will return a {GPGME::Data} element which can then be read.
+- !ruby/struct:SM::Flow::P 
+  body: Must have some key imported, look for {GPGME::Key.import} to know how to import one, or the gpg documentation to know how to create one
+- !ruby/struct:SM::Flow::P 
+  body: "@param plain"
+- !ruby/struct:SM::Flow::VERB 
+  body: " Must be something that can be converted into a {GPGME::Data} object, or\n a {GPGME::Data} object itself.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options"
+- !ruby/struct:SM::Flow::VERB 
+  body: " The optional parameters are as follows:\n  * +:recipients+ for which recipient do you want to encrypt this file. It\n    will pick the first one available if none specified. Can be an array of\n    identifiers or just one (a string).\n  * +:symmetric+ if set to true, will ignore +:recipients+, and will perform\n    a symmetric encryption. Must provide a password via the +:password+\n    option.\n  * +:always_trust+ if set to true specifies all the recipients to be\n    trusted, thus not requiring confirmation.\n  * +:sign+ if set to true, performs a combined sign and encrypt operation.\n  * +:signers+ if +:sign+ specified to true, a list of additional possible\n    signers. Must be an array of sign identifiers.\n  * +:output+ if specified, it will write the output into it. It will be\n    converted to a {GPGME::Data} object, so it could be a file for example.\n  * Any other option accepted by {GPGME::Ctx.new}\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [GPGME::Data] a {GPGME::Data} object that can be read."
+- !ruby/struct:SM::Flow::P 
+  body: "@example returns a {GPGME::Data} that can be later encrypted"
+- !ruby/struct:SM::Flow::VERB 
+  body: " encrypted = crypto.encrypt &quot;Hello world!&quot;\n encrypted.read # =&gt; Encrypted stuff\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example to be decrypted by someone@example.com."
+- !ruby/struct:SM::Flow::VERB 
+  body: " crypto.encrypt &quot;Hello&quot;, :recipients =&gt; &quot;someone@example.com&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example If I didn't trust any of my keys by default"
+- !ruby/struct:SM::Flow::VERB 
+  body: " crypto.encrypt &quot;Hello&quot; # =&gt; GPGME::Error::General\n crypto.encrypt &quot;Hello&quot;, :always_trust =&gt; true # =&gt; Will work fine\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example encrypted string that can be decrypted and/or <b>verified</b>"
+- !ruby/struct:SM::Flow::VERB 
+  body: " crypto.encrypt &quot;Hello&quot;, :sign =&gt; true\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example multiple signers"
+- !ruby/struct:SM::Flow::VERB 
+  body: " crypto.encrypt &quot;Hello&quot;, :sign =&gt; true, :signers =&gt; &quot;extra@example.com&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example writing to a file instead"
+- !ruby/struct:SM::Flow::VERB 
+  body: " file = File.open(&quot;signed.sec&quot;,&quot;w+&quot;)\n crypto.encrypt &quot;Hello&quot;, :output =&gt; file # output written to signed.sec\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [GPGME::Error::General] when trying to encrypt with a key that is"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  not trusted, and +:always_trust+ wasn't specified\n"
+full_name: GPGME::Crypto#encrypt
+is_singleton: false
+name: encrypt
+params: (plain, options = {})
+visibility: public

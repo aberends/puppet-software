@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME#gpgme_op_import_ext
+is_singleton: false
+name: gpgme_op_import_ext
+params: (ctx, keydata, nr)
+visibility: public

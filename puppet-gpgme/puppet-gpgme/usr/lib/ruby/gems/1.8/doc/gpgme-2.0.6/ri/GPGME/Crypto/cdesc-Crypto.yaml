@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: default_options
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Different, independent methods providing the simplest possible API to execute crypto operations via GPG. All methods accept as options the same common options as {GPGME::Ctx.new}. Read the documentation for that class to know how to customize things further (like output stuff in ASCII armored format, for example).
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto = GPGME::Crypto.new :armor =&gt; true\n  encrypted = crypto.encrypt 'Plain text'\n"
+constants: []
+
+full_name: GPGME::Crypto
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: clearsign
+- !ruby/object:RI::MethodSummary 
+  name: decrypt
+- !ruby/object:RI::MethodSummary 
+  name: detach_sign
+- !ruby/object:RI::MethodSummary 
+  name: encrypt
+- !ruby/object:RI::MethodSummary 
+  name: sign
+- !ruby/object:RI::MethodSummary 
+  name: verify
+name: Crypto
+superclass: Object

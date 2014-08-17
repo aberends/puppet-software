@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: genkey
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Generate a new key pair. <tt>parms</tt> is a string which looks like
+- !ruby/struct:SM::Flow::VERB 
+  body: " &lt;GnupgKeyParms format=&quot;internal&quot;&gt;\n Key-Type: DSA\n Key-Length: 1024\n Subkey-Type: ELG-E\n Subkey-Length: 1024\n Name-Real: Joe Tester\n Name-Comment: with stupid passphrase\n Name-Email: joe@foo.bar\n Expire-Date: 0\n Passphrase: abc\n &lt;/GnupgKeyParms&gt;\n"
+- !ruby/struct:SM::Flow::P 
+  body: If <tt>pubkey</tt> and <tt>seckey</tt> are both set to <tt>nil</tt>, it stores the generated key pair into your key ring.
+full_name: GPGME::Ctx#generate_key
+is_singleton: false
+name: generate_key
+params: (parms, pubkey = nil, seckey = nil)
+visibility: public

@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: GPGME::Data</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">GPGME::Data</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/gpgme/data_rb.html">
+                lib/gpgme/data.rb
+                </a>
+        <br />
+                <a href="../../files/ext/gpgme/gpgme_n_c.html">
+                ext/gpgme/gpgme_n.c
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The CTX argument can be `NULL&#8217;. In that case, `gpgme_wait&#8217;
+waits
+</p>
+<pre>
+  for any context to complete its operation.
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000046">empty!</a>&nbsp;&nbsp;
+      <a href="#M000054">encoding</a>&nbsp;&nbsp;
+      <a href="#M000055">encoding=</a>&nbsp;&nbsp;
+      <a href="#M000050">from_callbacks</a>&nbsp;&nbsp;
+      <a href="#M000049">from_fd</a>&nbsp;&nbsp;
+      <a href="#M000048">from_io</a>&nbsp;&nbsp;
+      <a href="#M000047">from_str</a>&nbsp;&nbsp;
+      <a href="#M000045">new</a>&nbsp;&nbsp;
+      <a href="#M000051">read</a>&nbsp;&nbsp;
+      <a href="#M000052">seek</a>&nbsp;&nbsp;
+      <a href="#M000056">to_s</a>&nbsp;&nbsp;
+      <a href="#M000053">write</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">BLOCK_SIZE</td>
+          <td>=</td>
+          <td class="context-item-value">4096</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000046" class="method-detail">
+        <a name="M000046"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000046.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000046.html');return false;">
+          <span class="method-name">empty!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Data.html#M000045">new</a> instance with an empty buffer.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000050.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000050.html');return false;">
+          <span class="method-name">from_callbacks</span><span class="method-args">(callbacks, hook_value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Data.html#M000045">new</a> instance from the specified
+callbacks.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000049.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000049.html');return false;">
+          <span class="method-name">from_fd</span><span class="method-args">(fd)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Data.html#M000045">new</a> instance from the specified
+file descriptor.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000048.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000048.html');return false;">
+          <span class="method-name">from_io</span><span class="method-args">(io)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Data.html#M000045">new</a> instance associated with a
+given IO.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000047.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000047.html');return false;">
+          <span class="method-name">from_str</span><span class="method-args">(string)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Data.html#M000045">new</a> instance with internal buffer.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000045" class="method-detail">
+        <a name="M000045"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000045.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000045.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(object = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+We implement +self.new+ instead of initialize because objects are actually
+instantiated through the C API with stuff like <tt>gpgme_data_new</tt>.
+</p>
+<p>
+We try to create a {<a href="Data.html">GPGME::Data</a>} smartly depending
+on the object passed, and if another {<a href="Data.html">GPGME::Data</a>}
+object is passed, it just returns it, so when in doubt, you can always pass
+a {<a href="Data.html">GPGME::Data</a>} object.
+</p>
+<p>
+@example empty
+</p>
+<pre>
+  data = GPGME::Data.new
+  data.write(&quot;stuff&quot;)
+</pre>
+<p>
+@example from a string
+</p>
+<pre>
+  data = GPGME::Data.new(&quot;From a string&quot;)
+</pre>
+<p>
+@example from a file
+</p>
+<pre>
+  data = GPGME::Data.new(File.open(&quot;secure.pass&quot;))
+</pre>
+<p>
+@example from a file descriptor
+</p>
+<pre>
+  data = GPGME::Data.new(0) # Standard input
+  data = GPGME::Data.new(1) # Standard output
+
+  file = File.open(&quot;secure.pass&quot;)
+  data = GPGME::Data.new(file.fileno) # file descriptor
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000054.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000054.html');return false;">
+          <span class="method-name">encoding</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the <a href="Data.html#M000054">encoding</a> of the underlying data.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000055.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000055.html');return false;">
+          <span class="method-name">encoding=</span><span class="method-args">(encoding)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the <a href="Data.html#M000054">encoding</a> for this buffer. Accepts
+only values in one of the DATA_ENCODING_* constants.
+</p>
+<p>
+@raise [<a href="Error/InvalidValue.html">GPGME::Error::InvalidValue</a>]
+if the value isn&#8216;t accepted.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000051.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000051.html');return false;">
+          <span class="method-name">read</span><span class="method-args">(length = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Read at most <tt>length</tt> bytes from the data object, or to the end of
+file if <tt>length</tt> is omitted or is <tt>nil</tt>.
+</p>
+<p>
+@example
+</p>
+<pre>
+  data = GPGME::Data.new(&quot;From a string&quot;)
+  data.read # =&gt; &quot;From a string&quot;
+</pre>
+<p>
+@example
+</p>
+<pre>
+  data = GPGME::Data.new(&quot;From a string&quot;)
+  data.read(4) # =&gt; &quot;From&quot;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000052.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000052.html');return false;">
+          <span class="method-name">seek</span><span class="method-args">(offset, whence = IO::SEEK_SET)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Seek to a given <tt>offset</tt> in the data object according to the value
+of <tt>whence</tt>.
+</p>
+<p>
+@example going to the beginning of the buffer after writing something
+</p>
+<pre>
+ data = GPGME::Data.new(&quot;Some data&quot;)
+ data.read # =&gt; &quot;Some data&quot;
+ data.read # =&gt; &quot;&quot;
+ data.seek 0
+ data.read # =&gt; &quot;Some data&quot;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000056.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000056.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the entire content of the data object as string.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="Data.src/M000053.html" target="Code" class="method-signature"
+            onclick="popupCode('Data.src/M000053.html');return false;">
+          <span class="method-name">write</span><span class="method-args">(buffer, length = buffer.length)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Writes <tt>length</tt> bytes from <tt>buffer</tt> into the data object.
+Writes the full buffer if no length passed.
+</p>
+<p>
+@example
+</p>
+<pre>
+  data = GPGME::Data.new
+  data.write &quot;hola&quot;
+  data.seek 0
+  data.read # =&gt; &quot;hola&quot;
+</pre>
+<p>
+@example
+</p>
+<pre>
+  data = GPGME::Data.new
+  data.write &quot;hola&quot;, 2
+  data.seek 0
+  data.read # =&gt; &quot;ho&quot;
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

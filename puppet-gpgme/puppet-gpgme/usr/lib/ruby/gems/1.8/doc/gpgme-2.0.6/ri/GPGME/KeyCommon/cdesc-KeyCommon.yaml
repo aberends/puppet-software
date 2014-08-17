@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: GPGME::KeyCommon
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: capability
+- !ruby/object:RI::MethodSummary 
+  name: secret?
+- !ruby/object:RI::MethodSummary 
+  name: trust
+- !ruby/object:RI::MethodSummary 
+  name: usable_for?
+name: KeyCommon
+superclass: 

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Delete this key. If it's public, and has a secret one it will fail unless <tt>allow_secret</tt> is specified as true.
+full_name: GPGME::Key#delete!
+is_singleton: false
+name: delete!
+params: (allow_secret = false)
+visibility: public

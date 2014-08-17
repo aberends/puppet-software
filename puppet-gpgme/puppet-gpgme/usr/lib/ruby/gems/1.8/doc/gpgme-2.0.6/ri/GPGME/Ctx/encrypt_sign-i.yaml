@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Ctx#encrypt_sign
+is_singleton: false
+name: encrypt_sign
+params: (recp, plain, cipher = Data.new, flags = 0)
+visibility: public

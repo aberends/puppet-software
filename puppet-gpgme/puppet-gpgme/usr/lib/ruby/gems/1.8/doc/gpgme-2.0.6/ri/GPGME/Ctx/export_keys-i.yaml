@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: export
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Extract the public keys that match the <tt>recipients</tt>. Returns a {GPGME::Data} object which is not rewinded (should do +seek(0)+ before reading).
+- !ruby/struct:SM::Flow::P 
+  body: Private keys cannot be exported due to GPGME restrictions.
+- !ruby/struct:SM::Flow::P 
+  body: If passed, the key will be exported to <tt>keydata</tt>, which must be a {GPGME::Data} object.
+full_name: GPGME::Ctx#export_keys
+is_singleton: false
+name: export_keys
+params: (recipients, keydata = Data.new)
+visibility: public

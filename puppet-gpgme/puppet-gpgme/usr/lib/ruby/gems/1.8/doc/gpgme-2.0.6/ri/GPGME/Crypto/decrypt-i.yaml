@@ -1,0 +1,56 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: signature
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decrypts a previously encrypted element
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.decrypt cipher, options, &amp;block\n"
+- !ruby/struct:SM::Flow::P 
+  body: Must have the appropiate key to be able to decrypt, of course. Returns a {GPGME::Data} object which can then be read.
+- !ruby/struct:SM::Flow::P 
+  body: "@param cipher"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Must be something that can be converted into a {GPGME::Data} object,\n  or a {GPGME::Data} object itself. It is the element that will be\n  decrypted.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  The optional parameters:\n  * +:output+ if specified, it will write the output into it. It will\n    me converted to a {GPGME::Data} object, so it can also be a file,\n    for example.\n  * If the file was encrypted with symmentric encryption, must provide\n    a :password option.\n  * Any other option accepted by {GPGME::Ctx.new}\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param &amp;block"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  In the block all the signatures are yielded, so one could verify them.\n  See examples.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [GPGME::Data] a {GPGME::Data} that can be read."
+- !ruby/struct:SM::Flow::P 
+  body: "@example Simple decrypt"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.decrypt encrypted_data\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example symmetric encryption, or passwored key"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.decrypt encrypted_data, :password =&gt; &quot;gpgme&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Output to file"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  file = File.open(&quot;decrypted.txt&quot;, &quot;w+&quot;)\n  crypto.decrypt encrypted_data, :output =&gt; file\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example Verifying signatures"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.decrypt encrypted_data do |signature|\n    raise &quot;Signature could not be verified&quot; unless signature.valid?\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [GPGME::Error::UnsupportedAlgorithm] when the cipher was encrypted"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  using an algorithm that's not supported currently.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [GPGME::Error::WrongKeyUsage] TODO Don't know when"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [GPGME::Error::DecryptFailed] when the cipher was encrypted"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for a key that's not available currently.\n"
+full_name: GPGME::Crypto#decrypt
+is_singleton: false
+name: decrypt
+params: (cipher, options = {}) {|signature| ...}
+visibility: public

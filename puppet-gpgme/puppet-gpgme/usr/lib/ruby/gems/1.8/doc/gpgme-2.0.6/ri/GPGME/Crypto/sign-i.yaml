@@ -1,0 +1,44 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates a signature of a text
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.sign text, options\n"
+- !ruby/struct:SM::Flow::P 
+  body: Must have the appropiate key to be able to decrypt, of course. Returns a {GPGME::Data} object which can then be read.
+- !ruby/struct:SM::Flow::P 
+  body: "@param text"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  The object that will be signed. Must be something that can be converted\n  to {GPGME::Data}.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options"
+- !ruby/struct:SM::Flow::VERB 
+  body: " Optional parameters.\n  * +:signer+ sign identifier to sign the text with. Will use the first\n   key it finds if none specified.\n  * +:output+ if specified, it will write the output into it. It will be\n    converted to a {GPGME::Data} object, so it could be a file for example.\n  * +:mode+ Desired type of signature. Options are:\n   - +GPGME::SIG_MODE_NORMAL+ for a normal signature. The default one if\n     not specified.\n   - +GPGME::SIG_MODE_DETACH+ for a detached signature\n   - +GPGME::SIG_MODE_CLEAR+ for a cleartext signature\n  * Any other option accepted by {GPGME::Ctx.new}\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [GPGME::Data] a {GPGME::Data} that can be read."
+- !ruby/struct:SM::Flow::P 
+  body: "@example normal sign"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.sign &quot;Hi there&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example outputing to a file"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  file = File.open(&quot;text.sign&quot;, &quot;w+&quot;)\n  crypto.sign &quot;Hi there&quot;, :options =&gt; file\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example doing a detached signature"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.sign &quot;Hi there&quot;, :mode =&gt; GPGME::SIG_MODE_DETACH\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example specifying the signer"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.sign &quot;Hi there&quot;, :signer =&gt; &quot;mrsimo@example.com&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [GPGME::Error::UnusableSecretKey] TODO don't know when"
+full_name: GPGME::Crypto#sign
+is_singleton: false
+name: sign
+params: (text, options = {})
+visibility: public

@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns an array of {GPGME::Key} objects that match the parameters.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>secret</tt> set to +:secret+ to get only secret keys, or to +:public+ to get only public keys.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>keys_or_names</tt> an array or an item that can be either {GPGME::Key} elements, or string identifiers like the email or the sha. Leave blank to get all.
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: <tt>purposes</tt> get only keys that are usable for any of these purposes. See {GPGME::Key} for a list of possible key capabilities.
+  type: :BULLET
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Key.find :secret # =&gt; first secret key found\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Key.find(:public, &quot;mrsimo@example.com&quot;)\n  # =&gt; return only public keys that match mrsimo@example.com\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Key.find(:public, &quot;mrsimo@example.com&quot;, :sign)\n  # =&gt; return the public keys that match mrsimo@example.com and are\n  #    capable of signing\n"
+full_name: GPGME::Key::find
+is_singleton: true
+name: find
+params: (secret, keys_or_names = nil, purposes = [])
+visibility: public

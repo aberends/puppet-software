@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME#gpgme_data_rewind
+is_singleton: false
+name: gpgme_data_rewind
+params: (dh)
+visibility: public

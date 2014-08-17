@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (MiniPortile)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mini_portile.rb, line 14</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span>)
+    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+    <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">version</span>
+    <span class="ruby-ivar">@target</span> = <span class="ruby-value str">'ports'</span>
+    <span class="ruby-ivar">@files</span> = []
+    <span class="ruby-ivar">@patch_files</span> = []
+    <span class="ruby-ivar">@logger</span> = <span class="ruby-constant">STDOUT</span>
+
+    <span class="ruby-ivar">@original_host</span> = <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">detect_host</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #edit_card_key"
+full_name: GPGME::Ctx#card_edit
+is_singleton: false
+name: card_edit
+params: (key, editfunc, hook_value = nil, out = Data.new)
+visibility: public

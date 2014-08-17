@@ -1,0 +1,44 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: empty!
+- !ruby/object:RI::MethodSummary 
+  name: from_callbacks
+- !ruby/object:RI::MethodSummary 
+  name: from_fd
+- !ruby/object:RI::MethodSummary 
+  name: from_io
+- !ruby/object:RI::MethodSummary 
+  name: from_str
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BLOCK_SIZE
+  value: "4096"
+full_name: GPGME::Data
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: encoding
+- !ruby/object:RI::MethodSummary 
+  name: encoding=
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: seek
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: write
+name: Data
+superclass: Object

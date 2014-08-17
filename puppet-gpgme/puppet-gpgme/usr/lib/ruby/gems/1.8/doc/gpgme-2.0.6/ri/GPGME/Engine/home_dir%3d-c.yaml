@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the home dir for the configuration options. This way one could, for example, load the keys from a customized keychain.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Engine.home_dir = '/tmp'\n"
+full_name: GPGME::Engine::home_dir=
+is_singleton: true
+name: home_dir=
+params: (home_dir)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a signature for the text. <tt>plain</tt> is a data object which contains the text. <tt>sig</tt> is a data object where the generated signature is stored.
+full_name: GPGME::Ctx#sign
+is_singleton: false
+name: sign
+params: (plain, sig = Data.new, mode = GPGME::SIG_MODE_NORMAL)
+visibility: public

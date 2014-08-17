@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Releases the Ctx instance. Must be called if it was initialized without a block.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  ctx = GPGME::Ctx.new\n  # operate on ctx\n  ctx.release\n"
+full_name: GPGME::Ctx#release
+is_singleton: false
+name: release
+params: ()
+visibility: public

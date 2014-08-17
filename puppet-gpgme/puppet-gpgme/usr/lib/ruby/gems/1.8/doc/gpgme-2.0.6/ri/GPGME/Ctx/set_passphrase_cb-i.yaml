@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #set_passphrase_callback"
+full_name: GPGME::Ctx#set_passphrase_cb
+is_singleton: false
+name: set_passphrase_cb
+params: (passfunc, hook_value = nil)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: HAVE_GPGME_OP_EXPORT_KEYS
+full_name: GPGME::gpgme_op_import_result
+is_singleton: true
+name: gpgme_op_import_result
+params: (p1)
+visibility: public

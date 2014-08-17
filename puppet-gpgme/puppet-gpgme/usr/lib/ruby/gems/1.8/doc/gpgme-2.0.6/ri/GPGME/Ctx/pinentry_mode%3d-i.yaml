@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Change the default behaviour of the pinentry invocation.
+full_name: GPGME::Ctx#pinentry_mode=
+is_singleton: false
+name: pinentry_mode=
+params: (mode)
+visibility: public

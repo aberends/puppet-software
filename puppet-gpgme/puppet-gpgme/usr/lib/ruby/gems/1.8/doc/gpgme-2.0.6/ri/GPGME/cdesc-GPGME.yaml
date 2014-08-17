@@ -1,0 +1,1754 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: check_version
+- !ruby/object:RI::MethodSummary 
+  name: error_to_exception
+- !ruby/object:RI::MethodSummary 
+  name: gpgme_op_import
+- !ruby/object:RI::MethodSummary 
+  name: gpgme_op_import_result
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeError
+  value: Error
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeData
+  value: Data
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeEngineInfo
+  value: EngineInfo
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeCtx
+  value: Ctx
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeKey
+  value: Key
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeSubKey
+  value: SubKey
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeUserID
+  value: UserID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeKeySig
+  value: KeySig
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeVerifyResult
+  value: VerifyResult
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeSignature
+  value: Signature
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeDecryptResult
+  value: DecryptResult
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeSignResult
+  value: SignResult
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeEncryptResult
+  value: EncryptResult
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeInvalidKey
+  value: InvalidKey
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeNewSignature
+  value: NewSignature
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeImportStatus
+  value: ImportStatus
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GpgmeImportResult
+  value: ImportResult
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "\"1.0.8\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_ALGO
+  value: GPGME_ATTR_ALGO
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_CAN_CERTIFY
+  value: GPGME_ATTR_CAN_CERTIFY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_CAN_ENCRYPT
+  value: GPGME_ATTR_CAN_ENCRYPT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_CAN_SIGN
+  value: GPGME_ATTR_CAN_SIGN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_CHAINID
+  value: GPGME_ATTR_CHAINID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_COMMENT
+  value: GPGME_ATTR_COMMENT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_CREATED
+  value: GPGME_ATTR_CREATED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_EMAIL
+  value: GPGME_ATTR_EMAIL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_ERRTOK
+  value: GPGME_ATTR_ERRTOK
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_EXPIRE
+  value: GPGME_ATTR_EXPIRE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_FPR
+  value: GPGME_ATTR_FPR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_ISSUER
+  value: GPGME_ATTR_ISSUER
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_IS_SECRET
+  value: GPGME_ATTR_IS_SECRET
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_KEYID
+  value: GPGME_ATTR_KEYID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_KEY_CAPS
+  value: GPGME_ATTR_KEY_CAPS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_KEY_DISABLED
+  value: GPGME_ATTR_KEY_DISABLED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_KEY_EXPIRED
+  value: GPGME_ATTR_KEY_EXPIRED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_KEY_INVALID
+  value: GPGME_ATTR_KEY_INVALID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_KEY_REVOKED
+  value: GPGME_ATTR_KEY_REVOKED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_LEN
+  value: GPGME_ATTR_LEN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_LEVEL
+  value: GPGME_ATTR_LEVEL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_NAME
+  value: GPGME_ATTR_NAME
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_OTRUST
+  value: GPGME_ATTR_OTRUST
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_SERIAL
+  value: GPGME_ATTR_SERIAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_SIG_STATUS
+  value: GPGME_ATTR_SIG_STATUS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_SIG_SUMMARY
+  value: GPGME_ATTR_SIG_SUMMARY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_TYPE
+  value: GPGME_ATTR_TYPE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_UID_INVALID
+  value: GPGME_ATTR_UID_INVALID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_UID_REVOKED
+  value: GPGME_ATTR_UID_REVOKED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_USERID
+  value: GPGME_ATTR_USERID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTR_VALIDITY
+  value: GPGME_ATTR_VALIDITY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DATA_ENCODING_ARMOR
+  value: GPGME_DATA_ENCODING_ARMOR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DATA_ENCODING_BASE64
+  value: GPGME_DATA_ENCODING_BASE64
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DATA_ENCODING_BINARY
+  value: GPGME_DATA_ENCODING_BINARY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DATA_ENCODING_NONE
+  value: GPGME_DATA_ENCODING_NONE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ENCRYPT_ALWAYS_TRUST
+  value: GPGME_ENCRYPT_ALWAYS_TRUST
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ENCRYPT_NO_ENCRYPT_TO
+  value: GPGME_ENCRYPT_NO_ENCRYPT_TO
+- !ruby/object:RI::Constant 
+  comment: 
+  name: IMPORT_NEW
+  value: GPGME_IMPORT_NEW
+- !ruby/object:RI::Constant 
+  comment: 
+  name: IMPORT_SECRET
+  value: GPGME_IMPORT_SECRET
+- !ruby/object:RI::Constant 
+  comment: 
+  name: IMPORT_SIG
+  value: GPGME_IMPORT_SIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: IMPORT_SUBKEY
+  value: GPGME_IMPORT_SUBKEY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: IMPORT_UID
+  value: GPGME_IMPORT_UID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_EXTERN
+  value: GPGME_KEYLIST_MODE_EXTERN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_LOCAL
+  value: GPGME_KEYLIST_MODE_LOCAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_SIGS
+  value: GPGME_KEYLIST_MODE_SIGS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_VALIDATE
+  value: GPGME_KEYLIST_MODE_VALIDATE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_SIG_NOTATIONS
+  value: GPGME_KEYLIST_MODE_SIG_NOTATIONS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_EPHEMERAL
+  value: GPGME_KEYLIST_MODE_EPHEMERAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_CRC24_RFC2440
+  value: GPGME_MD_CRC24_RFC2440
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_CRC32
+  value: GPGME_MD_CRC32
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_CRC32_RFC1510
+  value: GPGME_MD_CRC32_RFC1510
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_HAVAL
+  value: GPGME_MD_HAVAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_MD2
+  value: GPGME_MD_MD2
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_MD4
+  value: GPGME_MD_MD4
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_MD5
+  value: GPGME_MD_MD5
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_RMD160
+  value: GPGME_MD_RMD160
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_SHA1
+  value: GPGME_MD_SHA1
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_SHA256
+  value: GPGME_MD_SHA256
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_SHA224
+  value: GPGME_MD_SHA224
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_SHA384
+  value: GPGME_MD_SHA384
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_SHA512
+  value: GPGME_MD_SHA512
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MD_TIGER
+  value: GPGME_MD_TIGER
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PINENTRY_MODE_DEFAULT
+  value: GPGME_PINENTRY_MODE_DEFAULT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PINENTRY_MODE_ASK
+  value: GPGME_PINENTRY_MODE_ASK
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PINENTRY_MODE_CANCEL
+  value: GPGME_PINENTRY_MODE_CANCEL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PINENTRY_MODE_ERROR
+  value: GPGME_PINENTRY_MODE_ERROR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PINENTRY_MODE_LOOPBACK
+  value: GPGME_PINENTRY_MODE_LOOPBACK
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PINENTRY_MODE_NAMES
+  value: "{       PINENTRY_MODE_DEFAULT  => :default,       PINENTRY_MODE_ASK      => :ask,       PINENTRY_MODE_CANCEL   => :cancel,       PINENTRY_MODE_ERROR    => :error,       PINENTRY_MODE_LOOPBACK => :loopback"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PK_DSA
+  value: GPGME_PK_DSA
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PK_ELG
+  value: GPGME_PK_ELG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PK_ELG_E
+  value: GPGME_PK_ELG_E
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PK_RSA
+  value: GPGME_PK_RSA
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PK_ECC
+  value: GPGME_PK_ECC
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PROTOCOL_CMS
+  value: GPGME_PROTOCOL_CMS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PROTOCOL_OpenPGP
+  value: GPGME_PROTOCOL_OpenPGP
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_BAD_POLICY
+  value: GPGME_SIGSUM_BAD_POLICY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_CRL_MISSING
+  value: GPGME_SIGSUM_CRL_MISSING
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_CRL_TOO_OLD
+  value: GPGME_SIGSUM_CRL_TOO_OLD
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_GREEN
+  value: GPGME_SIGSUM_GREEN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_KEY_EXPIRED
+  value: GPGME_SIGSUM_KEY_EXPIRED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_KEY_MISSING
+  value: GPGME_SIGSUM_KEY_MISSING
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_KEY_REVOKED
+  value: GPGME_SIGSUM_KEY_REVOKED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_RED
+  value: GPGME_SIGSUM_RED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_SIG_EXPIRED
+  value: GPGME_SIGSUM_SIG_EXPIRED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_SYS_ERROR
+  value: GPGME_SIGSUM_SYS_ERROR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIGSUM_VALID
+  value: GPGME_SIGSUM_VALID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_MODE_CLEAR
+  value: GPGME_SIG_MODE_CLEAR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_MODE_DETACH
+  value: GPGME_SIG_MODE_DETACH
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_MODE_NORMAL
+  value: GPGME_SIG_MODE_NORMAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_BAD
+  value: GPGME_SIG_STAT_BAD
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_DIFF
+  value: GPGME_SIG_STAT_DIFF
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_ERROR
+  value: GPGME_SIG_STAT_ERROR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_GOOD
+  value: GPGME_SIG_STAT_GOOD
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_GOOD_EXP
+  value: GPGME_SIG_STAT_GOOD_EXP
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_GOOD_EXPKEY
+  value: GPGME_SIG_STAT_GOOD_EXPKEY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_NOKEY
+  value: GPGME_SIG_STAT_NOKEY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_NONE
+  value: GPGME_SIG_STAT_NONE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SIG_STAT_NOSIG
+  value: GPGME_SIG_STAT_NOSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ABORT
+  value: GPGME_STATUS_ABORT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ALREADY_SIGNED
+  value: GPGME_STATUS_ALREADY_SIGNED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BADARMOR
+  value: GPGME_STATUS_BADARMOR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BADMDC
+  value: GPGME_STATUS_BADMDC
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BADSIG
+  value: GPGME_STATUS_BADSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BAD_PASSPHRASE
+  value: GPGME_STATUS_BAD_PASSPHRASE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BEGIN_DECRYPTION
+  value: GPGME_STATUS_BEGIN_DECRYPTION
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BEGIN_ENCRYPTION
+  value: GPGME_STATUS_BEGIN_ENCRYPTION
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BEGIN_STREAM
+  value: GPGME_STATUS_BEGIN_STREAM
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_DECRYPTION_FAILED
+  value: GPGME_STATUS_DECRYPTION_FAILED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_DECRYPTION_OKAY
+  value: GPGME_STATUS_DECRYPTION_OKAY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_DELETE_PROBLEM
+  value: GPGME_STATUS_DELETE_PROBLEM
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ENC_TO
+  value: GPGME_STATUS_ENC_TO
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_END_DECRYPTION
+  value: GPGME_STATUS_END_DECRYPTION
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_END_ENCRYPTION
+  value: GPGME_STATUS_END_ENCRYPTION
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_END_STREAM
+  value: GPGME_STATUS_END_STREAM
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ENTER
+  value: GPGME_STATUS_ENTER
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_EOF
+  value: GPGME_STATUS_EOF
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ERRMDC
+  value: GPGME_STATUS_ERRMDC
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ERROR
+  value: GPGME_STATUS_ERROR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ERRSIG
+  value: GPGME_STATUS_ERRSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_EXPKEYSIG
+  value: GPGME_STATUS_EXPKEYSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_EXPSIG
+  value: GPGME_STATUS_EXPSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_FILE_DONE
+  value: GPGME_STATUS_FILE_DONE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_FILE_ERROR
+  value: GPGME_STATUS_FILE_ERROR
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_FILE_START
+  value: GPGME_STATUS_FILE_START
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GET_BOOL
+  value: GPGME_STATUS_GET_BOOL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GET_HIDDEN
+  value: GPGME_STATUS_GET_HIDDEN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GET_LINE
+  value: GPGME_STATUS_GET_LINE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GOODMDC
+  value: GPGME_STATUS_GOODMDC
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GOODSIG
+  value: GPGME_STATUS_GOODSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GOOD_PASSPHRASE
+  value: GPGME_STATUS_GOOD_PASSPHRASE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_GOT_IT
+  value: GPGME_STATUS_GOT_IT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_IMPORTED
+  value: GPGME_STATUS_IMPORTED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_IMPORT_RES
+  value: GPGME_STATUS_IMPORT_RES
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_INV_RECP
+  value: GPGME_STATUS_INV_RECP
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_KEYEXPIRED
+  value: GPGME_STATUS_KEYEXPIRED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_KEYREVOKED
+  value: GPGME_STATUS_KEYREVOKED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_KEY_CREATED
+  value: GPGME_STATUS_KEY_CREATED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_LEAVE
+  value: GPGME_STATUS_LEAVE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_MISSING_PASSPHRASE
+  value: GPGME_STATUS_MISSING_PASSPHRASE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NEED_PASSPHRASE
+  value: GPGME_STATUS_NEED_PASSPHRASE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NEED_PASSPHRASE_SYM
+  value: GPGME_STATUS_NEED_PASSPHRASE_SYM
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NODATA
+  value: GPGME_STATUS_NODATA
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NOTATION_DATA
+  value: GPGME_STATUS_NOTATION_DATA
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NOTATION_NAME
+  value: GPGME_STATUS_NOTATION_NAME
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NO_PUBKEY
+  value: GPGME_STATUS_NO_PUBKEY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NO_RECP
+  value: GPGME_STATUS_NO_RECP
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_NO_SECKEY
+  value: GPGME_STATUS_NO_SECKEY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_PKA_TRUST_BAD
+  value: GPGME_STATUS_PKA_TRUST_BAD
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_PKA_TRUST_GOOD
+  value: GPGME_STATUS_PKA_TRUST_GOOD
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_PLAINTEXT_LENGTH
+  value: GPGME_STATUS_PLAINTEXT_LENGTH
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_MOUNTPOINT
+  value: GPGME_STATUS_MOUNTPOINT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_PINENTRY_LAUNCHED
+  value: GPGME_STATUS_PINENTRY_LAUNCHED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_ATTRIBUTE
+  value: GPGME_STATUS_ATTRIBUTE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_BEGIN_SIGNING
+  value: GPGME_STATUS_BEGIN_SIGNING
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_KEY_NOT_CREATED
+  value: GPGME_STATUS_KEY_NOT_CREATED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_POLICY_URL
+  value: GPGME_STATUS_POLICY_URL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_PROGRESS
+  value: GPGME_STATUS_PROGRESS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_RSA_OR_IDEA
+  value: GPGME_STATUS_RSA_OR_IDEA
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SESSION_KEY
+  value: GPGME_STATUS_SESSION_KEY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SHM_GET
+  value: GPGME_STATUS_SHM_GET
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SHM_GET_BOOL
+  value: GPGME_STATUS_SHM_GET_BOOL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SHM_GET_HIDDEN
+  value: GPGME_STATUS_SHM_GET_HIDDEN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SHM_INFO
+  value: GPGME_STATUS_SHM_INFO
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SIGEXPIRED
+  value: GPGME_STATUS_SIGEXPIRED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SIG_CREATED
+  value: GPGME_STATUS_SIG_CREATED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_SIG_ID
+  value: GPGME_STATUS_SIG_ID
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_TRUNCATED
+  value: GPGME_STATUS_TRUNCATED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_TRUST_FULLY
+  value: GPGME_STATUS_TRUST_FULLY
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_TRUST_MARGINAL
+  value: GPGME_STATUS_TRUST_MARGINAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_TRUST_NEVER
+  value: GPGME_STATUS_TRUST_NEVER
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_TRUST_ULTIMATE
+  value: GPGME_STATUS_TRUST_ULTIMATE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_TRUST_UNDEFINED
+  value: GPGME_STATUS_TRUST_UNDEFINED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_UNEXPECTED
+  value: GPGME_STATUS_UNEXPECTED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_USERID_HINT
+  value: GPGME_STATUS_USERID_HINT
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STATUS_VALIDSIG
+  value: GPGME_STATUS_VALIDSIG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_FULL
+  value: GPGME_VALIDITY_FULL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_MARGINAL
+  value: GPGME_VALIDITY_MARGINAL
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_NEVER
+  value: GPGME_VALIDITY_NEVER
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_ULTIMATE
+  value: GPGME_VALIDITY_ULTIMATE
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_UNDEFINED
+  value: GPGME_VALIDITY_UNDEFINED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_UNKNOWN
+  value: GPGME_VALIDITY_UNKNOWN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PROTOCOL_NAMES
+  value: "{     PROTOCOL_OpenPGP  => :OpenPGP,     PROTOCOL_CMS      => :CMS"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PROTOCOL_ASSUAN
+  value: GPGME_PROTOCOL_ASSUAN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PROTOCOL_SPAWN
+  value: GPGME_PROTOCOL_SPAWN
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SPAWN_DETACHED
+  value: GPGME_SPAWN_DETACHED
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SPAWN_ALLOW_SET_FG
+  value: GPGME_SPAWN_ALLOW_SET_FG
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYLIST_MODE_NAMES
+  value: "{     KEYLIST_MODE_LOCAL    => :local,     KEYLIST_MODE_EXTERN   => :extern,     KEYLIST_MODE_SIGS     => :sigs,     KEYLIST_MODE_VALIDATE => :validate"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VALIDITY_NAMES
+  value: "{     VALIDITY_UNKNOWN    => :unknown,     VALIDITY_UNDEFINED  => :undefined,     VALIDITY_NEVER      => :never,     VALIDITY_MARGINAL   => :marginal,     VALIDITY_FULL       => :full,     VALIDITY_ULTIMATE   => :ultimate"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PK_RSA
+  value: INT2FIX(GPGME_PK_RSA)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PK_DSA
+  value: INT2FIX(GPGME_PK_DSA)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PK_ELG
+  value: INT2FIX(GPGME_PK_ELG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PK_ELG_E
+  value: INT2FIX(GPGME_PK_ELG_E)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PK_ECC
+  value: INT2FIX(GPGME_PK_ECC)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_MD5
+  value: INT2FIX(GPGME_MD_MD5)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_SHA1
+  value: INT2FIX(GPGME_MD_SHA1)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_RMD160
+  value: INT2FIX(GPGME_MD_RMD160)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_MD2
+  value: INT2FIX(GPGME_MD_MD2)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_TIGER
+  value: INT2FIX(GPGME_MD_TIGER)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_HAVAL
+  value: INT2FIX(GPGME_MD_HAVAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_SHA224
+  value: INT2FIX(GPGME_MD_SHA224)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_SHA256
+  value: INT2FIX(GPGME_MD_SHA256)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_SHA384
+  value: INT2FIX(GPGME_MD_SHA384)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_SHA512
+  value: INT2FIX(GPGME_MD_SHA512)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_MD4
+  value: INT2FIX(GPGME_MD_MD4)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_CRC32
+  value: INT2FIX(GPGME_MD_CRC32)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_CRC32_RFC1510
+  value: INT2FIX(GPGME_MD_CRC32_RFC1510)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_MD_CRC24_RFC2440
+  value: INT2FIX(GPGME_MD_CRC24_RFC2440)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_EOF
+  value: INT2FIX(GPG_ERR_EOF)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NO_ERROR
+  value: INT2FIX(GPG_ERR_NO_ERROR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_GENERAL
+  value: INT2FIX(GPG_ERR_GENERAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_ENOMEM
+  value: INT2FIX(GPG_ERR_ENOMEM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_INV_VALUE
+  value: INT2FIX(GPG_ERR_INV_VALUE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_UNUSABLE_PUBKEY
+  value: INT2FIX(GPG_ERR_UNUSABLE_PUBKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_UNUSABLE_SECKEY
+  value: INT2FIX(GPG_ERR_UNUSABLE_SECKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NO_DATA
+  value: INT2FIX(GPG_ERR_NO_DATA)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_CONFLICT
+  value: INT2FIX(GPG_ERR_CONFLICT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NOT_IMPLEMENTED
+  value: INT2FIX(GPG_ERR_NOT_IMPLEMENTED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_DECRYPT_FAILED
+  value: INT2FIX(GPG_ERR_DECRYPT_FAILED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_BAD_PASSPHRASE
+  value: INT2FIX(GPG_ERR_BAD_PASSPHRASE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_KEY_EXPIRED
+  value: INT2FIX(GPG_ERR_KEY_EXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SIG_EXPIRED
+  value: INT2FIX(GPG_ERR_SIG_EXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_CANCELED
+  value: INT2FIX(GPG_ERR_CANCELED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_INV_ENGINE
+  value: INT2FIX(GPG_ERR_INV_ENGINE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_AMBIGUOUS_NAME
+  value: INT2FIX(GPG_ERR_AMBIGUOUS_NAME)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_WRONG_KEY_USAGE
+  value: INT2FIX(GPG_ERR_WRONG_KEY_USAGE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_CERT_REVOKED
+  value: INT2FIX(GPG_ERR_CERT_REVOKED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_CERT_EXPIRED
+  value: INT2FIX(GPG_ERR_CERT_EXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NO_CRL_KNOWN
+  value: INT2FIX(GPG_ERR_NO_CRL_KNOWN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NO_POLICY_MATCH
+  value: INT2FIX(GPG_ERR_NO_POLICY_MATCH)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NO_SECKEY
+  value: INT2FIX(GPG_ERR_NO_SECKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_MISSING_CERT
+  value: INT2FIX(GPG_ERR_MISSING_CERT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_BAD_CERT_CHAIN
+  value: INT2FIX(GPG_ERR_BAD_CERT_CHAIN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_UNSUPPORTED_ALGORITHM
+  value: INT2FIX(GPG_ERR_UNSUPPORTED_ALGORITHM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_BAD_SIGNATURE
+  value: INT2FIX(GPG_ERR_BAD_SIGNATURE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_NO_PUBKEY
+  value: INT2FIX(GPG_ERR_NO_PUBKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_UNKNOWN
+  value: INT2FIX(GPG_ERR_SOURCE_UNKNOWN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_GPGME
+  value: INT2FIX(GPG_ERR_SOURCE_GPGME)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_GPG
+  value: INT2FIX(GPG_ERR_SOURCE_GPG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_GPGSM
+  value: INT2FIX(GPG_ERR_SOURCE_GPGSM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_GCRYPT
+  value: INT2FIX(GPG_ERR_SOURCE_GCRYPT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_GPGAGENT
+  value: INT2FIX(GPG_ERR_SOURCE_GPGAGENT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_PINENTRY
+  value: INT2FIX(GPG_ERR_SOURCE_PINENTRY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_SCD
+  value: INT2FIX(GPG_ERR_SOURCE_SCD)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_KEYBOX
+  value: INT2FIX(GPG_ERR_SOURCE_KEYBOX)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_USER_1
+  value: INT2FIX(GPG_ERR_SOURCE_USER_1)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_USER_2
+  value: INT2FIX(GPG_ERR_SOURCE_USER_2)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_USER_3
+  value: INT2FIX(GPG_ERR_SOURCE_USER_3)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPG_ERR_SOURCE_USER_4
+  value: INT2FIX(GPG_ERR_SOURCE_USER_4)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_DATA_ENCODING_NONE
+  value: INT2FIX(GPGME_DATA_ENCODING_NONE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_DATA_ENCODING_BINARY
+  value: INT2FIX(GPGME_DATA_ENCODING_BINARY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_DATA_ENCODING_BASE64
+  value: INT2FIX(GPGME_DATA_ENCODING_BASE64)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_DATA_ENCODING_ARMOR
+  value: INT2FIX(GPGME_DATA_ENCODING_ARMOR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_NONE
+  value: INT2FIX(GPGME_SIG_STAT_NONE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_GOOD
+  value: INT2FIX(GPGME_SIG_STAT_GOOD)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_BAD
+  value: INT2FIX(GPGME_SIG_STAT_BAD)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_NOKEY
+  value: INT2FIX(GPGME_SIG_STAT_NOKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_NOSIG
+  value: INT2FIX(GPGME_SIG_STAT_NOSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_ERROR
+  value: INT2FIX(GPGME_SIG_STAT_ERROR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_DIFF
+  value: INT2FIX(GPGME_SIG_STAT_DIFF)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_GOOD_EXP
+  value: INT2FIX(GPGME_SIG_STAT_GOOD_EXP)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_STAT_GOOD_EXPKEY
+  value: INT2FIX(GPGME_SIG_STAT_GOOD_EXPKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_VALID
+  value: INT2FIX(GPGME_SIGSUM_VALID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_GREEN
+  value: INT2FIX(GPGME_SIGSUM_GREEN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_RED
+  value: INT2FIX(GPGME_SIGSUM_RED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_KEY_REVOKED
+  value: INT2FIX(GPGME_SIGSUM_KEY_REVOKED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_KEY_EXPIRED
+  value: INT2FIX(GPGME_SIGSUM_KEY_EXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_SIG_EXPIRED
+  value: INT2FIX(GPGME_SIGSUM_SIG_EXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_KEY_MISSING
+  value: INT2FIX(GPGME_SIGSUM_KEY_MISSING)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_CRL_MISSING
+  value: INT2FIX(GPGME_SIGSUM_CRL_MISSING)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_CRL_TOO_OLD
+  value: INT2FIX(GPGME_SIGSUM_CRL_TOO_OLD)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_BAD_POLICY
+  value: INT2FIX(GPGME_SIGSUM_BAD_POLICY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIGSUM_SYS_ERROR
+  value: INT2FIX(GPGME_SIGSUM_SYS_ERROR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_MODE_NORMAL
+  value: INT2FIX(GPGME_SIG_MODE_NORMAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_MODE_DETACH
+  value: INT2FIX(GPGME_SIG_MODE_DETACH)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SIG_MODE_CLEAR
+  value: INT2FIX(GPGME_SIG_MODE_CLEAR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_KEYID
+  value: INT2FIX(GPGME_ATTR_KEYID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_FPR
+  value: INT2FIX(GPGME_ATTR_FPR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_ALGO
+  value: INT2FIX(GPGME_ATTR_ALGO)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_LEN
+  value: INT2FIX(GPGME_ATTR_LEN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_CREATED
+  value: INT2FIX(GPGME_ATTR_CREATED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_EXPIRE
+  value: INT2FIX(GPGME_ATTR_EXPIRE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_OTRUST
+  value: INT2FIX(GPGME_ATTR_OTRUST)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_USERID
+  value: INT2FIX(GPGME_ATTR_USERID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_NAME
+  value: INT2FIX(GPGME_ATTR_NAME)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_EMAIL
+  value: INT2FIX(GPGME_ATTR_EMAIL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_COMMENT
+  value: INT2FIX(GPGME_ATTR_COMMENT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_VALIDITY
+  value: INT2FIX(GPGME_ATTR_VALIDITY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_LEVEL
+  value: INT2FIX(GPGME_ATTR_LEVEL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_TYPE
+  value: INT2FIX(GPGME_ATTR_TYPE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_IS_SECRET
+  value: INT2FIX(GPGME_ATTR_IS_SECRET)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_KEY_REVOKED
+  value: INT2FIX(GPGME_ATTR_KEY_REVOKED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_KEY_INVALID
+  value: INT2FIX(GPGME_ATTR_KEY_INVALID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_UID_REVOKED
+  value: INT2FIX(GPGME_ATTR_UID_REVOKED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_UID_INVALID
+  value: INT2FIX(GPGME_ATTR_UID_INVALID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_KEY_CAPS
+  value: INT2FIX(GPGME_ATTR_KEY_CAPS)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_CAN_ENCRYPT
+  value: INT2FIX(GPGME_ATTR_CAN_ENCRYPT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_CAN_SIGN
+  value: INT2FIX(GPGME_ATTR_CAN_SIGN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_CAN_CERTIFY
+  value: INT2FIX(GPGME_ATTR_CAN_CERTIFY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_KEY_EXPIRED
+  value: INT2FIX(GPGME_ATTR_KEY_EXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_KEY_DISABLED
+  value: INT2FIX(GPGME_ATTR_KEY_DISABLED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_SERIAL
+  value: INT2FIX(GPGME_ATTR_SERIAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_ISSUER
+  value: INT2FIX(GPGME_ATTR_ISSUER)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_CHAINID
+  value: INT2FIX(GPGME_ATTR_CHAINID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_SIG_STATUS
+  value: INT2FIX(GPGME_ATTR_SIG_STATUS)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_ERRTOK
+  value: INT2FIX(GPGME_ATTR_ERRTOK)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ATTR_SIG_SUMMARY
+  value: INT2FIX(GPGME_ATTR_SIG_SUMMARY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_VALIDITY_UNKNOWN
+  value: INT2FIX(GPGME_VALIDITY_UNKNOWN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_VALIDITY_UNDEFINED
+  value: INT2FIX(GPGME_VALIDITY_UNDEFINED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_VALIDITY_NEVER
+  value: INT2FIX(GPGME_VALIDITY_NEVER)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_VALIDITY_MARGINAL
+  value: INT2FIX(GPGME_VALIDITY_MARGINAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_VALIDITY_FULL
+  value: INT2FIX(GPGME_VALIDITY_FULL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_VALIDITY_ULTIMATE
+  value: INT2FIX(GPGME_VALIDITY_ULTIMATE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PROTOCOL_OpenPGP
+  value: INT2FIX(GPGME_PROTOCOL_OpenPGP)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PROTOCOL_CMS
+  value: INT2FIX(GPGME_PROTOCOL_CMS)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PROTOCOL_ASSUAN
+  value: |-
+    INT2FIX(GPGME_PROTOCOL_ASSUAN))
+    #endif
+      /* This protocol was added in 1.5.0. */
+    #ifdef GPGME_PROTOCOL_SPAWN
+      rb_define_const (mGPGME, "GPGME_PROTOCOL_SPAWN",
+                       INT2FIX(GPGME_PROTOCOL_SPAWN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_EOF
+  value: INT2FIX(GPGME_STATUS_EOF)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ENTER
+  value: INT2FIX(GPGME_STATUS_ENTER)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_LEAVE
+  value: INT2FIX(GPGME_STATUS_LEAVE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ABORT
+  value: INT2FIX(GPGME_STATUS_ABORT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GOODSIG
+  value: INT2FIX(GPGME_STATUS_GOODSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BADSIG
+  value: INT2FIX(GPGME_STATUS_BADSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ERRSIG
+  value: INT2FIX(GPGME_STATUS_ERRSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BADARMOR
+  value: INT2FIX(GPGME_STATUS_BADARMOR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_RSA_OR_IDEA
+  value: INT2FIX(GPGME_STATUS_RSA_OR_IDEA)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_KEYEXPIRED
+  value: INT2FIX(GPGME_STATUS_KEYEXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_KEYREVOKED
+  value: INT2FIX(GPGME_STATUS_KEYREVOKED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_TRUST_UNDEFINED
+  value: INT2FIX(GPGME_STATUS_TRUST_UNDEFINED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_TRUST_NEVER
+  value: INT2FIX(GPGME_STATUS_TRUST_NEVER)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_TRUST_MARGINAL
+  value: INT2FIX(GPGME_STATUS_TRUST_MARGINAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_TRUST_FULLY
+  value: INT2FIX(GPGME_STATUS_TRUST_FULLY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_TRUST_ULTIMATE
+  value: INT2FIX(GPGME_STATUS_TRUST_ULTIMATE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SHM_INFO
+  value: INT2FIX(GPGME_STATUS_SHM_INFO)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SHM_GET
+  value: INT2FIX(GPGME_STATUS_SHM_GET)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SHM_GET_BOOL
+  value: INT2FIX(GPGME_STATUS_SHM_GET_BOOL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SHM_GET_HIDDEN
+  value: INT2FIX(GPGME_STATUS_SHM_GET_HIDDEN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NEED_PASSPHRASE
+  value: INT2FIX(GPGME_STATUS_NEED_PASSPHRASE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_VALIDSIG
+  value: INT2FIX(GPGME_STATUS_VALIDSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SIG_ID
+  value: INT2FIX(GPGME_STATUS_SIG_ID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ENC_TO
+  value: INT2FIX(GPGME_STATUS_ENC_TO)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NODATA
+  value: INT2FIX(GPGME_STATUS_NODATA)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BAD_PASSPHRASE
+  value: INT2FIX(GPGME_STATUS_BAD_PASSPHRASE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NO_PUBKEY
+  value: INT2FIX(GPGME_STATUS_NO_PUBKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NO_SECKEY
+  value: INT2FIX(GPGME_STATUS_NO_SECKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NEED_PASSPHRASE_SYM
+  value: INT2FIX(GPGME_STATUS_NEED_PASSPHRASE_SYM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_DECRYPTION_FAILED
+  value: INT2FIX(GPGME_STATUS_DECRYPTION_FAILED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_DECRYPTION_OKAY
+  value: INT2FIX(GPGME_STATUS_DECRYPTION_OKAY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_MISSING_PASSPHRASE
+  value: INT2FIX(GPGME_STATUS_MISSING_PASSPHRASE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GOOD_PASSPHRASE
+  value: INT2FIX(GPGME_STATUS_GOOD_PASSPHRASE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GOODMDC
+  value: INT2FIX(GPGME_STATUS_GOODMDC)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BADMDC
+  value: INT2FIX(GPGME_STATUS_BADMDC)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ERRMDC
+  value: INT2FIX(GPGME_STATUS_ERRMDC)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_IMPORTED
+  value: INT2FIX(GPGME_STATUS_IMPORTED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_IMPORT_RES
+  value: INT2FIX(GPGME_STATUS_IMPORT_RES)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_FILE_START
+  value: INT2FIX(GPGME_STATUS_FILE_START)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_FILE_DONE
+  value: INT2FIX(GPGME_STATUS_FILE_DONE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_FILE_ERROR
+  value: INT2FIX(GPGME_STATUS_FILE_ERROR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BEGIN_DECRYPTION
+  value: INT2FIX(GPGME_STATUS_BEGIN_DECRYPTION)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_END_DECRYPTION
+  value: INT2FIX(GPGME_STATUS_END_DECRYPTION)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BEGIN_ENCRYPTION
+  value: INT2FIX(GPGME_STATUS_BEGIN_ENCRYPTION)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_END_ENCRYPTION
+  value: INT2FIX(GPGME_STATUS_END_ENCRYPTION)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_DELETE_PROBLEM
+  value: INT2FIX(GPGME_STATUS_DELETE_PROBLEM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GET_BOOL
+  value: INT2FIX(GPGME_STATUS_GET_BOOL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GET_LINE
+  value: INT2FIX(GPGME_STATUS_GET_LINE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GET_HIDDEN
+  value: INT2FIX(GPGME_STATUS_GET_HIDDEN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_GOT_IT
+  value: INT2FIX(GPGME_STATUS_GOT_IT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_PROGRESS
+  value: INT2FIX(GPGME_STATUS_PROGRESS)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SIG_CREATED
+  value: INT2FIX(GPGME_STATUS_SIG_CREATED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SESSION_KEY
+  value: INT2FIX(GPGME_STATUS_SESSION_KEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NOTATION_NAME
+  value: INT2FIX(GPGME_STATUS_NOTATION_NAME)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NOTATION_DATA
+  value: INT2FIX(GPGME_STATUS_NOTATION_DATA)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_POLICY_URL
+  value: INT2FIX(GPGME_STATUS_POLICY_URL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BEGIN_STREAM
+  value: INT2FIX(GPGME_STATUS_BEGIN_STREAM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_END_STREAM
+  value: INT2FIX(GPGME_STATUS_END_STREAM)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_KEY_CREATED
+  value: INT2FIX(GPGME_STATUS_KEY_CREATED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_USERID_HINT
+  value: INT2FIX(GPGME_STATUS_USERID_HINT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_UNEXPECTED
+  value: INT2FIX(GPGME_STATUS_UNEXPECTED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_INV_RECP
+  value: INT2FIX(GPGME_STATUS_INV_RECP)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_NO_RECP
+  value: INT2FIX(GPGME_STATUS_NO_RECP)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ALREADY_SIGNED
+  value: INT2FIX(GPGME_STATUS_ALREADY_SIGNED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_SIGEXPIRED
+  value: INT2FIX(GPGME_STATUS_SIGEXPIRED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_EXPSIG
+  value: INT2FIX(GPGME_STATUS_EXPSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_EXPKEYSIG
+  value: INT2FIX(GPGME_STATUS_EXPKEYSIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_TRUNCATED
+  value: INT2FIX(GPGME_STATUS_TRUNCATED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ERROR
+  value: INT2FIX(GPGME_STATUS_ERROR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_PKA_TRUST_BAD
+  value: INT2FIX(GPGME_STATUS_PKA_TRUST_BAD)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_PKA_TRUST_GOOD
+  value: INT2FIX(GPGME_STATUS_PKA_TRUST_GOOD)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_PLAINTEXT_LENGTH
+  value: INT2FIX(GPGME_STATUS_PLAINTEXT_LENGTH)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_MOUNTPOINT
+  value: INT2FIX(GPGME_STATUS_MOUNTPOINT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_PINENTRY_LAUNCHED
+  value: INT2FIX(GPGME_STATUS_PINENTRY_LAUNCHED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_ATTRIBUTE
+  value: INT2FIX(GPGME_STATUS_ATTRIBUTE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_BEGIN_SIGNING
+  value: INT2FIX(GPGME_STATUS_BEGIN_SIGNING)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_STATUS_KEY_NOT_CREATED
+  value: INT2FIX(GPGME_STATUS_KEY_NOT_CREATED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_KEYLIST_MODE_LOCAL
+  value: INT2FIX(GPGME_KEYLIST_MODE_LOCAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_KEYLIST_MODE_EXTERN
+  value: INT2FIX(GPGME_KEYLIST_MODE_EXTERN)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_KEYLIST_MODE_SIGS
+  value: INT2FIX(GPGME_KEYLIST_MODE_SIGS)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_KEYLIST_MODE_SIG_NOTATIONS
+  value: INT2FIX(GPGME_KEYLIST_MODE_SIG_NOTATIONS)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_KEYLIST_MODE_VALIDATE
+  value: INT2FIX(GPGME_KEYLIST_MODE_VALIDATE)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_KEYLIST_MODE_EPHEMERAL
+  value: INT2FIX(GPGME_KEYLIST_MODE_EPHEMERAL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_IMPORT_NEW
+  value: INT2FIX(GPGME_IMPORT_NEW)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_IMPORT_UID
+  value: INT2FIX(GPGME_IMPORT_UID)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_IMPORT_SIG
+  value: INT2FIX(GPGME_IMPORT_SIG)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_IMPORT_SUBKEY
+  value: INT2FIX(GPGME_IMPORT_SUBKEY)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_IMPORT_SECRET
+  value: INT2FIX(GPGME_IMPORT_SECRET)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ENCRYPT_ALWAYS_TRUST
+  value: INT2FIX(GPGME_ENCRYPT_ALWAYS_TRUST)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_ENCRYPT_NO_ENCRYPT_TO
+  value: INT2FIX(GPGME_ENCRYPT_NO_ENCRYPT_TO)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PINENTRY_MODE_DEFAULT
+  value: INT2FIX(GPGME_PINENTRY_MODE_DEFAULT)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PINENTRY_MODE_ASK
+  value: INT2FIX(GPGME_PINENTRY_MODE_ASK)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PINENTRY_MODE_CANCEL
+  value: INT2FIX(GPGME_PINENTRY_MODE_CANCEL)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PINENTRY_MODE_ERROR
+  value: INT2FIX(GPGME_PINENTRY_MODE_ERROR)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_PINENTRY_MODE_LOOPBACK
+  value: INT2FIX(GPGME_PINENTRY_MODE_LOOPBACK)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SPAWN_DETACHED
+  value: INT2FIX(GPGME_SPAWN_DETACHED)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: GPGME_SPAWN_ALLOW_SET_FG
+  value: INT2FIX(GPGME_SPAWN_ALLOW_SET_FG)
+full_name: GPGME
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: gpgme_data_rewind
+- !ruby/object:RI::MethodSummary 
+  name: gpgme_op_import_ext
+name: GPGME
+superclass: 

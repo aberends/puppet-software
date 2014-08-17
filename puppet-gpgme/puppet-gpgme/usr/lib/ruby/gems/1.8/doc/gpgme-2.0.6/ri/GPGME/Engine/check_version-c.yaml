@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Verify that the engine implementing the protocol <tt>proto</tt> is installed in the system. Can be one of <tt>PROTOCOL_OpenPGP</tt> or <tt>PROTOCOL_CMS</tt>.
+- !ruby/struct:SM::Flow::P 
+  body: "@return [Boolean] true if the engine is installed."
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Engine.check_version(GPGME::PROTOCOL_OpenPGP) # =&gt; true\n"
+full_name: GPGME::Engine::check_version
+is_singleton: true
+name: check_version
+params: (proto)
+visibility: public

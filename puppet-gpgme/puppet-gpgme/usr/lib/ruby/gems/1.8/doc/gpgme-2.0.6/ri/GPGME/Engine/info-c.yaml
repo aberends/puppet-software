@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return an array of {GPGME::EngineInfo} structures of enabled engines.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Engine.info.first\n  # =&gt; #&lt;GPGME::EngineInfo:0x00000100d4fbd8\n         @file_name=&quot;/usr/local/bin/gpg&quot;,\n         @protocol=0,\n         @req_version=&quot;1.3.0&quot;,\n         @version=&quot;1.4.11&quot;&gt;\n"
+full_name: GPGME::Engine::info
+is_singleton: true
+name: info
+params: ()
+visibility: public

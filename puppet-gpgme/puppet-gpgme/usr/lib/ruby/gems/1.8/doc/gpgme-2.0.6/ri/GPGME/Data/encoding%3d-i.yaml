@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sets the encoding for this buffer. Accepts only values in one of the DATA_ENCODING_* constants.
+- !ruby/struct:SM::Flow::P 
+  body: "@raise [GPGME::Error::InvalidValue] if the value isn't accepted."
+full_name: GPGME::Data#encoding=
+is_singleton: false
+name: encoding=
+params: (encoding)
+visibility: public

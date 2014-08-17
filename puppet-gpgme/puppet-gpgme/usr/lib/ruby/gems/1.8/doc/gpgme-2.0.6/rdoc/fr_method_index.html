@@ -1,0 +1,169 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/GPGME/Key.html#M000103">== (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000150">add_signer (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000112">armor (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000111">armor= (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Signature.html#M000061">bad? (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/KeyCommon.html#M000027">capability (GPGME::KeyCommon)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000143">card_edit (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME.html#M000018">check_version (GPGME)</a><br />
+    <a href="classes/GPGME/Engine.html#M000021">check_version (GPGME::Engine)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000149">clear_signers (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000085">clearsign (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Error.html#M000042">code (GPGME::Error)</a><br />
+    <a href="classes/GPGME/Key.html#M000102">comment (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000144">decrypt (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000082">decrypt (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000146">decrypt_result (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000145">decrypt_verify (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000138">delete (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Key.html#M000093">delete! (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000137">delete_key (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000086">detach_sign (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Engine.html#M000025">dirinfo (GPGME::Engine)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000126">each_key (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000127">each_keys (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000140">edit (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000142">edit_card (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000141">edit_card_key (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000139">edit_key (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Key.html#M000100">email (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Data.html#M000046">empty! (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Data.html#M000054">encoding (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Data.html#M000055">encoding= (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000153">encrypt (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000081">encrypt (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000154">encrypt_result (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000155">encrypt_sign (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME.html#M000017">error_to_exception (GPGME)</a><br />
+    <a href="classes/GPGME/Signature.html#M000067">exp_timestamp (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000036">expired (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Key.html#M000095">expired (GPGME::Key)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000073">expired? (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/Signature.html#M000059">expired_key? (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Signature.html#M000058">expired_signature? (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000035">expires (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Key.html#M000094">expires (GPGME::Key)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000077">expires (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/Key.html#M000090">export (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Key.html#M000092">export (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000133">export (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000132">export_keys (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000075">exportable? (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/Key.html#M000088">find (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Key.html#M000098">fingerprint (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Signature.html#M000064">from (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Data.html#M000050">from_callbacks (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Data.html#M000049">from_fd (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Data.html#M000048">from_io (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Data.html#M000047">from_str (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000130">generate_key (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000131">genkey (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Key.html#M000089">get (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000129">get_key (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME.html#M000015">gpgme_data_rewind (GPGME)</a><br />
+    <a href="classes/GPGME.html#M000019">gpgme_op_import (GPGME)</a><br />
+    <a href="classes/GPGME.html#M000016">gpgme_op_import_ext (GPGME)</a><br />
+    <a href="classes/GPGME.html#M000020">gpgme_op_import_result (GPGME)</a><br />
+    <a href="classes/GPGME/Engine.html#M000024">home_dir= (GPGME::Engine)</a><br />
+    <a href="classes/GPGME/Key.html#M000091">import (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000135">import (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000134">import_keys (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000136">import_result (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Engine.html#M000022">info (GPGME::Engine)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000078">inspect (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/UserID.html#M000071">inspect (GPGME::UserID)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000039">inspect (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Key.html#M000104">inspect (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000157">inspect (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/UserID.html#M000070">invalid? (GPGME::UserID)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000074">invalid? (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/Signature.html#M000065">key (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000125">keylist_end (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000116">keylist_mode (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000115">keylist_mode= (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000124">keylist_next (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000123">keylist_start (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000128">keys (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Error.html#M000044">message (GPGME::Error)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000087">method_missing (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Key.html#M000101">name (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Error.html#M000041">new (GPGME::Error)</a><br />
+    <a href="classes/GPGME/IOCallbacks.html#M000030">new (GPGME::IOCallbacks)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000080">new (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Data.html#M000045">new (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000107">new (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Signature.html#M000062">no_key? (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000118">pinentry_mode (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000117">pinentry_mode= (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Key.html#M000096">primary_subkey (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Key.html#M000099">primary_uid (GPGME::Key)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000110">protocol (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000109">protocol= (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000038">pubkey_algo_letter (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Data.html#M000051">read (GPGME::Data)</a><br />
+    <a href="classes/GPGME/IOCallbacks.html#M000031">read (GPGME::IOCallbacks)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000108">release (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/UserID.html#M000069">revoked? (GPGME::UserID)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000072">revoked? (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/Signature.html#M000060">revoked_key? (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000106">rewind (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/KeyCommon.html#M000029">secret? (GPGME::KeyCommon)</a><br />
+    <a href="classes/GPGME/IOCallbacks.html#M000033">seek (GPGME::IOCallbacks)</a><br />
+    <a href="classes/GPGME/Data.html#M000052">seek (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Engine.html#M000023">set_info (GPGME::Engine)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000119">set_passphrase_callback (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000120">set_passphrase_cb (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000121">set_progress_callback (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000122">set_progress_cb (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Key.html#M000097">sha (GPGME::Key)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000037">sha (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000083">sign (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000151">sign (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000152">sign_result (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Error.html#M000043">source (GPGME::Error)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000156">spawn (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Signature.html#M000063">status_code (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000114">textmode (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000113">textmode= (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/NewSignature.html#M000079">timestamp (GPGME::NewSignature)</a><br />
+    <a href="classes/GPGME/Signature.html#M000066">timestamp (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/KeySig.html#M000076">timestamp (GPGME::KeySig)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000034">timestamp (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Data.html#M000056">to_s (GPGME::Data)</a><br />
+    <a href="classes/GPGME/Key.html#M000105">to_s (GPGME::Key)</a><br />
+    <a href="classes/GPGME/SubKey.html#M000040">to_s (GPGME::SubKey)</a><br />
+    <a href="classes/GPGME/Signature.html#M000068">to_s (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/KeyCommon.html#M000026">trust (GPGME::KeyCommon)</a><br />
+    <a href="classes/GPGME/KeyCommon.html#M000028">usable_for? (GPGME::KeyCommon)</a><br />
+    <a href="classes/GPGME/Signature.html#M000057">valid? (GPGME::Signature)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000147">verify (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Crypto.html#M000084">verify (GPGME::Crypto)</a><br />
+    <a href="classes/GPGME/Ctx.html#M000148">verify_result (GPGME::Ctx)</a><br />
+    <a href="classes/GPGME/Data.html#M000053">write (GPGME::Data)</a><br />
+    <a href="classes/GPGME/IOCallbacks.html#M000032">write (GPGME::IOCallbacks)</a><br />
+  </div>
+</div>
+</body>
+</html>

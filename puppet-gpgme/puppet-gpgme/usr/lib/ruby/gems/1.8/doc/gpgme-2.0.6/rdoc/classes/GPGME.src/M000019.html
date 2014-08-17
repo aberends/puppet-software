@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>gpgme_op_import (GPGME)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>/*HAVE_GPGME_OP_EXPORT_KEYS*/
+
+static VALUE
+rb_s_gpgme_op_import (VALUE dummy, VALUE vctx, VALUE vkeydata)
+{
+  gpgme_ctx_t ctx;
+  gpgme_data_t keydata;
+  gpgme_error_t err;
+
+  CHECK_KEYLIST_NOT_IN_PROGRESS(vctx);
+
+  UNWRAP_GPGME_CTX(vctx, ctx);
+  if (!ctx)
+    rb_raise (rb_eArgError, &quot;released ctx&quot;);
+  UNWRAP_GPGME_DATA(vkeydata, keydata);
+
+  err = gpgme_op_import (ctx, keydata);
+  return LONG2NUM(err);
+}</pre>
+</body>
+</html>

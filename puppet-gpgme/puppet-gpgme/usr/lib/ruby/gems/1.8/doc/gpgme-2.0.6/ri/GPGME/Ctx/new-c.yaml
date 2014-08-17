@@ -1,0 +1,24 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: ctx
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Create a new instance from the given <tt>options</tt>. Must be released either executing the operations inside a block, or executing {GPGME::Ctx#release} afterwards.
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options"
+- !ruby/struct:SM::Flow::VERB 
+  body: " The optional parameters are as follows:\n * +:protocol+ Either <tt>PROTOCOL_OpenPGP</tt> or <tt>PROTOCOL_CMS</tt>.\n * +:armor+ will return ASCII armored outputs if specified true.\n * +:textmode+ if <tt>true</tt>, inform the recipient that the input is text.\n * +:keylist_mode+ One of: <tt>KEYLIST_MODE_LOCAL</tt>, <tt>KEYLIST_MODE_EXTERN</tt>,\n   <tt>KEYLIST_MODE_SIGS</tt> or <tt>KEYLIST_MODE_VALIDATE</tt>.\n * +:pinentry_mode+ One of: <tt>PINENTRY_MODE_DEFAULT</tt>,\n   <tt>PINENTRY_MODE_ASK</tt>, <tt>PINENTRY_MODE_CANCEL</tt>,\n   <tt>PINENTRY_MODE_ERROR</tt>, or <tt>PINENTRY_MODE_LOOPBACK</tt>.\n * +:password+ password of the passphrased password being used.\n * +:passphrase_callback+ A callback function. See {#set_passphrase_callback}.\n * +:passphrase_callback_value+ An object passed to passphrase_callback.\n * +:progress_callback+  A callback function. See {#set_progress_callback}.\n * +:progress_callback_value+ An object passed to progress_callback.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  ctx = GPGME::Ctx.new\n  # operate on ctx\n  ctx.release\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Ctx.new do |ctx|\n    # operate on ctx\n  end\n"
+full_name: GPGME::Ctx::new
+is_singleton: true
+name: new
+params: (options = {}) {|ctx| ...}
+visibility: public

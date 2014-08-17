@@ -1,0 +1,44 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: signature
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Verifies a previously signed element
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.verify sig, options, &amp;block\n"
+- !ruby/struct:SM::Flow::P 
+  body: Must have the proper keys available.
+- !ruby/struct:SM::Flow::P 
+  body: "@param sig"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  The signature itself. Must be possible to convert into a {GPGME::Data}\n  object, so can be a file.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  * +:signed_text+ if the sign is detached, then must be the plain text\n    for which the signature was created.\n  * +:output+ where to store the result of the signature. Will be\n    converted to a {GPGME::Data} object.\n  * Any other option accepted by {GPGME::Ctx.new}\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param &amp;block"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  In the block all the signatures are yielded, so one could verify them.\n  See examples.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [GPGME::Data] unless the sign is detached, the {GPGME::Data}"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  object with the plain text. If the sign is detached, will return nil.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example simple verification"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  sign = crypto.sign(&quot;Hi there&quot;)\n  data = crypto.verify(sign) { |signature| signature.valid? }\n  data.read # =&gt; &quot;Hi there&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example saving output to file"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  sign = crypto.sign(&quot;Hi there&quot;)\n  out  = File.open(&quot;test.asc&quot;, &quot;w+&quot;)\n  crypto.verify(sign, :output =&gt; out) {|signature| signature.valid?}\n  out.read # =&gt; &quot;Hi there&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example verifying a detached signature"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  sign = crypto.detach_sign(&quot;Hi there&quot;)\n  # Will fail\n  crypto.verify(sign) { |signature| signature.valid? }\n  # Will succeed\n  crypto.verify(sign, :signed_text =&gt; &quot;hi there&quot;) do |signature|\n    signature.valid?\n  end\n"
+full_name: GPGME::Crypto#verify
+is_singleton: false
+name: verify
+params: (sig, options = {}) {|signature| ...}
+visibility: public

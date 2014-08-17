@@ -1,0 +1,26 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: check_version
+- !ruby/object:RI::MethodSummary 
+  name: dirinfo
+- !ruby/object:RI::MethodSummary 
+  name: home_dir=
+- !ruby/object:RI::MethodSummary 
+  name: info
+- !ruby/object:RI::MethodSummary 
+  name: set_info
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convenience methods to check different aspects of the gpg system installation.
+constants: []
+
+full_name: GPGME::Engine
+includes: []
+
+instance_methods: []
+
+name: Engine
+superclass: 

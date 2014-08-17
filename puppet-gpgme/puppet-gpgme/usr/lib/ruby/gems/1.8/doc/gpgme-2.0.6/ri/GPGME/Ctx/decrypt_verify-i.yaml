@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Ctx#decrypt_verify
+is_singleton: false
+name: decrypt_verify
+params: (cipher, plain = Data.new)
+visibility: public

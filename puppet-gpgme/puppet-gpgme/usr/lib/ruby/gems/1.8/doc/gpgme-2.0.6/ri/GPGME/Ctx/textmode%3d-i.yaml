@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Tell whether canonical text mode should be used.
+full_name: GPGME::Ctx#textmode=
+is_singleton: false
+name: textmode=
+params: (yes)
+visibility: public

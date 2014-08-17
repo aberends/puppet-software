@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: delete
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Delete the key from the key ring. If allow_secret is false, only public keys are deleted, otherwise secret keys are deleted as well.
+full_name: GPGME::Ctx#delete_key
+is_singleton: false
+name: delete_key
+params: (key, allow_secret = false)
+visibility: public

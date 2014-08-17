@@ -1,0 +1,74 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: considered
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: imported
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: imported_rsa
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: imports
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: new_revocations
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: new_signatures
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: new_sub_keys
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: new_user_ids
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: no_user_id
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: not_imported
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: secret_imported
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: secret_read
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: secret_unchanged
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: unchanged
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: []
+
+full_name: GPGME::ImportResult
+includes: []
+
+instance_methods: []
+
+name: ImportResult
+superclass: Object

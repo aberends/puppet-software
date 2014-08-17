@@ -1,0 +1,28 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Change the default configuration of the crypto engine implementing protocol <tt>proto</tt>.
+- !ruby/struct:SM::Flow::P 
+  body: "@param proto"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Can be one of <tt>PROTOCOL_OpenPGP</tt> or <tt>PROTOCOL_CMS</tt>.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param file_name"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  The file name of the executable program implementing the protocol.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param home_dir"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  The directory name of the configuration directory.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Engine.set\n"
+full_name: GPGME::Engine::set_info
+is_singleton: true
+name: set_info
+params: (proto, file_name, home_dir)
+visibility: public

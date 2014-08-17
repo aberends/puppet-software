@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>encrypt (GPGME::Crypto)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/gpgme/crypto.rb, line 79</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">plain</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">options</span> = <span class="ruby-ivar">@default_options</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">options</span>
+
+      <span class="ruby-identifier">plain_data</span>  = <span class="ruby-constant">Data</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">plain</span>)
+      <span class="ruby-identifier">cipher_data</span> = <span class="ruby-constant">Data</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:output</span>])
+      <span class="ruby-identifier">keys</span>        = <span class="ruby-constant">Key</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:public</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:recipients</span>])
+      <span class="ruby-identifier">keys</span>        = <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:symmetric</span>]
+
+      <span class="ruby-identifier">flags</span> = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">flags</span> <span class="ruby-operator">|=</span> <span class="ruby-constant">GPGME</span><span class="ruby-operator">::</span><span class="ruby-constant">ENCRYPT_ALWAYS_TRUST</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:always_trust</span>]
+
+      <span class="ruby-constant">GPGME</span><span class="ruby-operator">::</span><span class="ruby-constant">Ctx</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ctx</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:sign</span>]
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:signers</span>]
+              <span class="ruby-identifier">signers</span> = <span class="ruby-constant">Key</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:public</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:signers</span>], <span class="ruby-identifier">:sign</span>)
+              <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">add_signer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">signers</span>)
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">encrypt_sign</span>(<span class="ruby-identifier">keys</span>, <span class="ruby-identifier">plain_data</span>, <span class="ruby-identifier">cipher_data</span>, <span class="ruby-identifier">flags</span>)
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">encrypt</span>(<span class="ruby-identifier">keys</span>, <span class="ruby-identifier">plain_data</span>, <span class="ruby-identifier">cipher_data</span>, <span class="ruby-identifier">flags</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">GPGME</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">UnusablePublicKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exc</span>
+          <span class="ruby-identifier">exc</span>.<span class="ruby-identifier">keys</span> = <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">encrypt_result</span>.<span class="ruby-identifier">invalid_recipients</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exc</span>
+        <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">GPGME</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">UnusableSecretKey</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exc</span>
+          <span class="ruby-identifier">exc</span>.<span class="ruby-identifier">keys</span> = <span class="ruby-identifier">ctx</span>.<span class="ruby-identifier">sign_result</span>.<span class="ruby-identifier">invalid_signers</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exc</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">cipher_data</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-value">0</span>)
+      <span class="ruby-identifier">cipher_data</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

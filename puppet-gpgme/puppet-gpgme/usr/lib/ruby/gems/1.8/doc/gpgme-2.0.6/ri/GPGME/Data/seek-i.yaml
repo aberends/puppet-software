@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Seek to a given <tt>offset</tt> in the data object according to the value of <tt>whence</tt>.
+- !ruby/struct:SM::Flow::P 
+  body: "@example going to the beginning of the buffer after writing something"
+- !ruby/struct:SM::Flow::VERB 
+  body: " data = GPGME::Data.new(&quot;Some data&quot;)\n data.read # =&gt; &quot;Some data&quot;\n data.read # =&gt; &quot;&quot;\n data.seek 0\n data.read # =&gt; &quot;Some data&quot;\n"
+full_name: GPGME::Data#seek
+is_singleton: false
+name: seek
+params: (offset, whence = IO::SEEK_SET)
+visibility: public

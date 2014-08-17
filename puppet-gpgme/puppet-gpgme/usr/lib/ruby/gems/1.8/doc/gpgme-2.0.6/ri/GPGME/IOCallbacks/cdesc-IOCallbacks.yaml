@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: GPGME::IOCallbacks
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: read
+- !ruby/object:RI::MethodSummary 
+  name: seek
+- !ruby/object:RI::MethodSummary 
+  name: write
+name: IOCallbacks
+superclass: Object

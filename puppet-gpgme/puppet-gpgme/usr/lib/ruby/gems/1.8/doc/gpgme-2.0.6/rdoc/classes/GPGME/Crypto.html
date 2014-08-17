@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: GPGME::Crypto</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">GPGME::Crypto</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/gpgme/crypto_rb.html">
+                lib/gpgme/crypto.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Different, independent methods providing the simplest possible API to
+execute crypto operations via GPG. All methods accept as options the same
+common options as {<a href="Ctx.html#M000107">GPGME::Ctx.new</a>}. Read the
+documentation for that class to know how to customize things further (like
+output stuff in ASCII armored format, for example).
+</p>
+<p>
+@example
+</p>
+<pre>
+  crypto = GPGME::Crypto.new :armor =&gt; true
+  encrypted = crypto.encrypt 'Plain text'
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000085">clearsign</a>&nbsp;&nbsp;
+      <a href="#M000082">decrypt</a>&nbsp;&nbsp;
+      <a href="#M000086">detach_sign</a>&nbsp;&nbsp;
+      <a href="#M000081">encrypt</a>&nbsp;&nbsp;
+      <a href="#M000087">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000080">new</a>&nbsp;&nbsp;
+      <a href="#M000083">sign</a>&nbsp;&nbsp;
+      <a href="#M000084">verify</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">default_options</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000087" class="method-detail">
+        <a name="M000087"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000087.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000087.html');return false;">
+          <span class="method-name">method_missing</span><span class="method-args">(method, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Allows calling of methods directly in the module without the need to create
+a <a href="Crypto.html#M000080">new</a> instance.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000080" class="method-detail">
+        <a name="M000080"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000080.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000080.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000085" class="method-detail">
+        <a name="M000085"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000085.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000085.html');return false;">
+          <span class="method-name">clearsign</span><span class="method-args">(text, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Clearsigns an element
+</p>
+<pre>
+  crypto.clearsign text, options
+</pre>
+<p>
+Same functionality of {.<a href="Crypto.html#M000083">sign</a>} only doing
+clearsigns by default.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000082" class="method-detail">
+        <a name="M000082"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000082.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000082.html');return false;">
+          <span class="method-name">decrypt</span><span class="method-args">(cipher, options = {}) {|signature| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decrypts a previously encrypted element
+</p>
+<pre>
+  crypto.decrypt cipher, options, &amp;block
+</pre>
+<p>
+Must have the appropiate key to be able to <a
+href="Crypto.html#M000082">decrypt</a>, of course. Returns a {<a
+href="Data.html">GPGME::Data</a>} object which can then be read.
+</p>
+<p>
+@param cipher
+</p>
+<pre>
+  Must be something that can be converted into a {GPGME::Data} object,
+  or a {GPGME::Data} object itself. It is the element that will be
+  decrypted.
+</pre>
+<p>
+@param [Hash] options
+</p>
+<pre>
+  The optional parameters:
+  * +:output+ if specified, it will write the output into it. It will
+    me converted to a {GPGME::Data} object, so it can also be a file,
+    for example.
+  * If the file was encrypted with symmentric encryption, must provide
+    a :password option.
+  * Any other option accepted by {GPGME::Ctx.new}
+</pre>
+<p>
+@param &amp;block
+</p>
+<pre>
+  In the block all the signatures are yielded, so one could verify them.
+  See examples.
+</pre>
+<p>
+@return [<a href="Data.html">GPGME::Data</a>] a {<a
+href="Data.html">GPGME::Data</a>} that can be read.
+</p>
+<p>
+@example Simple <a href="Crypto.html#M000082">decrypt</a>
+</p>
+<pre>
+  crypto.decrypt encrypted_data
+</pre>
+<p>
+@example symmetric encryption, or passwored key
+</p>
+<pre>
+  crypto.decrypt encrypted_data, :password =&gt; &quot;gpgme&quot;
+</pre>
+<p>
+@example Output to file
+</p>
+<pre>
+  file = File.open(&quot;decrypted.txt&quot;, &quot;w+&quot;)
+  crypto.decrypt encrypted_data, :output =&gt; file
+</pre>
+<p>
+@example Verifying signatures
+</p>
+<pre>
+  crypto.decrypt encrypted_data do |signature|
+    raise &quot;Signature could not be verified&quot; unless signature.valid?
+  end
+</pre>
+<p>
+@raise [<a
+href="Error/UnsupportedAlgorithm.html">GPGME::Error::UnsupportedAlgorithm</a>]
+when the cipher was encrypted
+</p>
+<pre>
+  using an algorithm that's not supported currently.
+</pre>
+<p>
+@raise [<a href="Error/WrongKeyUsage.html">GPGME::Error::WrongKeyUsage</a>]
+TODO Don&#8216;t know when
+</p>
+<p>
+@raise [<a href="Error/DecryptFailed.html">GPGME::Error::DecryptFailed</a>]
+when the cipher was encrypted
+</p>
+<pre>
+  for a key that's not available currently.
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000086" class="method-detail">
+        <a name="M000086"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000086.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000086.html');return false;">
+          <span class="method-name">detach_sign</span><span class="method-args">(text, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a detached signature of an element
+</p>
+<pre>
+  crypto.detach_sign text, options
+</pre>
+<p>
+Same functionality of {.<a href="Crypto.html#M000083">sign</a>} only doing
+detached signs by default.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000081" class="method-detail">
+        <a name="M000081"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000081.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000081.html');return false;">
+          <span class="method-name">encrypt</span><span class="method-args">(plain, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Encrypts an element
+</p>
+<pre>
+ crypto.encrypt something, options
+</pre>
+<p>
+Will return a {<a href="Data.html">GPGME::Data</a>} element which can then
+be read.
+</p>
+<p>
+Must have some key imported, look for {<a
+href="Key.html#M000091">GPGME::Key.import</a>} to know how to import one,
+or the gpg documentation to know how to create one
+</p>
+<p>
+@param plain
+</p>
+<pre>
+ Must be something that can be converted into a {GPGME::Data} object, or
+ a {GPGME::Data} object itself.
+</pre>
+<p>
+@param [Hash] options
+</p>
+<pre>
+ The optional parameters are as follows:
+  * +:recipients+ for which recipient do you want to encrypt this file. It
+    will pick the first one available if none specified. Can be an array of
+    identifiers or just one (a string).
+  * +:symmetric+ if set to true, will ignore +:recipients+, and will perform
+    a symmetric encryption. Must provide a password via the +:password+
+    option.
+  * +:always_trust+ if set to true specifies all the recipients to be
+    trusted, thus not requiring confirmation.
+  * +:sign+ if set to true, performs a combined sign and encrypt operation.
+  * +:signers+ if +:sign+ specified to true, a list of additional possible
+    signers. Must be an array of sign identifiers.
+  * +:output+ if specified, it will write the output into it. It will be
+    converted to a {GPGME::Data} object, so it could be a file for example.
+  * Any other option accepted by {GPGME::Ctx.new}
+</pre>
+<p>
+@return [<a href="Data.html">GPGME::Data</a>] a {<a
+href="Data.html">GPGME::Data</a>} object that can be read.
+</p>
+<p>
+@example returns a {<a href="Data.html">GPGME::Data</a>} that can be later
+encrypted
+</p>
+<pre>
+ encrypted = crypto.encrypt &quot;Hello world!&quot;
+ encrypted.read # =&gt; Encrypted stuff
+</pre>
+<p>
+@example to be decrypted by someone@example.com.
+</p>
+<pre>
+ crypto.encrypt &quot;Hello&quot;, :recipients =&gt; &quot;someone@example.com&quot;
+</pre>
+<p>
+@example If I didn&#8216;t trust any of my keys by default
+</p>
+<pre>
+ crypto.encrypt &quot;Hello&quot; # =&gt; GPGME::Error::General
+ crypto.encrypt &quot;Hello&quot;, :always_trust =&gt; true # =&gt; Will work fine
+</pre>
+<p>
+@example encrypted string that can be decrypted and/or <b>verified</b>
+</p>
+<pre>
+ crypto.encrypt &quot;Hello&quot;, :sign =&gt; true
+</pre>
+<p>
+@example multiple signers
+</p>
+<pre>
+ crypto.encrypt &quot;Hello&quot;, :sign =&gt; true, :signers =&gt; &quot;extra@example.com&quot;
+</pre>
+<p>
+@example writing to a file instead
+</p>
+<pre>
+ file = File.open(&quot;signed.sec&quot;,&quot;w+&quot;)
+ crypto.encrypt &quot;Hello&quot;, :output =&gt; file # output written to signed.sec
+</pre>
+<p>
+@raise [<a href="Error/General.html">GPGME::Error::General</a>] when trying
+to <a href="Crypto.html#M000081">encrypt</a> with a key that is
+</p>
+<pre>
+  not trusted, and +:always_trust+ wasn't specified
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000083" class="method-detail">
+        <a name="M000083"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000083.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000083.html');return false;">
+          <span class="method-name">sign</span><span class="method-args">(text, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a signature of a text
+</p>
+<pre>
+  crypto.sign text, options
+</pre>
+<p>
+Must have the appropiate key to be able to <a
+href="Crypto.html#M000082">decrypt</a>, of course. Returns a {<a
+href="Data.html">GPGME::Data</a>} object which can then be read.
+</p>
+<p>
+@param text
+</p>
+<pre>
+  The object that will be signed. Must be something that can be converted
+  to {GPGME::Data}.
+</pre>
+<p>
+@param [Hash] options
+</p>
+<pre>
+ Optional parameters.
+  * +:signer+ sign identifier to sign the text with. Will use the first
+   key it finds if none specified.
+  * +:output+ if specified, it will write the output into it. It will be
+    converted to a {GPGME::Data} object, so it could be a file for example.
+  * +:mode+ Desired type of signature. Options are:
+   - +GPGME::SIG_MODE_NORMAL+ for a normal signature. The default one if
+     not specified.
+   - +GPGME::SIG_MODE_DETACH+ for a detached signature
+   - +GPGME::SIG_MODE_CLEAR+ for a cleartext signature
+  * Any other option accepted by {GPGME::Ctx.new}
+</pre>
+<p>
+@return [<a href="Data.html">GPGME::Data</a>] a {<a
+href="Data.html">GPGME::Data</a>} that can be read.
+</p>
+<p>
+@example normal <a href="Crypto.html#M000083">sign</a>
+</p>
+<pre>
+  crypto.sign &quot;Hi there&quot;
+</pre>
+<p>
+@example outputing to a file
+</p>
+<pre>
+  file = File.open(&quot;text.sign&quot;, &quot;w+&quot;)
+  crypto.sign &quot;Hi there&quot;, :options =&gt; file
+</pre>
+<p>
+@example doing a detached signature
+</p>
+<pre>
+  crypto.sign &quot;Hi there&quot;, :mode =&gt; GPGME::SIG_MODE_DETACH
+</pre>
+<p>
+@example specifying the signer
+</p>
+<pre>
+  crypto.sign &quot;Hi there&quot;, :signer =&gt; &quot;mrsimo@example.com&quot;
+</pre>
+<p>
+@raise [<a
+href="Error/UnusableSecretKey.html">GPGME::Error::UnusableSecretKey</a>]
+TODO don&#8216;t know when
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000084" class="method-detail">
+        <a name="M000084"></a>
+
+        <div class="method-heading">
+          <a href="Crypto.src/M000084.html" target="Code" class="method-signature"
+            onclick="popupCode('Crypto.src/M000084.html');return false;">
+          <span class="method-name">verify</span><span class="method-args">(sig, options = {}) {|signature| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Verifies a previously signed element
+</p>
+<pre>
+  crypto.verify sig, options, &amp;block
+</pre>
+<p>
+Must have the proper keys available.
+</p>
+<p>
+@param sig
+</p>
+<pre>
+  The signature itself. Must be possible to convert into a {GPGME::Data}
+  object, so can be a file.
+</pre>
+<p>
+@param [Hash] options
+</p>
+<pre>
+  * +:signed_text+ if the sign is detached, then must be the plain text
+    for which the signature was created.
+  * +:output+ where to store the result of the signature. Will be
+    converted to a {GPGME::Data} object.
+  * Any other option accepted by {GPGME::Ctx.new}
+</pre>
+<p>
+@param &amp;block
+</p>
+<pre>
+  In the block all the signatures are yielded, so one could verify them.
+  See examples.
+</pre>
+<p>
+@return [<a href="Data.html">GPGME::Data</a>] unless the <a
+href="Crypto.html#M000083">sign</a> is detached, the {<a
+href="Data.html">GPGME::Data</a>}
+</p>
+<pre>
+  object with the plain text. If the sign is detached, will return nil.
+</pre>
+<p>
+@example simple verification
+</p>
+<pre>
+  sign = crypto.sign(&quot;Hi there&quot;)
+  data = crypto.verify(sign) { |signature| signature.valid? }
+  data.read # =&gt; &quot;Hi there&quot;
+</pre>
+<p>
+@example saving output to file
+</p>
+<pre>
+  sign = crypto.sign(&quot;Hi there&quot;)
+  out  = File.open(&quot;test.asc&quot;, &quot;w+&quot;)
+  crypto.verify(sign, :output =&gt; out) {|signature| signature.valid?}
+  out.read # =&gt; &quot;Hi there&quot;
+</pre>
+<p>
+@example verifying a detached signature
+</p>
+<pre>
+  sign = crypto.detach_sign(&quot;Hi there&quot;)
+  # Will fail
+  crypto.verify(sign) { |signature| signature.valid? }
+  # Will succeed
+  crypto.verify(sign, :signed_text =&gt; &quot;hi there&quot;) do |signature|
+    signature.valid?
+  end
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

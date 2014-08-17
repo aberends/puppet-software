@@ -1,0 +1,17 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: each_keys
+block_params: keylist_next
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convenient method to iterate over keys.
+- !ruby/struct:SM::Flow::P 
+  body: If <tt>pattern</tt> is <tt>nil</tt>, all available keys are returned. If <tt>secret_only</tt> is <tt>true</tt>, only secret keys are returned.
+- !ruby/struct:SM::Flow::P 
+  body: See {GPGME::Key.find} for an example of how to use, or for an easier way to use.
+full_name: GPGME::Ctx#each_key
+is_singleton: false
+name: each_key
+params: (pattern = nil, secret_only = false, &block) {|keylist_next| ...}
+visibility: public

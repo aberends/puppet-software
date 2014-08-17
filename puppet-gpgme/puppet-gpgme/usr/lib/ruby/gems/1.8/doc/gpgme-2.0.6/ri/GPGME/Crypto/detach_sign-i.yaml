@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Creates a detached signature of an element
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.detach_sign text, options\n"
+- !ruby/struct:SM::Flow::P 
+  body: Same functionality of {.sign} only doing detached signs by default.
+full_name: GPGME::Crypto#detach_sign
+is_singleton: false
+name: detach_sign
+params: (text, options = {})
+visibility: public

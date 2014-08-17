@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Clearsigns an element
+- !ruby/struct:SM::Flow::VERB 
+  body: "  crypto.clearsign text, options\n"
+- !ruby/struct:SM::Flow::P 
+  body: Same functionality of {.sign} only doing clearsigns by default.
+full_name: GPGME::Crypto#clearsign
+is_singleton: false
+name: clearsign
+params: (text, options = {})
+visibility: public

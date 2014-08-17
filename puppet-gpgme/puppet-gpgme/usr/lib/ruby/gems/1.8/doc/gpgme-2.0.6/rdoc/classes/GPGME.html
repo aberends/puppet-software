@@ -1,0 +1,2517 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: GPGME</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">GPGME</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/gpgme/data_rb.html">
+                lib/gpgme/data.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/sub_key_rb.html">
+                lib/gpgme/sub_key.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/compat_rb.html">
+                lib/gpgme/compat.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/crypto_rb.html">
+                lib/gpgme/crypto.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/key_rb.html">
+                lib/gpgme/key.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/signature_rb.html">
+                lib/gpgme/signature.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/io_callbacks_rb.html">
+                lib/gpgme/io_callbacks.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/version_rb.html">
+                lib/gpgme/version.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/key_common_rb.html">
+                lib/gpgme/key_common.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/user_id_rb.html">
+                lib/gpgme/user_id.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/error_rb.html">
+                lib/gpgme/error.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/ctx_rb.html">
+                lib/gpgme/ctx.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/key_sig_rb.html">
+                lib/gpgme/key_sig.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/engine_rb.html">
+                lib/gpgme/engine.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/constants_rb.html">
+                lib/gpgme/constants.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme/misc_rb.html">
+                lib/gpgme/misc.rb
+                </a>
+        <br />
+                <a href="../files/lib/gpgme_rb.html">
+                lib/gpgme.rb
+                </a>
+        <br />
+                <a href="../files/ext/gpgme/gpgme_n_c.html">
+                ext/gpgme/gpgme_n.c
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The CTX argument can be `NULL&#8217;. In that case, `gpgme_wait&#8217;
+waits
+</p>
+<pre>
+  for any context to complete its operation.
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000018">check_version</a>&nbsp;&nbsp;
+      <a href="#M000017">error_to_exception</a>&nbsp;&nbsp;
+      <a href="#M000015">gpgme_data_rewind</a>&nbsp;&nbsp;
+      <a href="#M000019">gpgme_op_import</a>&nbsp;&nbsp;
+      <a href="#M000016">gpgme_op_import_ext</a>&nbsp;&nbsp;
+      <a href="#M000020">gpgme_op_import_result</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="GPGME/Engine.html" class="link">GPGME::Engine</a><br />
+Module <a href="GPGME/KeyCommon.html" class="link">GPGME::KeyCommon</a><br />
+Class <a href="GPGME/Crypto.html" class="link">GPGME::Crypto</a><br />
+Class <a href="GPGME/Ctx.html" class="link">GPGME::Ctx</a><br />
+Class <a href="GPGME/Data.html" class="link">GPGME::Data</a><br />
+Class <a href="GPGME/DecryptResult.html" class="link">GPGME::DecryptResult</a><br />
+Class <a href="GPGME/EncryptResult.html" class="link">GPGME::EncryptResult</a><br />
+Class <a href="GPGME/EngineInfo.html" class="link">GPGME::EngineInfo</a><br />
+Class <a href="GPGME/Error.html" class="link">GPGME::Error</a><br />
+Class <a href="GPGME/IOCallbacks.html" class="link">GPGME::IOCallbacks</a><br />
+Class <a href="GPGME/ImportResult.html" class="link">GPGME::ImportResult</a><br />
+Class <a href="GPGME/ImportStatus.html" class="link">GPGME::ImportStatus</a><br />
+Class <a href="GPGME/InvalidKey.html" class="link">GPGME::InvalidKey</a><br />
+Class <a href="GPGME/Key.html" class="link">GPGME::Key</a><br />
+Class <a href="GPGME/KeySig.html" class="link">GPGME::KeySig</a><br />
+Class <a href="GPGME/NewSignature.html" class="link">GPGME::NewSignature</a><br />
+Class <a href="GPGME/Recipient.html" class="link">GPGME::Recipient</a><br />
+Class <a href="GPGME/SigNotation.html" class="link">GPGME::SigNotation</a><br />
+Class <a href="GPGME/SignResult.html" class="link">GPGME::SignResult</a><br />
+Class <a href="GPGME/Signature.html" class="link">GPGME::Signature</a><br />
+Class <a href="GPGME/SubKey.html" class="link">GPGME::SubKey</a><br />
+Class <a href="GPGME/TrustItem.html" class="link">GPGME::TrustItem</a><br />
+Class <a href="GPGME/UserID.html" class="link">GPGME::UserID</a><br />
+Class <a href="GPGME/VerifyResult.html" class="link">GPGME::VerifyResult</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeError</td>
+          <td>=</td>
+          <td class="context-item-value">Error</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeData</td>
+          <td>=</td>
+          <td class="context-item-value">Data</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeEngineInfo</td>
+          <td>=</td>
+          <td class="context-item-value">EngineInfo</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeCtx</td>
+          <td>=</td>
+          <td class="context-item-value">Ctx</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeKey</td>
+          <td>=</td>
+          <td class="context-item-value">Key</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeSubKey</td>
+          <td>=</td>
+          <td class="context-item-value">SubKey</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeUserID</td>
+          <td>=</td>
+          <td class="context-item-value">UserID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeKeySig</td>
+          <td>=</td>
+          <td class="context-item-value">KeySig</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeVerifyResult</td>
+          <td>=</td>
+          <td class="context-item-value">VerifyResult</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeSignature</td>
+          <td>=</td>
+          <td class="context-item-value">Signature</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeDecryptResult</td>
+          <td>=</td>
+          <td class="context-item-value">DecryptResult</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeSignResult</td>
+          <td>=</td>
+          <td class="context-item-value">SignResult</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeEncryptResult</td>
+          <td>=</td>
+          <td class="context-item-value">EncryptResult</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeInvalidKey</td>
+          <td>=</td>
+          <td class="context-item-value">InvalidKey</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeNewSignature</td>
+          <td>=</td>
+          <td class="context-item-value">NewSignature</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeImportStatus</td>
+          <td>=</td>
+          <td class="context-item-value">ImportStatus</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GpgmeImportResult</td>
+          <td>=</td>
+          <td class="context-item-value">ImportResult</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;1.0.8&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_ALGO</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_ALGO</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_CAN_CERTIFY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_CAN_CERTIFY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_CAN_ENCRYPT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_CAN_ENCRYPT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_CAN_SIGN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_CAN_SIGN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_CHAINID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_CHAINID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_COMMENT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_COMMENT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_CREATED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_EMAIL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_EMAIL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_ERRTOK</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_ERRTOK</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_EXPIRE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_EXPIRE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_FPR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_FPR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_ISSUER</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_ISSUER</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_IS_SECRET</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_IS_SECRET</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_KEYID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_KEYID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_KEY_CAPS</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_KEY_CAPS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_KEY_DISABLED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_KEY_DISABLED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_KEY_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_KEY_EXPIRED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_KEY_INVALID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_KEY_INVALID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_KEY_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_KEY_REVOKED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_LEN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_LEN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_LEVEL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_LEVEL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_NAME</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_NAME</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_OTRUST</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_OTRUST</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_SERIAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_SERIAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_SIG_STATUS</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_SIG_STATUS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_SIG_SUMMARY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_SIG_SUMMARY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_TYPE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_TYPE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_UID_INVALID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_UID_INVALID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_UID_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_UID_REVOKED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_USERID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_USERID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ATTR_VALIDITY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ATTR_VALIDITY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DATA_ENCODING_ARMOR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_DATA_ENCODING_ARMOR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DATA_ENCODING_BASE64</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_DATA_ENCODING_BASE64</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DATA_ENCODING_BINARY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_DATA_ENCODING_BINARY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DATA_ENCODING_NONE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_DATA_ENCODING_NONE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ENCRYPT_ALWAYS_TRUST</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ENCRYPT_ALWAYS_TRUST</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ENCRYPT_NO_ENCRYPT_TO</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_ENCRYPT_NO_ENCRYPT_TO</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">IMPORT_NEW</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_IMPORT_NEW</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">IMPORT_SECRET</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_IMPORT_SECRET</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">IMPORT_SIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_IMPORT_SIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">IMPORT_SUBKEY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_IMPORT_SUBKEY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">IMPORT_UID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_IMPORT_UID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_EXTERN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_KEYLIST_MODE_EXTERN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_LOCAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_KEYLIST_MODE_LOCAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_SIGS</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_KEYLIST_MODE_SIGS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_VALIDATE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_KEYLIST_MODE_VALIDATE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_SIG_NOTATIONS</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_KEYLIST_MODE_SIG_NOTATIONS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_EPHEMERAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_KEYLIST_MODE_EPHEMERAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_CRC24_RFC2440</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_CRC24_RFC2440</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_CRC32</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_CRC32</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_CRC32_RFC1510</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_CRC32_RFC1510</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_HAVAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_HAVAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_MD2</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_MD2</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_MD4</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_MD4</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_MD5</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_MD5</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_RMD160</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_RMD160</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_SHA1</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_SHA1</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_SHA256</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_SHA256</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_SHA224</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_SHA224</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_SHA384</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_SHA384</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_SHA512</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_SHA512</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MD_TIGER</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_MD_TIGER</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PINENTRY_MODE_DEFAULT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PINENTRY_MODE_DEFAULT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PINENTRY_MODE_ASK</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PINENTRY_MODE_ASK</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PINENTRY_MODE_CANCEL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PINENTRY_MODE_CANCEL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PINENTRY_MODE_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PINENTRY_MODE_ERROR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PINENTRY_MODE_LOOPBACK</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PINENTRY_MODE_LOOPBACK</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PINENTRY_MODE_NAMES</td>
+          <td>=</td>
+          <td class="context-item-value">{       PINENTRY_MODE_DEFAULT  =&gt; :default,       PINENTRY_MODE_ASK      =&gt; :ask,       PINENTRY_MODE_CANCEL   =&gt; :cancel,       PINENTRY_MODE_ERROR    =&gt; :error,       PINENTRY_MODE_LOOPBACK =&gt; :loopback</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PK_DSA</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PK_DSA</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PK_ELG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PK_ELG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PK_ELG_E</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PK_ELG_E</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PK_RSA</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PK_RSA</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PK_ECC</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PK_ECC</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PROTOCOL_CMS</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PROTOCOL_CMS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PROTOCOL_OpenPGP</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PROTOCOL_OpenPGP</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_BAD_POLICY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_BAD_POLICY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_CRL_MISSING</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_CRL_MISSING</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_CRL_TOO_OLD</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_CRL_TOO_OLD</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_GREEN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_GREEN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_KEY_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_KEY_EXPIRED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_KEY_MISSING</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_KEY_MISSING</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_KEY_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_KEY_REVOKED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_RED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_RED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_SIG_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_SIG_EXPIRED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_SYS_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_SYS_ERROR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIGSUM_VALID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIGSUM_VALID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_MODE_CLEAR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_MODE_CLEAR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_MODE_DETACH</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_MODE_DETACH</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_MODE_NORMAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_MODE_NORMAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_BAD</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_BAD</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_DIFF</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_DIFF</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_ERROR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_GOOD</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_GOOD</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_GOOD_EXP</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_GOOD_EXP</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_GOOD_EXPKEY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_GOOD_EXPKEY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_NOKEY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_NOKEY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_NONE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_NONE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SIG_STAT_NOSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SIG_STAT_NOSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ABORT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ABORT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ALREADY_SIGNED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ALREADY_SIGNED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BADARMOR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BADARMOR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BADMDC</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BADMDC</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BADSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BADSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BAD_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BAD_PASSPHRASE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BEGIN_DECRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BEGIN_DECRYPTION</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BEGIN_ENCRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BEGIN_ENCRYPTION</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BEGIN_STREAM</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BEGIN_STREAM</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_DECRYPTION_FAILED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_DECRYPTION_FAILED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_DECRYPTION_OKAY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_DECRYPTION_OKAY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_DELETE_PROBLEM</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_DELETE_PROBLEM</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ENC_TO</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ENC_TO</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_END_DECRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_END_DECRYPTION</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_END_ENCRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_END_ENCRYPTION</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_END_STREAM</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_END_STREAM</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ENTER</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ENTER</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_EOF</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_EOF</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ERRMDC</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ERRMDC</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ERROR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ERRSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ERRSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_EXPKEYSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_EXPKEYSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_EXPSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_EXPSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_FILE_DONE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_FILE_DONE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_FILE_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_FILE_ERROR</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_FILE_START</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_FILE_START</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GET_BOOL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GET_BOOL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GET_HIDDEN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GET_HIDDEN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GET_LINE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GET_LINE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GOODMDC</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GOODMDC</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GOODSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GOODSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GOOD_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GOOD_PASSPHRASE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_GOT_IT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_GOT_IT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_IMPORTED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_IMPORTED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_IMPORT_RES</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_IMPORT_RES</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_INV_RECP</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_INV_RECP</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_KEYEXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_KEYEXPIRED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_KEYREVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_KEYREVOKED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_KEY_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_KEY_CREATED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_LEAVE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_LEAVE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_MISSING_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_MISSING_PASSPHRASE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NEED_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NEED_PASSPHRASE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NEED_PASSPHRASE_SYM</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NEED_PASSPHRASE_SYM</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NODATA</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NODATA</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NOTATION_DATA</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NOTATION_DATA</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NOTATION_NAME</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NOTATION_NAME</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NO_PUBKEY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NO_PUBKEY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NO_RECP</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NO_RECP</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_NO_SECKEY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_NO_SECKEY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_PKA_TRUST_BAD</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_PKA_TRUST_BAD</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_PKA_TRUST_GOOD</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_PKA_TRUST_GOOD</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_PLAINTEXT_LENGTH</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_PLAINTEXT_LENGTH</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_MOUNTPOINT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_MOUNTPOINT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_PINENTRY_LAUNCHED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_PINENTRY_LAUNCHED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_ATTRIBUTE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_ATTRIBUTE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_BEGIN_SIGNING</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_BEGIN_SIGNING</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_KEY_NOT_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_KEY_NOT_CREATED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_POLICY_URL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_POLICY_URL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_PROGRESS</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_PROGRESS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_RSA_OR_IDEA</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_RSA_OR_IDEA</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SESSION_KEY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SESSION_KEY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SHM_GET</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SHM_GET</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SHM_GET_BOOL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SHM_GET_BOOL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SHM_GET_HIDDEN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SHM_GET_HIDDEN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SHM_INFO</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SHM_INFO</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SIGEXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SIGEXPIRED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SIG_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SIG_CREATED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_SIG_ID</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_SIG_ID</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_TRUNCATED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_TRUNCATED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_TRUST_FULLY</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_TRUST_FULLY</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_TRUST_MARGINAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_TRUST_MARGINAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_TRUST_NEVER</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_TRUST_NEVER</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_TRUST_ULTIMATE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_TRUST_ULTIMATE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_TRUST_UNDEFINED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_TRUST_UNDEFINED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_UNEXPECTED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_UNEXPECTED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_USERID_HINT</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_USERID_HINT</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">STATUS_VALIDSIG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_STATUS_VALIDSIG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_FULL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_VALIDITY_FULL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_MARGINAL</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_VALIDITY_MARGINAL</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_NEVER</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_VALIDITY_NEVER</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_ULTIMATE</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_VALIDITY_ULTIMATE</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_UNDEFINED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_VALIDITY_UNDEFINED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_UNKNOWN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_VALIDITY_UNKNOWN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PROTOCOL_NAMES</td>
+          <td>=</td>
+          <td class="context-item-value">{     PROTOCOL_OpenPGP  =&gt; :OpenPGP,     PROTOCOL_CMS      =&gt; :CMS</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PROTOCOL_ASSUAN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PROTOCOL_ASSUAN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">PROTOCOL_SPAWN</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_PROTOCOL_SPAWN</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SPAWN_DETACHED</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SPAWN_DETACHED</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SPAWN_ALLOW_SET_FG</td>
+          <td>=</td>
+          <td class="context-item-value">GPGME_SPAWN_ALLOW_SET_FG</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">KEYLIST_MODE_NAMES</td>
+          <td>=</td>
+          <td class="context-item-value">{     KEYLIST_MODE_LOCAL    =&gt; :local,     KEYLIST_MODE_EXTERN   =&gt; :extern,     KEYLIST_MODE_SIGS     =&gt; :sigs,     KEYLIST_MODE_VALIDATE =&gt; :validate</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VALIDITY_NAMES</td>
+          <td>=</td>
+          <td class="context-item-value">{     VALIDITY_UNKNOWN    =&gt; :unknown,     VALIDITY_UNDEFINED  =&gt; :undefined,     VALIDITY_NEVER      =&gt; :never,     VALIDITY_MARGINAL   =&gt; :marginal,     VALIDITY_FULL       =&gt; :full,     VALIDITY_ULTIMATE   =&gt; :ultimate</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PK_RSA</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PK_RSA)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PK_DSA</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PK_DSA)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PK_ELG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PK_ELG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PK_ELG_E</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PK_ELG_E)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PK_ECC</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PK_ECC)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_MD5</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_MD5)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_SHA1</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_SHA1)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_RMD160</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_RMD160)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_MD2</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_MD2)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_TIGER</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_TIGER)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_HAVAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_HAVAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_SHA224</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_SHA224)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_SHA256</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_SHA256)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_SHA384</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_SHA384)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_SHA512</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_SHA512)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_MD4</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_MD4)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_CRC32</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_CRC32)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_CRC32_RFC1510</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_CRC32_RFC1510)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_MD_CRC24_RFC2440</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_MD_CRC24_RFC2440)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_EOF</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_EOF)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NO_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NO_ERROR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_GENERAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_GENERAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_ENOMEM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_ENOMEM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_INV_VALUE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_INV_VALUE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_UNUSABLE_PUBKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_UNUSABLE_PUBKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_UNUSABLE_SECKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_UNUSABLE_SECKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NO_DATA</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NO_DATA)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_CONFLICT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_CONFLICT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NOT_IMPLEMENTED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NOT_IMPLEMENTED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_DECRYPT_FAILED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_DECRYPT_FAILED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_BAD_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_BAD_PASSPHRASE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_KEY_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_KEY_EXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SIG_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SIG_EXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_CANCELED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_CANCELED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_INV_ENGINE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_INV_ENGINE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_AMBIGUOUS_NAME</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_AMBIGUOUS_NAME)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_WRONG_KEY_USAGE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_WRONG_KEY_USAGE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_CERT_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_CERT_REVOKED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_CERT_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_CERT_EXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NO_CRL_KNOWN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NO_CRL_KNOWN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NO_POLICY_MATCH</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NO_POLICY_MATCH)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NO_SECKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NO_SECKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_MISSING_CERT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_MISSING_CERT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_BAD_CERT_CHAIN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_BAD_CERT_CHAIN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_UNSUPPORTED_ALGORITHM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_UNSUPPORTED_ALGORITHM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_BAD_SIGNATURE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_BAD_SIGNATURE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_NO_PUBKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_NO_PUBKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_UNKNOWN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_UNKNOWN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_GPGME</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_GPGME)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_GPG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_GPG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_GPGSM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_GPGSM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_GCRYPT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_GCRYPT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_GPGAGENT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_GPGAGENT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_PINENTRY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_PINENTRY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_SCD</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_SCD)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_KEYBOX</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_KEYBOX)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_USER_1</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_USER_1)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_USER_2</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_USER_2)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_USER_3</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_USER_3)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPG_ERR_SOURCE_USER_4</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPG_ERR_SOURCE_USER_4)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_DATA_ENCODING_NONE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_DATA_ENCODING_NONE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_DATA_ENCODING_BINARY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_DATA_ENCODING_BINARY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_DATA_ENCODING_BASE64</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_DATA_ENCODING_BASE64)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_DATA_ENCODING_ARMOR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_DATA_ENCODING_ARMOR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_NONE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_NONE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_GOOD</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_GOOD)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_BAD</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_BAD)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_NOKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_NOKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_NOSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_NOSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_ERROR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_DIFF</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_DIFF)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_GOOD_EXP</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_GOOD_EXP)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_STAT_GOOD_EXPKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_STAT_GOOD_EXPKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_VALID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_VALID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_GREEN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_GREEN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_RED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_RED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_KEY_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_KEY_REVOKED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_KEY_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_KEY_EXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_SIG_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_SIG_EXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_KEY_MISSING</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_KEY_MISSING)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_CRL_MISSING</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_CRL_MISSING)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_CRL_TOO_OLD</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_CRL_TOO_OLD)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_BAD_POLICY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_BAD_POLICY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIGSUM_SYS_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIGSUM_SYS_ERROR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_MODE_NORMAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_MODE_NORMAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_MODE_DETACH</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_MODE_DETACH)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SIG_MODE_CLEAR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SIG_MODE_CLEAR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_KEYID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_KEYID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_FPR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_FPR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_ALGO</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_ALGO)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_LEN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_LEN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_CREATED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_EXPIRE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_EXPIRE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_OTRUST</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_OTRUST)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_USERID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_USERID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_NAME</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_NAME)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_EMAIL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_EMAIL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_COMMENT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_COMMENT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_VALIDITY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_VALIDITY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_LEVEL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_LEVEL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_TYPE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_TYPE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_IS_SECRET</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_IS_SECRET)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_KEY_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_KEY_REVOKED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_KEY_INVALID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_KEY_INVALID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_UID_REVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_UID_REVOKED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_UID_INVALID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_UID_INVALID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_KEY_CAPS</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_KEY_CAPS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_CAN_ENCRYPT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_CAN_ENCRYPT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_CAN_SIGN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_CAN_SIGN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_CAN_CERTIFY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_CAN_CERTIFY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_KEY_EXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_KEY_EXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_KEY_DISABLED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_KEY_DISABLED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_SERIAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_SERIAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_ISSUER</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_ISSUER)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_CHAINID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_CHAINID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_SIG_STATUS</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_SIG_STATUS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_ERRTOK</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_ERRTOK)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ATTR_SIG_SUMMARY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ATTR_SIG_SUMMARY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_VALIDITY_UNKNOWN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_VALIDITY_UNKNOWN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_VALIDITY_UNDEFINED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_VALIDITY_UNDEFINED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_VALIDITY_NEVER</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_VALIDITY_NEVER)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_VALIDITY_MARGINAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_VALIDITY_MARGINAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_VALIDITY_FULL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_VALIDITY_FULL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_VALIDITY_ULTIMATE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_VALIDITY_ULTIMATE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PROTOCOL_OpenPGP</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PROTOCOL_OpenPGP)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PROTOCOL_CMS</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PROTOCOL_CMS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PROTOCOL_ASSUAN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PROTOCOL_ASSUAN))
+#endif
+  /* This protocol was added in 1.5.0. */
+#ifdef GPGME_PROTOCOL_SPAWN
+  rb_define_const (mGPGME, &quot;GPGME_PROTOCOL_SPAWN&quot;,
+                   INT2FIX(GPGME_PROTOCOL_SPAWN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_EOF</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_EOF)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ENTER</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ENTER)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_LEAVE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_LEAVE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ABORT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ABORT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GOODSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GOODSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BADSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BADSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ERRSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ERRSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BADARMOR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BADARMOR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_RSA_OR_IDEA</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_RSA_OR_IDEA)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_KEYEXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_KEYEXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_KEYREVOKED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_KEYREVOKED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_TRUST_UNDEFINED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_TRUST_UNDEFINED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_TRUST_NEVER</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_TRUST_NEVER)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_TRUST_MARGINAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_TRUST_MARGINAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_TRUST_FULLY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_TRUST_FULLY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_TRUST_ULTIMATE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_TRUST_ULTIMATE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SHM_INFO</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SHM_INFO)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SHM_GET</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SHM_GET)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SHM_GET_BOOL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SHM_GET_BOOL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SHM_GET_HIDDEN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SHM_GET_HIDDEN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NEED_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NEED_PASSPHRASE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_VALIDSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_VALIDSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SIG_ID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SIG_ID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ENC_TO</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ENC_TO)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NODATA</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NODATA)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BAD_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BAD_PASSPHRASE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NO_PUBKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NO_PUBKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NO_SECKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NO_SECKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NEED_PASSPHRASE_SYM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NEED_PASSPHRASE_SYM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_DECRYPTION_FAILED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_DECRYPTION_FAILED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_DECRYPTION_OKAY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_DECRYPTION_OKAY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_MISSING_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_MISSING_PASSPHRASE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GOOD_PASSPHRASE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GOOD_PASSPHRASE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GOODMDC</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GOODMDC)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BADMDC</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BADMDC)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ERRMDC</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ERRMDC)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_IMPORTED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_IMPORTED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_IMPORT_RES</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_IMPORT_RES)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_FILE_START</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_FILE_START)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_FILE_DONE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_FILE_DONE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_FILE_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_FILE_ERROR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BEGIN_DECRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BEGIN_DECRYPTION)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_END_DECRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_END_DECRYPTION)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BEGIN_ENCRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BEGIN_ENCRYPTION)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_END_ENCRYPTION</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_END_ENCRYPTION)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_DELETE_PROBLEM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_DELETE_PROBLEM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GET_BOOL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GET_BOOL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GET_LINE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GET_LINE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GET_HIDDEN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GET_HIDDEN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_GOT_IT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_GOT_IT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_PROGRESS</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_PROGRESS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SIG_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SIG_CREATED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SESSION_KEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SESSION_KEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NOTATION_NAME</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NOTATION_NAME)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NOTATION_DATA</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NOTATION_DATA)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_POLICY_URL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_POLICY_URL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BEGIN_STREAM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BEGIN_STREAM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_END_STREAM</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_END_STREAM)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_KEY_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_KEY_CREATED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_USERID_HINT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_USERID_HINT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_UNEXPECTED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_UNEXPECTED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_INV_RECP</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_INV_RECP)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_NO_RECP</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_NO_RECP)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ALREADY_SIGNED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ALREADY_SIGNED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_SIGEXPIRED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_SIGEXPIRED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_EXPSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_EXPSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_EXPKEYSIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_EXPKEYSIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_TRUNCATED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_TRUNCATED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ERROR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_PKA_TRUST_BAD</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_PKA_TRUST_BAD)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_PKA_TRUST_GOOD</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_PKA_TRUST_GOOD)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_PLAINTEXT_LENGTH</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_PLAINTEXT_LENGTH)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_MOUNTPOINT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_MOUNTPOINT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_PINENTRY_LAUNCHED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_PINENTRY_LAUNCHED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_ATTRIBUTE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_ATTRIBUTE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_BEGIN_SIGNING</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_BEGIN_SIGNING)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_STATUS_KEY_NOT_CREATED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_STATUS_KEY_NOT_CREATED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_KEYLIST_MODE_LOCAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_KEYLIST_MODE_LOCAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_KEYLIST_MODE_EXTERN</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_KEYLIST_MODE_EXTERN)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_KEYLIST_MODE_SIGS</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_KEYLIST_MODE_SIGS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_KEYLIST_MODE_SIG_NOTATIONS</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_KEYLIST_MODE_SIG_NOTATIONS)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_KEYLIST_MODE_VALIDATE</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_KEYLIST_MODE_VALIDATE)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_KEYLIST_MODE_EPHEMERAL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_KEYLIST_MODE_EPHEMERAL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_IMPORT_NEW</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_IMPORT_NEW)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_IMPORT_UID</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_IMPORT_UID)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_IMPORT_SIG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_IMPORT_SIG)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_IMPORT_SUBKEY</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_IMPORT_SUBKEY)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_IMPORT_SECRET</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_IMPORT_SECRET)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ENCRYPT_ALWAYS_TRUST</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ENCRYPT_ALWAYS_TRUST)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_ENCRYPT_NO_ENCRYPT_TO</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_ENCRYPT_NO_ENCRYPT_TO)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PINENTRY_MODE_DEFAULT</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PINENTRY_MODE_DEFAULT)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PINENTRY_MODE_ASK</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PINENTRY_MODE_ASK)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PINENTRY_MODE_CANCEL</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PINENTRY_MODE_CANCEL)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PINENTRY_MODE_ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PINENTRY_MODE_ERROR)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_PINENTRY_MODE_LOOPBACK</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_PINENTRY_MODE_LOOPBACK)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SPAWN_DETACHED</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SPAWN_DETACHED)</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GPGME_SPAWN_ALLOW_SET_FG</td>
+          <td>=</td>
+          <td class="context-item-value">INT2FIX(GPGME_SPAWN_ALLOW_SET_FG)</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">gpgme_pubkey_algo_name</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">pubkey_algo_name</td>
+        </tr>
+      <tr class="top-aligned-row context-row">
+        <td>&nbsp;</td>
+        <td colspan="2" class="context-item-desc">
+From the c extension
+
+</td>
+      </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">gpgme_hash_algo_name</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">hash_algo_name</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="GPGME.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('GPGME.src/M000018.html');return false;">
+          <span class="method-name">check_version</span><span class="method-args">(options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+TODO find out what it does, can&#8216;t seem to find a proper parameter
+that returns something other than nil.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="GPGME.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('GPGME.src/M000017.html');return false;">
+          <span class="method-name">error_to_exception</span><span class="method-args">(err)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Auxiliary method used by all the library to generate exceptions from error
+codes returned by the C extension.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="GPGME.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('GPGME.src/M000019.html');return false;">
+          <span class="method-name">gpgme_op_import</span><span class="method-args">(p1, p2)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+HAVE_GPGME_OP_EXPORT_KEYS
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="GPGME.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('GPGME.src/M000020.html');return false;">
+          <span class="method-name">gpgme_op_import_result</span><span class="method-args">(p1)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+HAVE_GPGME_OP_EXPORT_KEYS
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="GPGME.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('GPGME.src/M000015.html');return false;">
+          <span class="method-name">gpgme_data_rewind</span><span class="method-args">(dh)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="GPGME.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('GPGME.src/M000016.html');return false;">
+          <span class="method-name">gpgme_op_import_ext</span><span class="method-args">(ctx, keydata, nr)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

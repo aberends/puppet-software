@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Ctx#import_result
+is_singleton: false
+name: import_result
+params: ()
+visibility: public

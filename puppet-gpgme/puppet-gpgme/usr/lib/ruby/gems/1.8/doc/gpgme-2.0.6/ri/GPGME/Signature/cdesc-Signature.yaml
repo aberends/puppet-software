@@ -1,0 +1,77 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: fpr
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: notations
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: pka_address
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: pka_trust
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: status
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: summary
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: validity
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: validity_reason
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: wrong_key_usage
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: []
+
+full_name: GPGME::Signature
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: bad?
+- !ruby/object:RI::MethodSummary 
+  name: exp_timestamp
+- !ruby/object:RI::MethodSummary 
+  name: expired_key?
+- !ruby/object:RI::MethodSummary 
+  name: expired_signature?
+- !ruby/object:RI::MethodSummary 
+  name: from
+- !ruby/object:RI::MethodSummary 
+  name: key
+- !ruby/object:RI::MethodSummary 
+  name: no_key?
+- !ruby/object:RI::MethodSummary 
+  name: revoked_key?
+- !ruby/object:RI::MethodSummary 
+  name: status_code
+- !ruby/object:RI::MethodSummary 
+  name: timestamp
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: valid?
+name: Signature
+superclass: Object

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return the encoding of the underlying data.
+full_name: GPGME::Data#encoding
+is_singleton: false
+name: encoding
+params: ()
+visibility: public

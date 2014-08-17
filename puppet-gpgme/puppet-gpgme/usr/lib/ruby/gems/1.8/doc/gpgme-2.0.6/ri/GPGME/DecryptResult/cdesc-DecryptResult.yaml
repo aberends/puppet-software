@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: file_name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: recipients
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: unsupported_algorithm
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: wrong_key_usage
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: []
+
+full_name: GPGME::DecryptResult
+includes: []
+
+instance_methods: []
+
+name: DecryptResult
+superclass: Object

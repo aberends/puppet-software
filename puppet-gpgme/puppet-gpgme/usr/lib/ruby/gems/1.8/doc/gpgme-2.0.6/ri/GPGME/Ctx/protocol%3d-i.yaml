@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the <tt>protocol</tt> used within this context. See {GPGME::Ctx.new} for possible values.
+full_name: GPGME::Ctx#protocol=
+is_singleton: false
+name: protocol=
+params: (proto)
+visibility: public

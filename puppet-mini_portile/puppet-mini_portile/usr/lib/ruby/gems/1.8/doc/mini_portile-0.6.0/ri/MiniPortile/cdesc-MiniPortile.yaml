@@ -1,0 +1,76 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: configure_options
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: files
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: host
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: logger
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: original_host
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: patch_files
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: target
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: version
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: MiniPortile
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: activate
+- !ruby/object:RI::MethodSummary 
+  name: compile
+- !ruby/object:RI::MethodSummary 
+  name: configure
+- !ruby/object:RI::MethodSummary 
+  name: configure_options
+- !ruby/object:RI::MethodSummary 
+  name: configured?
+- !ruby/object:RI::MethodSummary 
+  name: cook
+- !ruby/object:RI::MethodSummary 
+  name: download
+- !ruby/object:RI::MethodSummary 
+  name: downloaded?
+- !ruby/object:RI::MethodSummary 
+  name: extract
+- !ruby/object:RI::MethodSummary 
+  name: install
+- !ruby/object:RI::MethodSummary 
+  name: installed?
+- !ruby/object:RI::MethodSummary 
+  name: patch
+- !ruby/object:RI::MethodSummary 
+  name: path
+name: MiniPortile
+superclass: Object

@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: GPGME::Ctx</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">GPGME::Ctx</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/gpgme/compat_rb.html">
+                lib/gpgme/compat.rb
+                </a>
+        <br />
+                <a href="../../files/lib/gpgme/ctx_rb.html">
+                lib/gpgme/ctx.rb
+                </a>
+        <br />
+                <a href="../../files/ext/gpgme/gpgme_n_c.html">
+                ext/gpgme/gpgme_n.c
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The CTX argument can be `NULL&#8217;. In that case, `gpgme_wait&#8217;
+waits
+</p>
+<pre>
+  for any context to complete its operation.
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000150">add_signer</a>&nbsp;&nbsp;
+      <a href="#M000112">armor</a>&nbsp;&nbsp;
+      <a href="#M000111">armor=</a>&nbsp;&nbsp;
+      <a href="#M000143">card_edit</a>&nbsp;&nbsp;
+      <a href="#M000149">clear_signers</a>&nbsp;&nbsp;
+      <a href="#M000144">decrypt</a>&nbsp;&nbsp;
+      <a href="#M000146">decrypt_result</a>&nbsp;&nbsp;
+      <a href="#M000145">decrypt_verify</a>&nbsp;&nbsp;
+      <a href="#M000138">delete</a>&nbsp;&nbsp;
+      <a href="#M000137">delete_key</a>&nbsp;&nbsp;
+      <a href="#M000126">each_key</a>&nbsp;&nbsp;
+      <a href="#M000127">each_keys</a>&nbsp;&nbsp;
+      <a href="#M000140">edit</a>&nbsp;&nbsp;
+      <a href="#M000142">edit_card</a>&nbsp;&nbsp;
+      <a href="#M000141">edit_card_key</a>&nbsp;&nbsp;
+      <a href="#M000139">edit_key</a>&nbsp;&nbsp;
+      <a href="#M000153">encrypt</a>&nbsp;&nbsp;
+      <a href="#M000154">encrypt_result</a>&nbsp;&nbsp;
+      <a href="#M000155">encrypt_sign</a>&nbsp;&nbsp;
+      <a href="#M000133">export</a>&nbsp;&nbsp;
+      <a href="#M000132">export_keys</a>&nbsp;&nbsp;
+      <a href="#M000130">generate_key</a>&nbsp;&nbsp;
+      <a href="#M000131">genkey</a>&nbsp;&nbsp;
+      <a href="#M000129">get_key</a>&nbsp;&nbsp;
+      <a href="#M000135">import</a>&nbsp;&nbsp;
+      <a href="#M000134">import_keys</a>&nbsp;&nbsp;
+      <a href="#M000136">import_result</a>&nbsp;&nbsp;
+      <a href="#M000157">inspect</a>&nbsp;&nbsp;
+      <a href="#M000125">keylist_end</a>&nbsp;&nbsp;
+      <a href="#M000116">keylist_mode</a>&nbsp;&nbsp;
+      <a href="#M000115">keylist_mode=</a>&nbsp;&nbsp;
+      <a href="#M000124">keylist_next</a>&nbsp;&nbsp;
+      <a href="#M000123">keylist_start</a>&nbsp;&nbsp;
+      <a href="#M000128">keys</a>&nbsp;&nbsp;
+      <a href="#M000107">new</a>&nbsp;&nbsp;
+      <a href="#M000118">pinentry_mode</a>&nbsp;&nbsp;
+      <a href="#M000117">pinentry_mode=</a>&nbsp;&nbsp;
+      <a href="#M000110">protocol</a>&nbsp;&nbsp;
+      <a href="#M000109">protocol=</a>&nbsp;&nbsp;
+      <a href="#M000108">release</a>&nbsp;&nbsp;
+      <a href="#M000106">rewind</a>&nbsp;&nbsp;
+      <a href="#M000119">set_passphrase_callback</a>&nbsp;&nbsp;
+      <a href="#M000120">set_passphrase_cb</a>&nbsp;&nbsp;
+      <a href="#M000121">set_progress_callback</a>&nbsp;&nbsp;
+      <a href="#M000122">set_progress_cb</a>&nbsp;&nbsp;
+      <a href="#M000151">sign</a>&nbsp;&nbsp;
+      <a href="#M000152">sign_result</a>&nbsp;&nbsp;
+      <a href="#M000156">spawn</a>&nbsp;&nbsp;
+      <a href="#M000114">textmode</a>&nbsp;&nbsp;
+      <a href="#M000113">textmode=</a>&nbsp;&nbsp;
+      <a href="#M000147">verify</a>&nbsp;&nbsp;
+      <a href="#M000148">verify_result</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000107" class="method-detail">
+        <a name="M000107"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000107.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000107.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(options = {}) {|ctx| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a <a href="Ctx.html#M000107">new</a> instance from the given
+<tt>options</tt>. Must be released either executing the operations inside a
+block, or executing {<a href="Ctx.html#M000108">GPGME::Ctx#release</a>}
+afterwards.
+</p>
+<p>
+@param [Hash] options
+</p>
+<pre>
+ The optional parameters are as follows:
+ * +:protocol+ Either +PROTOCOL_OpenPGP+ or +PROTOCOL_CMS+.
+ * +:armor+ will return ASCII armored outputs if specified true.
+ * +:textmode+ if +true+, inform the recipient that the input is text.
+ * +:keylist_mode+ One of: +KEYLIST_MODE_LOCAL+, +KEYLIST_MODE_EXTERN+,
+   +KEYLIST_MODE_SIGS+ or +KEYLIST_MODE_VALIDATE+.
+ * +:pinentry_mode+ One of: +PINENTRY_MODE_DEFAULT+,
+   +PINENTRY_MODE_ASK+, +PINENTRY_MODE_CANCEL+,
+   +PINENTRY_MODE_ERROR+, or +PINENTRY_MODE_LOOPBACK+.
+ * +:password+ password of the passphrased password being used.
+ * +:passphrase_callback+ A callback function. See {#set_passphrase_callback}.
+ * +:passphrase_callback_value+ An object passed to passphrase_callback.
+ * +:progress_callback+  A callback function. See {#set_progress_callback}.
+ * +:progress_callback_value+ An object passed to progress_callback.
+</pre>
+<p>
+@example
+</p>
+<pre>
+  ctx = GPGME::Ctx.new
+  # operate on ctx
+  ctx.release
+</pre>
+<p>
+@example
+</p>
+<pre>
+  GPGME::Ctx.new do |ctx|
+    # operate on ctx
+  end
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000150" class="method-detail">
+        <a name="M000150"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000150.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000150.html');return false;">
+          <span class="method-name">add_signer</span><span class="method-args">(*keys)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add <em><a href="Ctx.html#M000128">keys</a></em> to the list of signers.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000112" class="method-detail">
+        <a name="M000112"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000112.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000112.html');return false;">
+          <span class="method-name">armor</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return true if the output is ASCII armored.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000111" class="method-detail">
+        <a name="M000111"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000111.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000111.html');return false;">
+          <span class="method-name">armor=</span><span class="method-args">(yes)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Tell whether the output should be ASCII armored.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000143" class="method-detail">
+        <a name="M000143"></a>
+
+        <div class="method-heading">
+          <span class="method-name">card_edit</span><span class="method-args">(key, editfunc, hook_value = nil, out = Data.new)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000141">edit_card_key</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000149" class="method-detail">
+        <a name="M000149"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000149.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000149.html');return false;">
+          <span class="method-name">clear_signers</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove the list of signers from this object.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000144" class="method-detail">
+        <a name="M000144"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000144.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000144.html');return false;">
+          <span class="method-name">decrypt</span><span class="method-args">(cipher, plain = Data.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Decrypt the ciphertext and return the plaintext.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000146" class="method-detail">
+        <a name="M000146"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000146.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000146.html');return false;">
+          <span class="method-name">decrypt_result</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000145" class="method-detail">
+        <a name="M000145"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000145.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000145.html');return false;">
+          <span class="method-name">decrypt_verify</span><span class="method-args">(cipher, plain = Data.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000138" class="method-detail">
+        <a name="M000138"></a>
+
+        <div class="method-heading">
+          <span class="method-name">delete</span><span class="method-args">(key, allow_secret = false)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000137">delete_key</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000137" class="method-detail">
+        <a name="M000137"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000137.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000137.html');return false;">
+          <span class="method-name">delete_key</span><span class="method-args">(key, allow_secret = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Delete the key from the key ring. If allow_secret is false, only public <a
+href="Ctx.html#M000128">keys</a> are deleted, otherwise secret <a
+href="Ctx.html#M000128">keys</a> are deleted as well.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000126" class="method-detail">
+        <a name="M000126"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000126.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000126.html');return false;">
+          <span class="method-name">each_key</span><span class="method-args">(pattern = nil, secret_only = false) {|keylist_next| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convenient method to iterate over <a href="Ctx.html#M000128">keys</a>.
+</p>
+<p>
+If <tt>pattern</tt> is <tt>nil</tt>, all available <a
+href="Ctx.html#M000128">keys</a> are returned. If <tt>secret_only</tt> is
+<tt>true</tt>, only secret <a href="Ctx.html#M000128">keys</a> are
+returned.
+</p>
+<p>
+See {<a href="Key.html#M000088">GPGME::Key.find</a>} for an example of how
+to use, or for an easier way to use.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000127" class="method-detail">
+        <a name="M000127"></a>
+
+        <div class="method-heading">
+          <span class="method-name">each_keys</span><span class="method-args">(pattern = nil, secret_only = false, &amp;block)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000126">each_key</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000140" class="method-detail">
+        <a name="M000140"></a>
+
+        <div class="method-heading">
+          <span class="method-name">edit</span><span class="method-args">(key, editfunc, hook_value = nil, out = Data.new)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000139">edit_key</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000142" class="method-detail">
+        <a name="M000142"></a>
+
+        <div class="method-heading">
+          <span class="method-name">edit_card</span><span class="method-args">(key, editfunc, hook_value = nil, out = Data.new)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000141">edit_card_key</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000141" class="method-detail">
+        <a name="M000141"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000141.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000141.html');return false;">
+          <span class="method-name">edit_card_key</span><span class="method-args">(key, editfunc, hook_value = nil, out = Data.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Edit attributes of the key on the card.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000139" class="method-detail">
+        <a name="M000139"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000139.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000139.html');return false;">
+          <span class="method-name">edit_key</span><span class="method-args">(key, editfunc, hook_value = nil, out = Data.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Edit attributes of the key in the local key ring.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000153" class="method-detail">
+        <a name="M000153"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000153.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000153.html');return false;">
+          <span class="method-name">encrypt</span><span class="method-args">(recp, plain, cipher = Data.new, flags = 0)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Encrypt the plaintext in the data object for the recipients and return the
+ciphertext.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000154" class="method-detail">
+        <a name="M000154"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000154.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000154.html');return false;">
+          <span class="method-name">encrypt_result</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000155" class="method-detail">
+        <a name="M000155"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000155.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000155.html');return false;">
+          <span class="method-name">encrypt_sign</span><span class="method-args">(recp, plain, cipher = Data.new, flags = 0)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000133" class="method-detail">
+        <a name="M000133"></a>
+
+        <div class="method-heading">
+          <span class="method-name">export</span><span class="method-args">(recipients, keydata = Data.new)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000132">export_keys</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000132" class="method-detail">
+        <a name="M000132"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000132.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000132.html');return false;">
+          <span class="method-name">export_keys</span><span class="method-args">(recipients, keydata = Data.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Extract the public <a href="Ctx.html#M000128">keys</a> that match the
+<tt>recipients</tt>. Returns a {<a href="Data.html">GPGME::Data</a>} object
+which is not rewinded (should do +seek(0)+ before reading).
+</p>
+<p>
+Private <a href="Ctx.html#M000128">keys</a> cannot be exported due to <a
+href="../GPGME.html">GPGME</a> restrictions.
+</p>
+<p>
+If passed, the key will be exported to <tt>keydata</tt>, which must be a
+{<a href="Data.html">GPGME::Data</a>} object.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000130" class="method-detail">
+        <a name="M000130"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000130.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000130.html');return false;">
+          <span class="method-name">generate_key</span><span class="method-args">(parms, pubkey = nil, seckey = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generate a <a href="Ctx.html#M000107">new</a> key pair. <tt>parms</tt> is a
+string which looks like
+</p>
+<pre>
+ &lt;GnupgKeyParms format=&quot;internal&quot;&gt;
+ Key-Type: DSA
+ Key-Length: 1024
+ Subkey-Type: ELG-E
+ Subkey-Length: 1024
+ Name-Real: Joe Tester
+ Name-Comment: with stupid passphrase
+ Name-Email: joe@foo.bar
+ Expire-Date: 0
+ Passphrase: abc
+ &lt;/GnupgKeyParms&gt;
+</pre>
+<p>
+If <tt>pubkey</tt> and <tt>seckey</tt> are both set to <tt>nil</tt>, it
+stores the generated key pair into your key ring.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000131" class="method-detail">
+        <a name="M000131"></a>
+
+        <div class="method-heading">
+          <span class="method-name">genkey</span><span class="method-args">(parms, pubkey = nil, seckey = nil)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000130">generate_key</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000129" class="method-detail">
+        <a name="M000129"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000129.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000129.html');return false;">
+          <span class="method-name">get_key</span><span class="method-args">(fingerprint, secret = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the key with the <tt>fingerprint</tt>. If <tt>secret</tt> is
+<tt>true</tt>, secret key is returned.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000135" class="method-detail">
+        <a name="M000135"></a>
+
+        <div class="method-heading">
+          <span class="method-name">import</span><span class="method-args">(keydata)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000134">import_keys</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000134" class="method-detail">
+        <a name="M000134"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000134.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000134.html');return false;">
+          <span class="method-name">import_keys</span><span class="method-args">(keydata)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add the <a href="Ctx.html#M000128">keys</a> in the data buffer to the key
+ring.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000136" class="method-detail">
+        <a name="M000136"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000136.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000136.html');return false;">
+          <span class="method-name">import_result</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000157" class="method-detail">
+        <a name="M000157"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000157.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000157.html');return false;">
+          <span class="method-name">inspect</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000125" class="method-detail">
+        <a name="M000125"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000125.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000125.html');return false;">
+          <span class="method-name">keylist_end</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+End a pending key list operation.
+</p>
+<p>
+Used by {<a href="Ctx.html#M000126">GPGME::Ctx#each_key</a>}
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000116.html');return false;">
+          <span class="method-name">keylist_mode</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the current key listing mode.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000115.html');return false;">
+          <span class="method-name">keylist_mode=</span><span class="method-args">(mode)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Change the default behaviour of the key listing functions.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000124" class="method-detail">
+        <a name="M000124"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000124.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000124.html');return false;">
+          <span class="method-name">keylist_next</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Advance to the next key in the key listing operation.
+</p>
+<p>
+Used by {<a href="Ctx.html#M000126">GPGME::Ctx#each_key</a>}
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000123" class="method-detail">
+        <a name="M000123"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000123.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000123.html');return false;">
+          <span class="method-name">keylist_start</span><span class="method-args">(pattern = nil, secret_only = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initiate a key listing operation for given pattern. If <tt>pattern</tt> is
+<tt>nil</tt>, all available <a href="Ctx.html#M000128">keys</a> are
+returned. If +secret_only&lt;+ is <tt>true</tt>, only secret <a
+href="Ctx.html#M000128">keys</a> are returned.
+</p>
+<p>
+Used by {<a href="Ctx.html#M000126">GPGME::Ctx#each_key</a>}
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000128" class="method-detail">
+        <a name="M000128"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000128.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000128.html');return false;">
+          <span class="method-name">keys</span><span class="method-args">(pattern = nil, secret_only = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the <a href="Ctx.html#M000128">keys</a> that match the
+<tt>pattern</tt>, or all if <tt>pattern</tt> is nil. Returns only secret <a
+href="Ctx.html#M000128">keys</a> if <tt>secret_only</tt> is true.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000118.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000118.html');return false;">
+          <span class="method-name">pinentry_mode</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the current pinentry mode.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000117.html');return false;">
+          <span class="method-name">pinentry_mode=</span><span class="method-args">(mode)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Change the default behaviour of the pinentry invocation.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000110" class="method-detail">
+        <a name="M000110"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000110.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000110.html');return false;">
+          <span class="method-name">protocol</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the <tt><a href="Ctx.html#M000110">protocol</a></tt> used within
+this context.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000109" class="method-detail">
+        <a name="M000109"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000109.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000109.html');return false;">
+          <span class="method-name">protocol=</span><span class="method-args">(proto)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the <tt><a href="Ctx.html#M000110">protocol</a></tt> used within this
+context. See {<a href="Ctx.html#M000107">GPGME::Ctx.new</a>} for possible
+values.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000108" class="method-detail">
+        <a name="M000108"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000108.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000108.html');return false;">
+          <span class="method-name">release</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Releases the <a href="Ctx.html">Ctx</a> instance. Must be called if it was
+initialized without a block.
+</p>
+<p>
+@example
+</p>
+<pre>
+  ctx = GPGME::Ctx.new
+  # operate on ctx
+  ctx.release
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000106.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000106.html');return false;">
+          <span class="method-name">rewind</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the data pointer to the beginning.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000119.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000119.html');return false;">
+          <span class="method-name">set_passphrase_callback</span><span class="method-args">(passfunc, hook_value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the passphrase callback with given hook value. <tt>passfunc</tt> should
+respond to <tt>call</tt> with 5 arguments.
+</p>
+<ul>
+<li><tt>obj</tt> the parameter +:passphrase_callback_value+ passed when
+creating the {<a href="Ctx.html">GPGME::Ctx</a>} object.
+
+</li>
+<li><tt>uid_hint</tt> hint as to what key are we asking the password for. Ex:
+
+<p>
++CFB3294A50C2CFD7 Albert Llop &lt;mrsimo@example.com&gt;+
+</p>
+</li>
+<li><tt>passphrase_info</tt>
+
+</li>
+<li><tt>prev_was_bad</tt> 0 if it&#8216;s the first time the password is being
+asked, 1 otherwise.
+
+</li>
+<li><tt>fd</tt> file descriptor where the password must be written too.
+
+</li>
+</ul>
+<p>
+Expects a Method object which can be obtained by the <tt>method</tt> method
+(really..).
+</p>
+<pre>
+ ctx.set_passphrase_callback(MyModule.method(:passfunc))
+</pre>
+<p>
+@example this method will simply return <tt>maria</tt> as password.
+</p>
+<pre>
+ def pass_function(obj, uid_hint, passphrase_info, prev_was_bad, fd)
+   io = IO.for_fd(fd, 'w')
+   io.puts &quot;maria&quot;
+   io.flush
+ end
+</pre>
+<p>
+@example this will interactively ask for the password
+</p>
+<pre>
+ def passfunc(obj, uid_hint, passphrase_info, prev_was_bad, fd)
+   $stderr.write(&quot;Passphrase for #{uid_hint}: &quot;)
+   $stderr.flush
+   begin
+     system('stty -echo')
+     io = IO.for_fd(fd, 'w')
+     io.puts(gets)
+     io.flush
+   ensure
+     (0 ... $_.length).each do |i| $_[i] = ?0 end if $_
+     system('stty echo')
+   end
+   $stderr.puts
+ end
+</pre>
+<p>
+Note that this function doesn&#8216;t work with GnuPG 2.0. You can use
+either GnuPG 1.x, which can be installed in parallel with GnuPG 2.0, or
+GnuPG 2.1, which has loopback pinentry feature (see {<a
+href="Ctx.html#M000118">pinentry_mode</a>}).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000120" class="method-detail">
+        <a name="M000120"></a>
+
+        <div class="method-heading">
+          <span class="method-name">set_passphrase_cb</span><span class="method-args">(passfunc, hook_value = nil)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000119">set_passphrase_callback</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000121" class="method-detail">
+        <a name="M000121"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000121.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000121.html');return false;">
+          <span class="method-name">set_progress_callback</span><span class="method-args">(progfunc, hook_value = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the progress callback with given hook value. <em>progfunc</em> should
+respond to <tt>call</tt> with 5 arguments.
+</p>
+<pre>
+ def progfunc(hook, what, type, current, total)
+   $stderr.write(&quot;#{what}: #{current}/#{total}\r&quot;)
+   $stderr.flush
+ end
+
+ ctx.set_progress_callback(method(:progfunc))
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000122" class="method-detail">
+        <a name="M000122"></a>
+
+        <div class="method-heading">
+          <span class="method-name">set_progress_cb</span><span class="method-args">(progfunc, hook_value = nil)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Ctx.html#M000121">set_progress_callback</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000151" class="method-detail">
+        <a name="M000151"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000151.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000151.html');return false;">
+          <span class="method-name">sign</span><span class="method-args">(plain, sig = Data.new, mode = GPGME::SIG_MODE_NORMAL)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a signature for the text. <tt>plain</tt> is a data object which
+contains the text. <tt>sig</tt> is a data object where the generated
+signature is stored.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000152" class="method-detail">
+        <a name="M000152"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000152.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000152.html');return false;">
+          <span class="method-name">sign_result</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000156" class="method-detail">
+        <a name="M000156"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000156.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000156.html');return false;">
+          <span class="method-name">spawn</span><span class="method-args">(file, argv, datain, dataout, dataerr, flags = 0)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000114.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000114.html');return false;">
+          <span class="method-name">textmode</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return true if canonical text mode is enabled.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000113.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000113.html');return false;">
+          <span class="method-name">textmode=</span><span class="method-args">(yes)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Tell whether canonical text mode should be used.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000147" class="method-detail">
+        <a name="M000147"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000147.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000147.html');return false;">
+          <span class="method-name">verify</span><span class="method-args">(sig, signed_text = nil, plain = Data.new)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Verify that the signature in the data object is a valid signature.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000148" class="method-detail">
+        <a name="M000148"></a>
+
+        <div class="method-heading">
+          <a href="Ctx.src/M000148.html" target="Code" class="method-signature"
+            onclick="popupCode('Ctx.src/M000148.html');return false;">
+          <span class="method-name">verify_result</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

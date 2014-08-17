@@ -1,0 +1,51 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: fpr
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: keyid
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: length
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: pubkey_algo
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: PUBKEY_ALGO_LETTERS
+  value: "{       PK_RSA    => \"R\",       PK_ELG_E  => \"g\",       PK_ELG    => \"G\",       PK_DSA    => \"D\""
+full_name: GPGME::SubKey
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: KeyCommon
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: expired
+- !ruby/object:RI::MethodSummary 
+  name: expires
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: pubkey_algo_letter
+- !ruby/object:RI::MethodSummary 
+  name: sha
+- !ruby/object:RI::MethodSummary 
+  name: timestamp
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: SubKey
+superclass: Object

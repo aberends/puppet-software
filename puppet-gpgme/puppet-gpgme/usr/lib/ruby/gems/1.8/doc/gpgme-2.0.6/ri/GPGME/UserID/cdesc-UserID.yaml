@@ -1,0 +1,47 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: comment
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: email
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: signatures
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: uid
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: validity
+  rw: R
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The CTX argument can be `NULL'. In that case, `gpgme_wait' waits
+- !ruby/struct:SM::Flow::VERB 
+  body: "  for any context to complete its operation.\n"
+constants: []
+
+full_name: GPGME::UserID
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: invalid?
+- !ruby/object:RI::MethodSummary 
+  name: revoked?
+name: UserID
+superclass: Object

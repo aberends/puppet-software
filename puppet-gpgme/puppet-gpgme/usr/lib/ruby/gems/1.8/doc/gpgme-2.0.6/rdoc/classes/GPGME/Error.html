@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: GPGME::Error</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">GPGME::Error</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/gpgme/error_rb.html">
+                lib/gpgme/error.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                StandardError
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000042">code</a>&nbsp;&nbsp;
+      <a href="#M000044">message</a>&nbsp;&nbsp;
+      <a href="#M000041">new</a>&nbsp;&nbsp;
+      <a href="#M000043">source</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Error/AmbiguousName.html" class="link">GPGME::Error::AmbiguousName</a><br />
+Class <a href="Error/BadCertificateChain.html" class="link">GPGME::Error::BadCertificateChain</a><br />
+Class <a href="Error/BadPassphrase.html" class="link">GPGME::Error::BadPassphrase</a><br />
+Class <a href="Error/BadSignature.html" class="link">GPGME::Error::BadSignature</a><br />
+Class <a href="Error/Canceled.html" class="link">GPGME::Error::Canceled</a><br />
+Class <a href="Error/CertificateExpired.html" class="link">GPGME::Error::CertificateExpired</a><br />
+Class <a href="Error/CertificateRevoked.html" class="link">GPGME::Error::CertificateRevoked</a><br />
+Class <a href="Error/Conflict.html" class="link">GPGME::Error::Conflict</a><br />
+Class <a href="Error/DecryptFailed.html" class="link">GPGME::Error::DecryptFailed</a><br />
+Class <a href="Error/General.html" class="link">GPGME::Error::General</a><br />
+Class <a href="Error/InvalidEngine.html" class="link">GPGME::Error::InvalidEngine</a><br />
+Class <a href="Error/InvalidValue.html" class="link">GPGME::Error::InvalidValue</a><br />
+Class <a href="Error/InvalidVersion.html" class="link">GPGME::Error::InvalidVersion</a><br />
+Class <a href="Error/MissingCertificate.html" class="link">GPGME::Error::MissingCertificate</a><br />
+Class <a href="Error/NoCRLKnown.html" class="link">GPGME::Error::NoCRLKnown</a><br />
+Class <a href="Error/NoData.html" class="link">GPGME::Error::NoData</a><br />
+Class <a href="Error/NoPolicyMatch.html" class="link">GPGME::Error::NoPolicyMatch</a><br />
+Class <a href="Error/NoPublicKey.html" class="link">GPGME::Error::NoPublicKey</a><br />
+Class <a href="Error/NoSecretKey.html" class="link">GPGME::Error::NoSecretKey</a><br />
+Class <a href="Error/NotImplemented.html" class="link">GPGME::Error::NotImplemented</a><br />
+Class <a href="Error/UnsupportedAlgorithm.html" class="link">GPGME::Error::UnsupportedAlgorithm</a><br />
+Class <a href="Error/UnusablePublicKey.html" class="link">GPGME::Error::UnusablePublicKey</a><br />
+Class <a href="Error/UnusableSecretKey.html" class="link">GPGME::Error::UnusableSecretKey</a><br />
+Class <a href="Error/WrongKeyUsage.html" class="link">GPGME::Error::WrongKeyUsage</a><br />
+
+    </div>
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">error</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="Error.src/M000041.html" target="Code" class="method-signature"
+            onclick="popupCode('Error.src/M000041.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(error)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="Error.src/M000042.html" target="Code" class="method-signature"
+            onclick="popupCode('Error.src/M000042.html');return false;">
+          <span class="method-name">code</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the error <a href="Error.html#M000042">code</a>.
+</p>
+<p>
+The error <a href="Error.html#M000042">code</a> indicates the type of an
+error, or the reason why an operation failed.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000044" class="method-detail">
+        <a name="M000044"></a>
+
+        <div class="method-heading">
+          <a href="Error.src/M000044.html" target="Code" class="method-signature"
+            onclick="popupCode('Error.src/M000044.html');return false;">
+          <span class="method-name">message</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return a description of the error <a href="Error.html#M000042">code</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="Error.src/M000043.html" target="Code" class="method-signature"
+            onclick="popupCode('Error.src/M000043.html');return false;">
+          <span class="method-name">source</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return the error <a href="Error.html#M000043">source</a>.
+</p>
+<p>
+The error <a href="Error.html#M000043">source</a> has not a precisely
+defined meaning. Sometimes it is the place where the error happened,
+sometimes it is the place where an error was encoded into an error value.
+Usually the error <a href="Error.html#M000043">source</a> will give an
+indication to where to look for the problem. This is not always true, but
+it is attempted to achieve this goal.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

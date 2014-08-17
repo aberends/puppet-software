@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: set_progress_cb
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Set the progress callback with given hook value. <em>progfunc</em> should respond to <tt>call</tt> with 5 arguments.
+- !ruby/struct:SM::Flow::VERB 
+  body: " def progfunc(hook, what, type, current, total)\n   $stderr.write(&quot;#{what}: #{current}/#{total}\\r&quot;)\n   $stderr.flush\n end\n\n ctx.set_progress_callback(method(:progfunc))\n"
+full_name: GPGME::Ctx#set_progress_callback
+is_singleton: false
+name: set_progress_callback
+params: (progfunc, hook_value = nil)
+visibility: public

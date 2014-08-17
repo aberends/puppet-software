@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return the default configuration.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Engine.dirinfo('homedir')\n  # =&gt; '/home/user/.gnupg&quot;\n"
+full_name: GPGME::Engine::dirinfo
+is_singleton: true
+name: dirinfo
+params: (what)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Array of capabilities for this key. It can contain any combination of +:encrypt+, +:sign+, +:certify+ or +:authenticate+
+full_name: GPGME::KeyCommon#capability
+is_singleton: false
+name: capability
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Ctx#encrypt_result
+is_singleton: false
+name: encrypt_result
+params: ()
+visibility: public

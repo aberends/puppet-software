@@ -1,0 +1,106 @@
+"gcc -o conftest -I. -I/usr/lib64/ruby/1.8/x86_64-linux -I. -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/include    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fno-strict-aliasing  -fPIC   conftest.c  -L. -L/usr/lib64 -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib -L.  -rdynamic -Wl,-export-dynamic    -lgpgme -lassuan -lgpg-error -lruby -Wl,-Bstatic -lgpgme -Wl,-Bdynamic -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: int main(void) { return 0; }
+/* end */
+
+have_header: checking for gpgme.h... -------------------- yes
+
+"gcc -E -I. -I/usr/lib64/ruby/1.8/x86_64-linux -I. -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/include    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fno-strict-aliasing  -fPIC    conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <gpgme.h>
+/* end */
+
+--------------------
+
+checking for gpgme >= 1.1.3... -------------------- no
+
+"gcc -o conftest -I. -I/usr/lib64/ruby/1.8/x86_64-linux -I. -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/include    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fno-strict-aliasing  -fPIC   conftest.c  -L. -L/usr/lib64 -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib -L.  -rdynamic -Wl,-export-dynamic    -Wl,-Bstatic -lgpgme -Wl,-Bdynamic -Wl,-Bstatic -lassuan -Wl,-Bdynamic -Wl,-Bstatic -lgpg-error -Wl,-Bdynamic -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-gpgsm.o): In function `gpgsm_cancel':
+engine-gpgsm.c:(.text+0x3c9): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-gpgsm.o): In function `gpgsm_new':
+engine-gpgsm.c:(.text+0x6e2): undefined reference to `assuan_new_ext'
+engine-gpgsm.c:(.text+0x708): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-assuan.o): In function `llass_cancel':
+engine-assuan.c:(.text+0x1b3): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-assuan.o): In function `llass_new':
+engine-assuan.c:(.text+0x35e): undefined reference to `assuan_new_ext'
+engine-assuan.c:(.text+0x384): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-uiserver.o): In function `uiserver_cancel':
+engine-uiserver.c:(.text+0x3ff): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-uiserver.o): In function `uiserver_new':
+engine-uiserver.c:(.text+0x687): undefined reference to `assuan_new_ext'
+engine-uiserver.c:(.text+0x6ad): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-g13.o): In function `g13_cancel':
+engine-g13.c:(.text+0x272): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-g13.o): In function `g13_new':
+engine-g13.c:(.text+0x452): undefined reference to `assuan_new_ext'
+engine-g13.c:(.text+0x478): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(assuan-support.o): In function `my_usleep':
+assuan-support.c:(.text+0x65): undefined reference to `__assuan_usleep'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(assuan-support.o): In function `my_socketpair':
+assuan-support.c:(.text+0x424): undefined reference to `__assuan_socketpair'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include <gpgme.h>
+2: #include <stdlib.h>
+3: int main (void) {
+4:   return gpgme_check_version ("1.1.3") == NULL;
+5: }
+/* end */
+
+--------------------
+
+have_func: checking for gpgme_op_export_keys()... -------------------- no
+
+"gcc -o conftest -I. -I/usr/lib64/ruby/1.8/x86_64-linux -I. -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/include    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fno-strict-aliasing  -fPIC   -DRUBY_GPGME_NEED_WORKAROUND_KEYLIST_NEXT conftest.c  -L. -L/usr/lib64 -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib -L.  -rdynamic -Wl,-export-dynamic    -Wl,-Bstatic -lgpgme -Wl,-Bdynamic -Wl,-Bstatic -lassuan -Wl,-Bdynamic -Wl,-Bstatic -lgpg-error -Wl,-Bdynamic -lruby -Wl,-Bstatic -lgpgme -Wl,-Bdynamic -Wl,-Bstatic -lassuan -Wl,-Bdynamic -Wl,-Bstatic -lgpg-error -Wl,-Bdynamic -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘gpgme_op_export_keys’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))gpgme_op_export_keys; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib64/ruby/1.8/x86_64-linux -I. -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/include -I/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/include    -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fno-strict-aliasing  -fPIC   -DRUBY_GPGME_NEED_WORKAROUND_KEYLIST_NEXT conftest.c  -L. -L/usr/lib64 -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libgpg-error/1.13/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/libassuan/2.1.1/lib -L/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib -L.  -rdynamic -Wl,-export-dynamic    -Wl,-Bstatic -lgpgme -Wl,-Bdynamic -Wl,-Bstatic -lassuan -Wl,-Bdynamic -Wl,-Bstatic -lgpg-error -Wl,-Bdynamic -lruby -Wl,-Bstatic -lgpgme -Wl,-Bdynamic -Wl,-Bstatic -lassuan -Wl,-Bdynamic -Wl,-Bstatic -lgpg-error -Wl,-Bdynamic -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: warning: implicit declaration of function ‘gpgme_op_export_keys’
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-gpgsm.o): In function `gpgsm_cancel':
+engine-gpgsm.c:(.text+0x3c9): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-gpgsm.o): In function `gpgsm_new':
+engine-gpgsm.c:(.text+0x6e2): undefined reference to `assuan_new_ext'
+engine-gpgsm.c:(.text+0x708): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-assuan.o): In function `llass_cancel':
+engine-assuan.c:(.text+0x1b3): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-assuan.o): In function `llass_new':
+engine-assuan.c:(.text+0x35e): undefined reference to `assuan_new_ext'
+engine-assuan.c:(.text+0x384): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-uiserver.o): In function `uiserver_cancel':
+engine-uiserver.c:(.text+0x3ff): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-uiserver.o): In function `uiserver_new':
+engine-uiserver.c:(.text+0x687): undefined reference to `assuan_new_ext'
+engine-uiserver.c:(.text+0x6ad): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-g13.o): In function `g13_cancel':
+engine-g13.c:(.text+0x272): undefined reference to `assuan_release'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(engine-g13.o): In function `g13_new':
+engine-g13.c:(.text+0x452): undefined reference to `assuan_new_ext'
+engine-g13.c:(.text+0x478): undefined reference to `assuan_ctx_set_system_hooks'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(assuan-support.o): In function `my_usleep':
+assuan-support.c:(.text+0x65): undefined reference to `__assuan_usleep'
+/usr/lib/ruby/gems/1.8/gems/gpgme-2.0.6/ports/x86_64-redhat-linux/gpgme/1.5.0/lib/libgpgme.a(assuan-support.o): In function `my_socketpair':
+assuan-support.c:(.text+0x424): undefined reference to `__assuan_socketpair'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { gpgme_op_export_keys(); return 0; }
+/* end */
+
+--------------------
+

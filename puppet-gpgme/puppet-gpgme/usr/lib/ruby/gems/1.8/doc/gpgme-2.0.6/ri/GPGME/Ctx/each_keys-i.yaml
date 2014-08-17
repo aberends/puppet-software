@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #each_key"
+full_name: GPGME::Ctx#each_keys
+is_singleton: false
+name: each_keys
+params: (pattern = nil, secret_only = false, &block)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Initiate a key listing operation for given pattern. If <tt>pattern</tt> is <tt>nil</tt>, all available keys are returned. If +secret_only&lt;+ is <tt>true</tt>, only secret keys are returned.
+- !ruby/struct:SM::Flow::P 
+  body: Used by {GPGME::Ctx#each_key}
+full_name: GPGME::Ctx#keylist_start
+is_singleton: false
+name: keylist_start
+params: (pattern = nil, secret_only = false)
+visibility: public

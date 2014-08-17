@@ -1,0 +1,34 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Exports public keys
+- !ruby/struct:SM::Flow::VERB 
+  body: "  GPGME::Key.export pattern, options\n"
+- !ruby/struct:SM::Flow::P 
+  body: Private keys cannot be exported due to GPGME restrictions.
+- !ruby/struct:SM::Flow::P 
+  body: "@param pattern"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Identifier of the key to export.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@param [Hash] options"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  * +:output+ specify where to write the key to. It will be converted to\n    a {GPGME::Data}, so it could be a file, for example.\n  * Any other option accepted by {GPGME::Ctx.new}\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@return [GPGME::Data] the exported key."
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  key = GPGME::Key.export &quot;mrsimo@example.com&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example writing to a file"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  out = File.open(&quot;my.key&quot;, &quot;w+&quot;)\n  GPGME::Key.export &quot;mrsimo@example.com&quot;, :output =&gt; out\n"
+full_name: GPGME::Key::export
+is_singleton: true
+name: export
+params: (pattern, options = {})
+visibility: public

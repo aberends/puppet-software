@@ -1,0 +1,20 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Exports this key. Accepts the same options as {GPGME::Ctx.new}, and +options[:output]+, where you can specify something that can become a {GPGME::Data}, where the output will go.
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  key.export(:armor =&gt; true)\n  # =&gt; GPGME::Data you can read with ASCII armored format\n"
+- !ruby/struct:SM::Flow::P 
+  body: "@example"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  file = File.open(&quot;key.asc&quot;, &quot;w+&quot;)\n  key.export(:output =&gt; file)\n  # =&gt; the key will be written to the file.\n"
+full_name: GPGME::Key#export
+is_singleton: false
+name: export
+params: (options = {})
+visibility: public

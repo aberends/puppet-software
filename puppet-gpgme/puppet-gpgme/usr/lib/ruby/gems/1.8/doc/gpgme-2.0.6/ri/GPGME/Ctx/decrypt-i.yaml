@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decrypt the ciphertext and return the plaintext.
+full_name: GPGME::Ctx#decrypt
+is_singleton: false
+name: decrypt
+params: (cipher, plain = Data.new)
+visibility: public

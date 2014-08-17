@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>activate (MiniPortile)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mini_portile.rb, line 116</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate</span>
+    <span class="ruby-identifier">lib_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">port_path</span>, <span class="ruby-value str">&quot;lib&quot;</span>)
+    <span class="ruby-identifier">vars</span> = {
+      <span class="ruby-value str">'PATH'</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">port_path</span>, <span class="ruby-value str">'bin'</span>),
+      <span class="ruby-value str">'CPATH'</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">port_path</span>, <span class="ruby-value str">'include'</span>),
+      <span class="ruby-value str">'LIBRARY_PATH'</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lib_path</span>
+    }.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">env</span>, <span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">path</span>) }
+
+    <span class="ruby-identifier">output</span> <span class="ruby-node">&quot;Activating #{@name} #{@version} (from #{port_path})...&quot;</span>
+    <span class="ruby-identifier">vars</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span>, <span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+
+      <span class="ruby-comment cmt"># turn into a valid Windows path (if required)</span>
+      <span class="ruby-identifier">full_path</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>, <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>
+
+      <span class="ruby-comment cmt"># save current variable value</span>
+      <span class="ruby-identifier">old_value</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">var</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">''</span>
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">old_value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">full_path</span>)
+        <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">var</span>] = <span class="ruby-node">&quot;#{full_path}#{File::PATH_SEPARATOR}#{old_value}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-comment cmt"># rely on LDFLAGS when cross-compiling</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">lib_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@host</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@original_host</span>)
+      <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">lib_path</span>)
+
+      <span class="ruby-identifier">old_value</span> = <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value str">&quot;LDFLAGS&quot;</span>, <span class="ruby-value str">&quot;&quot;</span>)
+
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">old_value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">full_path</span>)
+        <span class="ruby-constant">ENV</span>[<span class="ruby-value str">&quot;LDFLAGS&quot;</span>] = <span class="ruby-node">&quot;-L#{full_path} #{old_value}&quot;</span>.<span class="ruby-identifier">strip</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

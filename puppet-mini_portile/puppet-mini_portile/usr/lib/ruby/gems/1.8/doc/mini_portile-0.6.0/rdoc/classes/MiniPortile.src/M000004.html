@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>patch (MiniPortile)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/mini_portile.rb, line 39</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">patch</span>
+    <span class="ruby-comment cmt"># Set GIT_DIR while appying patches to work around</span>
+    <span class="ruby-comment cmt"># git-apply doing nothing when started within another</span>
+    <span class="ruby-comment cmt"># git directory.</span>
+    <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'GIT_DIR'</span>], <span class="ruby-identifier">old_git</span> = <span class="ruby-value str">'.'</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'GIT_DIR'</span>]
+    <span class="ruby-keyword kw">begin</span>
+      <span class="ruby-ivar">@patch_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">full_path</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">next</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)
+        <span class="ruby-identifier">output</span> <span class="ruby-node">&quot;Running git apply with #{full_path}...&quot;</span>
+        <span class="ruby-identifier">execute</span>(<span class="ruby-value str">'patch'</span>, <span class="ruby-node">%Q(git apply #{full_path})</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">ensure</span>
+      <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'GIT_DIR'</span>] = <span class="ruby-identifier">old_git</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

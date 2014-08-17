@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Signature#exp_timestamp
+is_singleton: false
+name: exp_timestamp
+params: ()
+visibility: public

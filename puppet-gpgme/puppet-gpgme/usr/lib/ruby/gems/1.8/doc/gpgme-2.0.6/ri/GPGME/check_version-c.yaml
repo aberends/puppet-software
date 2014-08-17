@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: TODO find out what it does, can't seem to find a proper parameter that returns something other than nil.
+full_name: GPGME::check_version
+is_singleton: true
+name: check_version
+params: (options = nil)
+visibility: public

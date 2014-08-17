@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Aug 17 01:21:21 +0200 2014</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/MiniPortile.html">MiniPortile</a></h1>
+<ul>
+<li><a href="https://github.com/luislavena/mini_portile">Source Code</a>
+
+</li>
+<li><a href="https://github.com/luislavena/mini_portile/issues">Bug Reports</a>
+
+</li>
+</ul>
+<p>
+This project is a minimalistic, simplistic and stupid implementation of a
+port/recipe system <b>for developers</b>.
+</p>
+<h2>Another port system, srsly?</h2>
+<p>
+No, is not a general port system, is not aimed to take over apt, macports
+or anything like that.
+</p>
+<p>
+The rationale is simple.
+</p>
+<p>
+You create a library A that uses B at runtime or compile time. Target
+audience of your library might have different versions of B installed than
+yours.
+</p>
+<p>
+You know, <em>Works on my machine</em> is not what you expect from one
+developer to another.
+</p>
+<p>
+Developers having problems report them back to you, and what you do then?
+Compile B locally, replacing your existing installation of B or simply
+hacking things around so nothing breaks.
+</p>
+<p>
+All this, manually.
+</p>
+<p>
+Computers are tools, are meant to help us, not the other way around.
+</p>
+<p>
+What if I tell you the above scenario can be simplified with something like
+this:
+</p>
+<pre>
+  rake compile B_VERSION=1.2.3
+</pre>
+<p>
+And your library will use the version of B you specified. Done.
+</p>
+<h2>You make it sound easy, where is the catch?</h2>
+<p>
+You got me, there is a catch. At this time (and highly likely will be
+always) <a href="../classes/MiniPortile.html">MiniPortile</a> is only
+compatible with GCC compilers and autoconf/configure-based projects.
+</p>
+<p>
+It assumes the library you want to build contains a <tt>configure</tt>
+script, which all the autoconf-based libraries do.
+</p>
+<h3>How to use</h3>
+<p>
+Now that you know the catch, and you&#8216;re still reading this, let me
+show you a quick example:
+</p>
+<pre>
+  require &quot;mini_portile&quot;
+  recipe = MiniPortile.new(&quot;libiconv&quot;, &quot;1.13.1&quot;)
+  recipe.files = [&quot;http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz&quot;]
+  recipe.cook
+  recipe.activate
+</pre>
+<p>
+That&#8216;s all. <tt>cook</tt> will download, extract, patch, configure
+and compile the library into a namespaced structure. <tt>activate</tt>
+ensures GCC find this library and prefers it over a system-wide
+installation.
+</p>
+<h3>Structure</h3>
+<p>
+At this time, if you haven&#8216;t digged into the code yet, are wondering
+<em>what is all that structure talk about?</em>.
+</p>
+<p>
+<a href="../classes/MiniPortile.html">MiniPortile</a> follows the principle
+of <b>convention over configuration</b> and established a folder structure
+where is going to place files and perform work.
+</p>
+<p>
+Take the above example, and let&#8216;s draw some picture:
+</p>
+<pre>
+  mylib
+    |-- ports
+    |   |-- archives
+    |   |   `-- libiconv-1.13.1.tar.gz
+    |   `-- &lt;platform&gt;
+    |       `-- libiconv
+    |           `-- 1.13.1
+    |               |-- bin
+    |               |-- include
+    |               `-- lib
+    `-- tmp
+        `-- &lt;platform&gt;
+            `-- ports
+</pre>
+<p>
+In above structure, <tt>platform</tt> refers to the architecture that
+represents the operating system you&#8216;re using (e.g. i686-linux,
+i386-mingw32, etc).
+</p>
+<p>
+Inside this folder, <a href="../classes/MiniPortile.html">MiniPortile</a>
+will store the artifacts that result from the compilation process. As you
+cans see, it versions out the library so you can run multiple version
+combination without compromising these overlap each other.
+</p>
+<p>
+<tt>archives</tt> is where downloaded source files are stored. It is
+recommended you avoid trashing that folder so no further downloads will be
+required (save bandwidth, save the world).
+</p>
+<p>
+The <tt>tmp</tt> is where compilation is performed and can be safely
+discarded.
+</p>
+<p>
+Don&#8216;t worry, you don&#8216;t need to know the path structure by
+memory, just use recipe&#8216;s <tt>path</tt> to obtain the full path to
+the installation directory:
+</p>
+<pre>
+  recipe.cook
+  recipe.path # =&gt; /home/luis/projects/myapp/ports/i686-linux/libiconv/1.13.1
+</pre>
+<h3>How can I combine this with my compilation task?</h3>
+<p>
+In the simplified proposal, the idea is that using Rake, your
+<tt>compile</tt> task depends on <a
+href="../classes/MiniPortile.html">MiniPortile</a> compilation and most
+important, activation.
+</p>
+<p>
+Take the following as a simplification of how you can use <a
+href="../classes/MiniPortile.html">MiniPortile</a> with Rake:
+</p>
+<pre>
+  task :libiconv do
+    recipe = MiniPortile.new(&quot;libiconv&quot;, &quot;1.13.1&quot;)
+    recipe.files = [&quot;http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz&quot;]
+    checkpoint = &quot;.#{recipe.name}-#{recipe.version}.installed&quot;
+
+    unless File.exist?(checkpoint)
+      recipe.cook
+      touch checkpoint
+    end
+
+    recipe.activate
+  end
+
+  task :compile =&gt; [:libiconv] do
+    # ...
+  end
+</pre>
+<p>
+This example will:
+</p>
+<ul>
+<li>Compile the library only once (using a timestamp file)
+
+</li>
+<li>Ensure compiled library gets activated every time
+
+</li>
+<li>Make compile task depend on compiled library activation
+
+</li>
+</ul>
+<p>
+For your homework, you can make libiconv version be taken from <tt>ENV</tt>
+variables.
+</p>
+<h3>Native or cross-compilation</h3>
+<p>
+Above examples cover the normal use case: compile support libraries
+natively.
+</p>
+<p>
+<a href="../classes/MiniPortile.html">MiniPortile</a> also covers another
+use case, which is the cross-compilation of the support libraries to be
+used as part of a binary gem compilation.
+</p>
+<p>
+It is the perfect complementary tool for rake-compiler and it&#8216;s
+<tt>cross</tt> Rake task.
+</p>
+<p>
+Depending on your usage of rake-compiler, you will need to use
+<tt>host</tt> to match the installed cross-compiler toolchain.
+</p>
+<p>
+Please refer to the examples directory for simplified and practical usage.
+</p>
+<h3>Supported scenarios</h3>
+<p>
+As mentioned before, <a href="../classes/MiniPortile.html">MiniPortile</a>
+requires a GCC compiler toolchain. This has been tested against Ubuntu, OSX
+and even Windows (RubyInstaller with DevKit)
+</p>
+<h2>Disclaimer</h2>
+<p>
+If you have any trouble, don&#8216;t hesitate to contact the author. As
+always, I&#8216;m not going to say <em>Use at your own risk</em> because I
+don&#8216;t want this library to be risky.
+</p>
+<p>
+If you trip on something, I&#8216;ll share the liability by repairing
+things as quickly as I can. Your responsibility is to report the
+inadequacies.
+</p>
+<h2>License</h2>
+<p>
+This library is licensed under MIT license. Please see LICENSE.txt for
+details.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

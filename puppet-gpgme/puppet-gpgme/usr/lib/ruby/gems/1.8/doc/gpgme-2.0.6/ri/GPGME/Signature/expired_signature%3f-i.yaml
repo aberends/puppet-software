@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: GPGME::Signature#expired_signature?
+is_singleton: false
+name: expired_signature?
+params: ()
+visibility: public

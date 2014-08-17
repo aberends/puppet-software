@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>error_to_exception (GPGME)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/gpgme.rb, line 33</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">error_to_exception</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-constant">GPGME</span><span class="ruby-operator">::</span><span class="ruby-identifier">gpgme_err_code</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_EOF</span>
+        <span class="ruby-constant">EOFError</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NO_ERROR</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_GENERAL</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">General</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_ENOMEM</span>
+        <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOMEM</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_INV_VALUE</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_UNUSABLE_PUBKEY</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">UnusablePublicKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_UNUSABLE_SECKEY</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">UnusableSecretKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NO_DATA</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NoData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_CONFLICT</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Conflict</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NOT_IMPLEMENTED</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NotImplemented</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_DECRYPT_FAILED</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">DecryptFailed</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_BAD_PASSPHRASE</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">BadPassphrase</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_CANCELED</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Canceled</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_INV_ENGINE</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidEngine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_AMBIGUOUS_NAME</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">AmbiguousName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_WRONG_KEY_USAGE</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">WrongKeyUsage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_CERT_REVOKED</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">CertificateRevoked</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_CERT_EXPIRED</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">CertificateExpired</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NO_CRL_KNOWN</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NoCRLKnown</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NO_POLICY_MATCH</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NoPolicyMatch</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NO_SECKEY</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NoSecretKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_MISSING_CERT</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingCertificate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_BAD_CERT_CHAIN</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">BadCertificateChain</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_UNSUPPORTED_ALGORITHM</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">UnsupportedAlgorithm</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_BAD_SIGNATURE</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">BadSignature</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">GPG_ERR_NO_PUBKEY</span>
+        <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">NoPublicKey</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">err</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
