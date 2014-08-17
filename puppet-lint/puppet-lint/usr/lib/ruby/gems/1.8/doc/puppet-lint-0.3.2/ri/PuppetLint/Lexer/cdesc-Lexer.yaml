@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEYWORDS
+  value: "{       'class' => true,       'case' => true,       'default' => true,       'define' => true,       'import' => true,       'if' => true,       'else' => true,       'elsif' => true,       'inherits' => true,       'node' => true,       'and' => true,       'or' => true,       'undef' => true,       'true' => true,       'false' => true,       'in' => true,       'unless' => true,     }"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: REGEX_PREV_TOKENS
+  value: "{       :NODE => true,       :LBRACE => true,       :RBRACE => true,       :MATCH => true,       :NOMATCH => true,       :COMMA => true,     }"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KNOWN_TOKENS
+  value: "[       [:CLASSREF, /\\A(((::){0,1}[A-Z][-\\w]*)+)/],       [:NUMBER, /\\A\\b((?:0[xX][0-9A-Fa-f]+|0?\\d+(?:\\.\\d+)?(?:[eE]-?\\d+)?))\\b/],       [:NAME, /\\A(((::)?[a-z0-9][-\\w]*)(::[a-z0-9][-\\w]*)*)/],       [:LBRACK, /\\A(\\[)/],       [:RBRACK, /\\A(\\])/],       [:LBRACE, /\\A(\\{)/],       [:RBRACE, /\\A(\\})/],       [:LPAREN, /\\A(\\()/],       [:RPAREN, /\\A(\\))/],       [:ISEQUAL, /\\A(==)/],       [:MATCH, /\\A(=~)/],       [:FARROW, /\\A(=>)/],       [:EQUALS, /\\A(=)/],       [:APPENDS, /\\A(\\+=)/],       [:PARROW, /\\A(\\+>)/],       [:PLUS, /\\A(\\+)/],       [:GREATEREQUAL, /\\A(>=)/],       [:RSHIFT, /\\A(>>)/],       [:GREATERTHAN, /\\A(>)/],       [:LESSEQUAL, /\\A(<=)/],       [:LLCOLLECT, /\\A(<<\\|)/],       [:OUT_EDGE, /\\A(<-)/],       [:OUT_EDGE_SUB, /\\A(<~)/],       [:LCOLLECT, /\\A(<\\|)/],       [:LSHIFT, /\\A(<<)/],       [:LESSTHAN, /\\A(<)/],       [:NOMATCH, /\\A(!~)/],       [:NOTEQUAL, /\\A(!=)/],       [:NOT, /\\A(!)/],       [:RRCOLLECT, /\\A(\\|>>)/],       [:RCOLLECT, /\\A(\\|>)/],       [:IN_EDGE, /\\A(->)/],       [:IN_EDGE_SUB, /\\A(~>)/],       [:MINUS, /\\A(-)/],       [:COMMA, /\\A(,)/],       [:DOT, /\\A(\\.)/],       [:COLON, /\\A(:)/],       [:AT, /\\A(@)/],       [:SEMIC, /\\A(;)/],       [:QMARK, /\\A(\\?)/],       [:BACKSLASH, /\\A(\\\\)/],       [:TIMES, /\\A(\\*)/],     ]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: FORMATTING_TOKENS
+  value: "{       :WHITESPACE => true,       :NEWLINE => true,       :COMMENT => true,       :MLCOMMENT => true,       :SLASH_COMMENT => true,       :INDENT => true,     }"
+full_name: PuppetLint::Lexer
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: get_string_segment
+- !ruby/object:RI::MethodSummary 
+  name: interpolate_string
+- !ruby/object:RI::MethodSummary 
+  name: new_token
+- !ruby/object:RI::MethodSummary 
+  name: possible_regex?
+- !ruby/object:RI::MethodSummary 
+  name: tokenise
+- !ruby/object:RI::MethodSummary 
+  name: tokens
+name: Lexer
+superclass: Object

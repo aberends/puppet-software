@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint::Lexer#possible_regex?
+is_singleton: false
+name: possible_regex?
+params: ()
+visibility: public

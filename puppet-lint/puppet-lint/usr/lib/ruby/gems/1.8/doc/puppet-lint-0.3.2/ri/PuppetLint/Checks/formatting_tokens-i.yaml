@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint::Checks#formatting_tokens
+is_singleton: false
+name: formatting_tokens
+params: ()
+visibility: public

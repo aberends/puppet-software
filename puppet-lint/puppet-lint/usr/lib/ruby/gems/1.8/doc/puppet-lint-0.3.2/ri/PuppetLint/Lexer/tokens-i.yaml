@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint::Lexer#tokens
+is_singleton: false
+name: tokens
+params: ()
+visibility: public

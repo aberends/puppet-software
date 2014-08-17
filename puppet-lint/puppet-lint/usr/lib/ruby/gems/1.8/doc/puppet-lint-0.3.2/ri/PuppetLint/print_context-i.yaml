@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint#print_context
+is_singleton: false
+name: print_context
+params: (message, linter)
+visibility: public

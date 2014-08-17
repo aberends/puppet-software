@@ -1,0 +1,15 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: PuppetLint::Plugins::CheckDocumentation
+includes: []
+
+instance_methods: []
+
+name: CheckDocumentation
+superclass: PuppetLint::CheckPlugin

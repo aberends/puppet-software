@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>possible_regex? (PuppetLint::Lexer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/puppet-lint/lexer.rb, line 205</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">possible_regex?</span>
+      <span class="ruby-identifier">prev_token</span> = <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">FORMATTING_TOKENS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">type</span>
+      }.<span class="ruby-identifier">last</span>
+
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">prev_token</span>.<span class="ruby-identifier">nil?</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">REGEX_PREV_TOKENS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">prev_token</span>.<span class="ruby-identifier">type</span>
+        <span class="ruby-keyword kw">true</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-keyword kw">false</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

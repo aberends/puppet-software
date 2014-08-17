@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>tokenise (PuppetLint::Lexer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/puppet-lint/lexer.rb, line 109</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tokenise</span>(<span class="ruby-identifier">code</span>)
+      <span class="ruby-identifier">code</span>.<span class="ruby-identifier">chomp!</span>
+
+      <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+
+      <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">size</span>
+        <span class="ruby-identifier">chunk</span> = <span class="ruby-identifier">code</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+
+        <span class="ruby-identifier">found</span> = <span class="ruby-keyword kw">false</span>
+
+        <span class="ruby-constant">KNOWN_TOKENS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">regex</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-identifier">regex</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:NAME</span>
+              <span class="ruby-keyword kw">if</span> <span class="ruby-constant">KEYWORDS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">value</span>
+                <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">upcase</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+              <span class="ruby-keyword kw">else</span>
+                <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-keyword kw">end</span>
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-identifier">found</span> = <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">break</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">found</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">var_name</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-regexp re">/\A\$((::)?([\w-]+::)*[\w-]+)/</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:VARIABLE</span>, <span class="ruby-identifier">var_name</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">var_name</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\A'(.*?)'/</span><span class="ruby-identifier">m</span>)
+            <span class="ruby-identifier">str_content</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]).<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp re">/(\A|[^\\])(\\\\)*'/</span><span class="ruby-identifier">m</span>)
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:SSTRING</span>, <span class="ruby-identifier">str_content</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>], <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">str_content</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\A&quot;/</span>)
+            <span class="ruby-identifier">str_contents</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]).<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp re">/(\A|[^\\])(\\\\)*&quot;/</span><span class="ruby-identifier">m</span>)
+            <span class="ruby-identifier">_</span> = <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+            <span class="ruby-identifier">interpolate_string</span>(<span class="ruby-identifier">str_contents</span>, <span class="ruby-identifier">_</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">_</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">length</span>)
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">str_contents</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">comment</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-regexp re">/\A(#.*)/</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-identifier">comment_size</span> = <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp re">/# ?/</span>, <span class="ruby-value str">''</span>)
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:COMMENT</span>, <span class="ruby-identifier">comment</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">comment_size</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">slash_comment</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-regexp re">/\A(\/\/.*)/</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-identifier">slash_comment_size</span> = <span class="ruby-identifier">slash_comment</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-identifier">slash_comment</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp re">/\/\/ ?/</span>, <span class="ruby-value str">''</span>)
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:SLASH_COMMENT</span>, <span class="ruby-identifier">slash_comment</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">slash_comment_size</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">mlcomment</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-regexp re">/\A(\/\*.*?\*\/)/</span><span class="ruby-identifier">m</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-identifier">mlcomment_size</span> = <span class="ruby-identifier">mlcomment</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-identifier">mlcomment</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp re">/\A\/\* ?/</span>, <span class="ruby-value str">''</span>)
+            <span class="ruby-identifier">mlcomment</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp re">/ ?\*\/\Z/</span>, <span class="ruby-value str">''</span>)
+            <span class="ruby-identifier">mlcomment</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/^ ?\* ?/</span>, <span class="ruby-value str">''</span>)
+            <span class="ruby-identifier">mlcomment</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\n/</span>, <span class="ruby-value str">' '</span>)
+            <span class="ruby-identifier">mlcomment</span>.<span class="ruby-identifier">strip!</span>
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:MLCOMMENT</span>, <span class="ruby-identifier">mlcomment</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">mlcomment_size</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\A\/.*?\//</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">possible_regex?</span>
+            <span class="ruby-identifier">str_content</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]).<span class="ruby-identifier">scan_until</span>(<span class="ruby-regexp re">/(\A|[^\\])(\\\\)*\//</span><span class="ruby-identifier">m</span>)
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:REGEX</span>, <span class="ruby-identifier">str_content</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>], <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">str_content</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">indent</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-regexp re">/\A\n([ \t]+)/</span><span class="ruby-identifier">m</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:NEWLINE</span>, <span class="ruby-value str">'\n'</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:INDENT</span>, <span class="ruby-identifier">indent</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">indent</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">whitespace</span> = <span class="ruby-identifier">chunk</span>[<span class="ruby-regexp re">/\A([ \t]+)/</span>, <span class="ruby-value">1</span>]
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:WHITESPACE</span>, <span class="ruby-identifier">whitespace</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">whitespace</span>.<span class="ruby-identifier">size</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\A\n/</span>)
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:NEWLINE</span>, <span class="ruby-value str">'\n'</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/\A\//</span>)
+            <span class="ruby-identifier">tokens</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_token</span>(<span class="ruby-identifier">:DIV</span>, <span class="ruby-value str">'/'</span>, <span class="ruby-identifier">:chunk</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">code</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">i</span>])
+            <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">PuppetLint</span><span class="ruby-operator">::</span><span class="ruby-constant">LexerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">i</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-identifier">tokens</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

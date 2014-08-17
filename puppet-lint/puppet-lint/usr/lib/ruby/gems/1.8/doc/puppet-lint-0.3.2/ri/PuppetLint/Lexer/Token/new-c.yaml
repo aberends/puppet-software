@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Initialise a new Token object."
+- !ruby/struct:SM::Flow::P 
+  body: type - An upper case Symbol describing the type of Token. value - The String value of the Token. line - The Integer line number where the Token can be found in the
+- !ruby/struct:SM::Flow::VERB 
+  body: "         manifest.\n"
+- !ruby/struct:SM::Flow::P 
+  body: column - The Integer number of characters from the start of the line to
+- !ruby/struct:SM::Flow::VERB 
+  body: "         the start of the Token.\n"
+- !ruby/struct:SM::Flow::P 
+  body: Returns the instantiated Token.
+full_name: PuppetLint::Lexer::Token::new
+is_singleton: true
+name: new
+params: (type, value, line, column)
+visibility: public

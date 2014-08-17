@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: PuppetLint::Checks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">PuppetLint::Checks</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/puppet-lint/plugin_rb.html">
+                lib/puppet-lint/plugin.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000034">class_indexes</a>&nbsp;&nbsp;
+      <a href="#M000035">defined_type_indexes</a>&nbsp;&nbsp;
+      <a href="#M000029">enabled_checks</a>&nbsp;&nbsp;
+      <a href="#M000036">formatting_tokens</a>&nbsp;&nbsp;
+      <a href="#M000031">fullpath</a>&nbsp;&nbsp;
+      <a href="#M000027">load_data</a>&nbsp;&nbsp;
+      <a href="#M000037">manifest_lines</a>&nbsp;&nbsp;
+      <a href="#M000025">new</a>&nbsp;&nbsp;
+      <a href="#M000026">notify</a>&nbsp;&nbsp;
+      <a href="#M000033">resource_indexes</a>&nbsp;&nbsp;
+      <a href="#M000028">run</a>&nbsp;&nbsp;
+      <a href="#M000032">title_tokens</a>&nbsp;&nbsp;
+      <a href="#M000030">tokens</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">manifest_lines</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">problems</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000025.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000034.html');return false;">
+          <span class="method-name">class_indexes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Internal: Calculate the positions of all class definitions within the
+tokenised manifest.
+</p>
+<p>
+Returns an Array of Hashes, each containing:
+</p>
+<pre>
+  :start - An Integer position in the `tokens` Array pointing to the first
+           token of a class (type :CLASS).
+  :end   - An Integer position in the `tokens` Array pointing to the last
+           token of a class (type :RBRACE).
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000035.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000035.html');return false;">
+          <span class="method-name">defined_type_indexes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Internal: Calculate the positions of all defined type definitions within
+the tokenised manifest.
+</p>
+<p>
+Returns an Array of Hashes, each containing:
+</p>
+<pre>
+  :start - An Integer position in the `tokens` Array pointing to the first
+           token of a defined type (type :DEFINE).
+  :end   - An Integer position in the `tokens` Array pointing to the last
+           token of a defined type (type :RBRACE).
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000029.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000029.html');return false;">
+          <span class="method-name">enabled_checks</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000036.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000036.html');return false;">
+          <span class="method-name">formatting_tokens</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000031.html');return false;">
+          <span class="method-name">fullpath</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000027.html');return false;">
+          <span class="method-name">load_data</span><span class="method-args">(fileinfo, data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000037.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000037.html');return false;">
+          <span class="method-name">manifest_lines</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000026.html');return false;">
+          <span class="method-name">notify</span><span class="method-args">(kind, message_hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <pre>
+    notify(kind, message_hash)    #=&gt; nil
+</pre>
+<p>
+Adds the message to the problems array. The <em>kind</em> gets added to the
+<em>message_hash</em> by setting the key :<em>kind</em>. Typically, the
+<em>message_hash</em> should contain following keys:
+</p>
+<table>
+<tr><td valign="top"><em>message</em>:</td><td>which contains a string value describing the problem
+
+</td></tr>
+<tr><td valign="top"><em>linenumber</em>:</td><td>which contains the line number on which the problem occurs.
+
+</td></tr>
+</table>
+<p>
+Besides the :<em>kind</em> value that is being set, some other key/values
+are also added. Typically, this is
+</p>
+<table>
+<tr><td valign="top"><em>check</em>:</td><td>which contains the name of the check that is being executed.
+
+</td></tr>
+<tr><td valign="top"><em>linenumber</em>:</td><td>which defaults to 0 if the message does not already contain one.
+
+</td></tr>
+</table>
+<pre>
+    notify :warning, :message =&gt; &quot;Something happened&quot;, :linenumber =&gt; 4
+    =&gt; {:kind=&gt;:warning, :message=&gt;&quot;Something happened&quot;, :linenumber=&gt;4, :check=&gt;'unknown'}
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000033.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000033.html');return false;">
+          <span class="method-name">resource_indexes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Internal: Calculate the positions of all resource declarations within the
+tokenised manifest. These positions only point to the content of the
+resource declaration, they do not include resource types or
+titles/namevars.
+</p>
+<p>
+Returns an Array of Hashes, each containing:
+</p>
+<pre>
+  :start - An Integer position in the `tokens` Array pointing to the first
+           Token of a resource declaration parameters (type :NAME).
+  :end   - An Integer position in the `tokens` Array pointing to the last
+           Token of a resource declaration parameters (type :RBRACE).
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000028.html');return false;">
+          <span class="method-name">run</span><span class="method-args">(fileinfo, data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000032.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000032.html');return false;">
+          <span class="method-name">title_tokens</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="Checks.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('Checks.src/M000030.html');return false;">
+          <span class="method-name">tokens</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

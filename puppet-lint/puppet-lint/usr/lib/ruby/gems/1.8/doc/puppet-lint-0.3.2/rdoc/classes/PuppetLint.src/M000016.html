@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (PuppetLint)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/puppet-lint.rb, line 149</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">PuppetLint</span><span class="ruby-operator">::</span><span class="ruby-constant">NoCodeError</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">linter</span> = <span class="ruby-constant">PuppetLint</span><span class="ruby-operator">::</span><span class="ruby-constant">Checks</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">problems</span> = <span class="ruby-identifier">linter</span>.<span class="ruby-identifier">run</span>(<span class="ruby-ivar">@fileinfo</span>, <span class="ruby-ivar">@data</span>)
+    <span class="ruby-identifier">report</span> <span class="ruby-identifier">problems</span>, <span class="ruby-identifier">linter</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

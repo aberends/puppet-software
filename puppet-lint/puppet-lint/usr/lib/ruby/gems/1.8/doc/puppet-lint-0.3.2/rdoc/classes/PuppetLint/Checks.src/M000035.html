@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>defined_type_indexes (PuppetLint::Checks)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/puppet-lint/plugin.rb, line 196</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defined_type_indexes</span>
+    <span class="ruby-ivar">@defined_type_indexes</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-identifier">result</span> = []
+      <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">each_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token_idx</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tokens</span>[<span class="ruby-identifier">token_idx</span>].<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:DEFINE</span>
+          <span class="ruby-identifier">depth</span> = <span class="ruby-value">0</span>
+          <span class="ruby-identifier">in_params</span> = <span class="ruby-keyword kw">false</span>
+          <span class="ruby-identifier">tokens</span>[<span class="ruby-identifier">token_idx</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">each_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">define_token_idx</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">idx</span> = <span class="ruby-identifier">define_token_idx</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">token_idx</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">tokens</span>[<span class="ruby-identifier">idx</span>].<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:LPAREN</span>
+              <span class="ruby-identifier">in_params</span> = <span class="ruby-keyword kw">true</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">tokens</span>[<span class="ruby-identifier">idx</span>].<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:RPAREN</span>
+              <span class="ruby-identifier">in_params</span> = <span class="ruby-keyword kw">false</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">tokens</span>[<span class="ruby-identifier">idx</span>].<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:LBRACE</span>
+              <span class="ruby-identifier">depth</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">in_params</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">tokens</span>[<span class="ruby-identifier">idx</span>].<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:RBRACE</span>
+              <span class="ruby-identifier">depth</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">in_params</span>
+              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">in_params</span>
+                <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-identifier">:start</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">token_idx</span>, <span class="ruby-identifier">:end</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">idx</span>}
+                <span class="ruby-keyword kw">break</span>
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,46 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: manifest_lines
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: problems
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: PuppetLint::Checks
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: class_indexes
+- !ruby/object:RI::MethodSummary 
+  name: defined_type_indexes
+- !ruby/object:RI::MethodSummary 
+  name: enabled_checks
+- !ruby/object:RI::MethodSummary 
+  name: formatting_tokens
+- !ruby/object:RI::MethodSummary 
+  name: fullpath
+- !ruby/object:RI::MethodSummary 
+  name: load_data
+- !ruby/object:RI::MethodSummary 
+  name: manifest_lines
+- !ruby/object:RI::MethodSummary 
+  name: notify
+- !ruby/object:RI::MethodSummary 
+  name: resource_indexes
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: title_tokens
+- !ruby/object:RI::MethodSummary 
+  name: tokens
+name: Checks
+superclass: Object

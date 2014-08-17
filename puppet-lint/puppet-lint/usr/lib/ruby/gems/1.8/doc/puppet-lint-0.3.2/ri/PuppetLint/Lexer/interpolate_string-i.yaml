@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint::Lexer#interpolate_string
+is_singleton: false
+name: interpolate_string
+params: (string, line, column)
+visibility: public

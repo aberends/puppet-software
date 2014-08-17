@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Returns the Integer column number of the line of the manifest text where the Token can be found."
+  name: column
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Returns the Integer line number of the manifest text where the Token can be found."
+  name: line
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Gets/sets the next code token (skips whitespace, comments, etc) in the manifest."
+  name: next_code_token
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Gets/sets the next token in the manifest."
+  name: next_token
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Gets/sets the previous code tokne (skips whitespace, comments, etc) in the manifest."
+  name: prev_code_token
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Gets/sets the previous token in the manifest."
+  name: prev_token
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Returns the Symbol type of the Token."
+  name: type
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Internal: Returns the String value of the Token."
+  name: value
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: PuppetLint::Lexer::Token
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+name: Token
+superclass: Object

@@ -1,0 +1,36 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::VERB 
+  body: "    notify(kind, message_hash)    #=&gt; nil\n"
+- !ruby/struct:SM::Flow::P 
+  body: "Adds the message to the problems array. The <em>kind</em> gets added to the <em>message_hash</em> by setting the key :<em>kind</em>. Typically, the <em>message_hash</em> should contain following keys:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<i>message</i>:"
+    body: which contains a string value describing the problem
+  - !ruby/struct:SM::Flow::LI 
+    label: "<i>linenumber</i>:"
+    body: which contains the line number on which the problem occurs.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: Besides the :<em>kind</em> value that is being set, some other key/values are also added. Typically, this is
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<i>check</i>:"
+    body: which contains the name of the check that is being executed.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<i>linenumber</i>:"
+    body: which defaults to 0 if the message does not already contain one.
+  type: :NOTE
+- !ruby/struct:SM::Flow::VERB 
+  body: "    notify :warning, :message =&gt; &quot;Something happened&quot;, :linenumber =&gt; 4\n    =&gt; {:kind=&gt;:warning, :message=&gt;&quot;Something happened&quot;, :linenumber=&gt;4, :check=&gt;'unknown'}\n"
+full_name: PuppetLint::Checks#notify
+is_singleton: false
+name: notify
+params: (kind, message_hash)
+visibility: public

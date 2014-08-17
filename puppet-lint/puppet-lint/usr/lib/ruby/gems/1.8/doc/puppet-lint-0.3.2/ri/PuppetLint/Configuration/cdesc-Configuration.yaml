@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_check
+- !ruby/object:RI::MethodSummary 
+  name: add_option
+comment: 
+constants: []
+
+full_name: PuppetLint::Configuration
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_check
+- !ruby/object:RI::MethodSummary 
+  name: add_option
+- !ruby/object:RI::MethodSummary 
+  name: check_method
+- !ruby/object:RI::MethodSummary 
+  name: checks
+- !ruby/object:RI::MethodSummary 
+  name: defaults
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: settings
+name: Configuration
+superclass: Object

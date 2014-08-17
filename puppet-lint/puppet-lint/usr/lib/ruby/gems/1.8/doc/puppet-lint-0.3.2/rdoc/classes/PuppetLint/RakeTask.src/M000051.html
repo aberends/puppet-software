@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (PuppetLint::RakeTask)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/puppet-lint/tasks/puppet-lint.rb, line 7</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">desc</span> <span class="ruby-value str">'Run puppet-lint'</span>
+
+      <span class="ruby-identifier">task</span> <span class="ruby-identifier">:lint</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-constant">PuppetLint</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">with_filename</span> = <span class="ruby-keyword kw">true</span>
+
+        <span class="ruby-constant">RakeFileUtils</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:verbose</span>, <span class="ruby-keyword kw">true</span>) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">linter</span> = <span class="ruby-constant">PuppetLint</span>.<span class="ruby-identifier">new</span>
+          <span class="ruby-identifier">matched_files</span> = <span class="ruby-constant">FileList</span>[<span class="ruby-value str">'**/*.pp'</span>]
+
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ignore_paths</span> = <span class="ruby-constant">PuppetLint</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">ignore_paths</span>
+            <span class="ruby-identifier">matched_files</span> = <span class="ruby-identifier">matched_files</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">ignore_paths</span>)
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-identifier">matched_files</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">puppet_file</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">linter</span>.<span class="ruby-identifier">file</span> = <span class="ruby-identifier">puppet_file</span>
+            <span class="ruby-identifier">linter</span>.<span class="ruby-identifier">run</span>
+          <span class="ruby-keyword kw">end</span>
+          <span class="ruby-identifier">fail</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">linter</span>.<span class="ruby-identifier">errors?</span> <span class="ruby-operator">||</span> (
+            <span class="ruby-identifier">linter</span>.<span class="ruby-identifier">warnings?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">PuppetLint</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">fail_on_warnings</span>
+          )
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

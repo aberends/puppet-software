@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint::Checks#enabled_checks
+is_singleton: false
+name: enabled_checks
+params: ()
+visibility: public

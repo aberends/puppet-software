@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: PuppetLint::Checks#load_data
+is_singleton: false
+name: load_data
+params: (fileinfo, data)
+visibility: public

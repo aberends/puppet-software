@@ -1,0 +1,43 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: data
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: configuration
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "'0.3.2'"
+full_name: PuppetLint
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: code=
+- !ruby/object:RI::MethodSummary 
+  name: configuration
+- !ruby/object:RI::MethodSummary 
+  name: errors?
+- !ruby/object:RI::MethodSummary 
+  name: file=
+- !ruby/object:RI::MethodSummary 
+  name: format_message
+- !ruby/object:RI::MethodSummary 
+  name: log_format
+- !ruby/object:RI::MethodSummary 
+  name: print_context
+- !ruby/object:RI::MethodSummary 
+  name: report
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: warnings?
+name: PuppetLint
+superclass: Object

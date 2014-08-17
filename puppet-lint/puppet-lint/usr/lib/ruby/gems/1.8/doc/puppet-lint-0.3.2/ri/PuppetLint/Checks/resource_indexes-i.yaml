@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Internal: Calculate the positions of all resource declarations within the tokenised manifest. These positions only point to the content of the resource declaration, they do not include resource types or titles/namevars."
+- !ruby/struct:SM::Flow::P 
+  body: "Returns an Array of Hashes, each containing:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  :start - An Integer position in the `tokens` Array pointing to the first\n           Token of a resource declaration parameters (type :NAME).\n  :end   - An Integer position in the `tokens` Array pointing to the last\n           Token of a resource declaration parameters (type :RBRACE).\n"
+full_name: PuppetLint::Checks#resource_indexes
+is_singleton: false
+name: resource_indexes
+params: ()
+visibility: public
